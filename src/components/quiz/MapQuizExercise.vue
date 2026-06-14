@@ -14,6 +14,7 @@ import {
   MAP_MIN_ZOOM,
   decreaseMapZoom,
   increaseMapZoom,
+  mapZoomLabelPosition,
   type MapZoomState,
 } from '@/utils/mapZoom'
 
@@ -57,6 +58,16 @@ const focusedItemId = ref<string | null>(null)
 const mapZoom = ref<MapZoomState>({ ...DEFAULT_MAP_ZOOM_STATE })
 
 const isMapZoomed = computed(() => mapZoom.value.scale > MAP_MIN_ZOOM)
+
+const displayedConnectorLines = computed(() => {
+  if (isMapZoomed.value) {
+    if (!focusedItemId.value) return []
+
+    return connectorLines.value.filter((line) => line.itemId === focusedItemId.value)
+  }
+
+  return connectorLines.value
+})
 
 const hiddenItems = computed(() => sessionItems.value.filter((item) => item.isHidden))
 
@@ -155,9 +166,15 @@ const updateConnectorLines = () => {
       const indexBadge = row.querySelector('.quiz-sidebar__index')
       const anchor = indexBadge?.getBoundingClientRect() ?? rowRect
 
+      const zoomedLabel = mapZoomLabelPosition(
+        mapZoom.value.scale,
+        mapZoom.value.origin,
+        item.label,
+      )
+
       const mapPoint = {
-        x: mapRect.left - panelRect.left + (item.label.x / 100) * mapRect.width,
-        y: mapRect.top - panelRect.top + (item.label.y / 100) * mapRect.height,
+        x: mapRect.left - panelRect.left + (zoomedLabel.x / 100) * mapRect.width,
+        y: mapRect.top - panelRect.top + (zoomedLabel.y / 100) * mapRect.height,
       }
 
       const segment = shortenLineFromEnd(
@@ -198,7 +215,17 @@ onUnmounted(() => {
 })
 
 watch(
-  () => [sessionItems.value, corrected.value, loading.value, answers.value, itemColorsById.value],
+  () => [
+    sessionItems.value,
+    corrected.value,
+    loading.value,
+    answers.value,
+    itemColorsById.value,
+    mapZoom.value.scale,
+    mapZoom.value.origin.x,
+    mapZoom.value.origin.y,
+    focusedItemId.value,
+  ],
   async () => {
     await nextTick()
     updateConnectorLines()
@@ -265,14 +292,14 @@ watch(
       />
 
       <svg
-        v-show="!isMapZoomed"
+        v-show="displayedConnectorLines.length > 0"
         class="quiz-exercise__connectors"
         :viewBox="`0 0 ${panelSize.width} ${panelSize.height}`"
         aria-hidden="true"
       >
         <defs>
           <marker
-            v-for="line in connectorLines"
+            v-for="line in displayedConnectorLines"
             :id="`quiz-arrowhead-${line.itemId}`"
             :key="`marker-${line.itemId}`"
             markerWidth="7"
@@ -285,7 +312,7 @@ watch(
           </marker>
         </defs>
         <line
-          v-for="line in connectorLines"
+          v-for="line in displayedConnectorLines"
           :key="line.itemId"
           :x1="line.x1"
           :y1="line.y1"
@@ -377,10 +404,6 @@ watch(
   .quiz-exercise__map {
     container-type: inline-size;
     min-height: 0;
-  }
-
-  .quiz-exercise__connectors {
-    display: none;
   }
 }
 </style>
