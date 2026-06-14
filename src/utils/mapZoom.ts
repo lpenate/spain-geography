@@ -31,5 +31,17 @@ export const mapZoomTransform = (scale: number, origin: MapLabel = DEFAULT_MAP_O
   transformOrigin: `${origin.x}% ${origin.y}%`,
 })
 
+export const mapZoomLabelPosition = (
+  scale: number,
+  origin: MapLabel,
+  label: MapLabel,
+): MapLabel => ({
+  x: origin.x + (label.x - origin.x) * scale,
+  y: origin.y + (label.y - origin.y) * scale,
+})
+
 export const mapMarkerTransform = (scale: number): string =>
   `translate(-50%, -50%) scale(${1 / scale})`
+
+export const mapZoomedTextTransform = (scale: number): string =>
+  `translate(-50%, -50%) scale(${scale})`

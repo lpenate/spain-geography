@@ -5,7 +5,9 @@ import {
   decreaseMapZoom,
   increaseMapZoom,
   mapMarkerTransform,
+  mapZoomLabelPosition,
   mapZoomTransform,
+  mapZoomedTextTransform,
 } from '@/utils/mapZoom'
 
 describe('mapZoomTransform', () => {
@@ -21,6 +23,32 @@ describe('mapZoomTransform', () => {
       transform: 'scale(3)',
       transformOrigin: '42.5% 61.2%',
     })
+  })
+})
+
+describe('mapZoomLabelPosition', () => {
+  it('keeps labels in place without zoom', () => {
+    expect(mapZoomLabelPosition(1, { x: 50, y: 50 }, { x: 42.5, y: 61.2 })).toEqual({
+      x: 42.5,
+      y: 61.2,
+    })
+  })
+
+  it('moves labels with the zoom origin', () => {
+    expect(mapZoomLabelPosition(MAP_FOCUS_ZOOM, { x: 50, y: 50 }, { x: 40, y: 60 })).toEqual({
+      x: 20,
+      y: 80,
+    })
+  })
+})
+
+describe('mapZoomedTextTransform', () => {
+  it('keeps labels at neutral size without zoom', () => {
+    expect(mapZoomedTextTransform(1)).toBe('translate(-50%, -50%) scale(1)')
+  })
+
+  it('scales labels with the map zoom level', () => {
+    expect(mapZoomedTextTransform(MAP_FOCUS_ZOOM)).toBe('translate(-50%, -50%) scale(3)')
   })
 })
 

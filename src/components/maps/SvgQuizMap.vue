@@ -2,7 +2,13 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import type { MapLabel, QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
 import { withAlpha } from '@/utils/quizColors'
-import { MAP_MAX_ZOOM, MAP_MIN_ZOOM, mapZoomTransform } from '@/utils/mapZoom'
+import {
+  MAP_MAX_ZOOM,
+  MAP_MIN_ZOOM,
+  mapZoomLabelPosition,
+  mapZoomTransform,
+  mapZoomedTextTransform,
+} from '@/utils/mapZoom'
 
 const props = defineProps<{
   mapUrl: string
@@ -26,6 +32,16 @@ const isSpainMap = computed(() => props.mapUrl.includes('spain'))
 const zoomStyle = computed(() => mapZoomTransform(props.zoomScale, props.zoomOrigin))
 
 const visibleItems = computed(() => props.sessionItems.filter((item) => !item.isHidden))
+
+const visibleLabelStyle = (label: MapLabel) => {
+  const position = mapZoomLabelPosition(props.zoomScale, props.zoomOrigin, label)
+
+  return {
+    left: `${position.x}%`,
+    top: `${position.y}%`,
+    transform: mapZoomedTextTransform(props.zoomScale),
+  }
+}
 
 const loadMap = async () => {
   const response = await fetch(props.mapUrl)
@@ -95,16 +111,17 @@ defineExpose({
       <div class="svg-quiz-map__zoom" :style="zoomStyle">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="svg-quiz-map__svg" v-html="svgMarkup" />
+      </div>
 
-        <div class="svg-quiz-map__overlay">
-          <div
-            v-for="item in visibleItems"
-            :key="`visible-${item.id}`"
-            class="map-label map-label--visible"
-            :style="{ left: `${item.label.x}%`, top: `${item.label.y}%` }"
-          >
-            {{ item.name }}
-          </div>
+      <div class="svg-quiz-map__overlay">
+        <div
+          v-for="item in visibleItems"
+          :key="`visible-${item.id}`"
+          class="map-label map-label--visible"
+          :class="{ 'map-label--spain': isSpainMap }"
+          :style="visibleLabelStyle(item.label)"
+        >
+          {{ item.name }}
         </div>
       </div>
 
@@ -273,18 +290,17 @@ defineExpose({
 .svg-quiz-map__overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
 }
 
 .map-label {
   position: absolute;
-  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 .map-label--visible {
-  font-size: clamp(0.58rem, 1.2vw, 0.72rem);
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--text-strong);
   background: rgba(255, 255, 255, 0.72);
@@ -294,12 +310,12 @@ defineExpose({
   padding: 0.12rem 0.35rem;
   text-align: center;
   line-height: 1.2;
-  max-width: min(22vw, 5.5rem);
+  max-width: 5.5rem;
 }
 
-.svg-quiz-map--spain .map-label--visible {
-  font-size: clamp(0.54rem, 1vw, 0.68rem);
-  max-width: min(18vw, 4.5rem);
+.map-label--spain {
+  font-size: 0.61rem;
+  max-width: 4.5rem;
 }
 
 @media (max-width: 900px) {
