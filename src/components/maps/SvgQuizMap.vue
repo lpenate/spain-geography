@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
-import type { QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
+import type { MapLabel, QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
 import { withAlpha } from '@/utils/quizColors'
+import { MAP_MAX_ZOOM, MAP_MIN_ZOOM, mapZoomTransform } from '@/utils/mapZoom'
 
 const props = defineProps<{
   mapUrl: string
@@ -9,11 +10,20 @@ const props = defineProps<{
   corrected: boolean
   resultsByItemId: Record<string, QuizAnswerResult>
   itemColorsById: Record<string, string>
+  zoomScale: number
+  zoomOrigin: MapLabel
+}>()
+
+const emit = defineEmits<{
+  'zoom-in': []
+  'zoom-out': []
+  'zoom-fit': []
 }>()
 
 const svgMarkup = ref('')
 const mapRoot = ref<HTMLElement | null>(null)
 const isSpainMap = computed(() => props.mapUrl.includes('spain'))
+const zoomStyle = computed(() => mapZoomTransform(props.zoomScale, props.zoomOrigin))
 
 const visibleItems = computed(() => props.sessionItems.filter((item) => !item.isHidden))
 
@@ -82,18 +92,68 @@ defineExpose({
 <template>
   <div class="svg-quiz-map" :class="{ 'svg-quiz-map--spain': isSpainMap }">
     <div ref="mapRoot" class="svg-quiz-map__canvas">
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="svg-quiz-map__svg" v-html="svgMarkup" />
+      <div class="svg-quiz-map__zoom" :style="zoomStyle">
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="svg-quiz-map__svg" v-html="svgMarkup" />
 
-      <div class="svg-quiz-map__overlay">
-        <div
-          v-for="item in visibleItems"
-          :key="`visible-${item.id}`"
-          class="map-label map-label--visible"
-          :style="{ left: `${item.label.x}%`, top: `${item.label.y}%` }"
-        >
-          {{ item.name }}
+        <div class="svg-quiz-map__overlay">
+          <div
+            v-for="item in visibleItems"
+            :key="`visible-${item.id}`"
+            class="map-label map-label--visible"
+            :style="{ left: `${item.label.x}%`, top: `${item.label.y}%` }"
+          >
+            {{ item.name }}
+          </div>
         </div>
+      </div>
+
+      <div class="svg-quiz-map__controls" role="toolbar" aria-label="Controles de zoom del mapa">
+        <button
+          class="svg-quiz-map__control"
+          type="button"
+          aria-label="Acercar mapa"
+          :disabled="zoomScale >= MAP_MAX_ZOOM"
+          @click="emit('zoom-in')"
+        >
+          +
+        </button>
+        <button
+          class="svg-quiz-map__control"
+          type="button"
+          aria-label="Alejar mapa"
+          :disabled="zoomScale <= MAP_MIN_ZOOM"
+          @click="emit('zoom-out')"
+        >
+          −
+        </button>
+        <button
+          class="svg-quiz-map__control"
+          type="button"
+          aria-label="Mostrar todo el mapa"
+          :disabled="zoomScale <= MAP_MIN_ZOOM"
+          @click="emit('zoom-fit')"
+        >
+          <svg
+            class="svg-quiz-map__control-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 9V4h5" />
+            <path d="M4 4l5 5" />
+            <path d="M20 9V4h-5" />
+            <path d="M20 4l-5 5" />
+            <path d="M4 15v5h5" />
+            <path d="M4 20l5-5" />
+            <path d="M20 15v5h-5" />
+            <path d="M20 20l-5-5" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -117,6 +177,56 @@ defineExpose({
   border-radius: 12px;
   background: var(--surface);
   touch-action: manipulation;
+}
+
+.svg-quiz-map__zoom {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+.svg-quiz-map__controls {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.svg-quiz-map__control {
+  display: grid;
+  place-items: center;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-strong);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  touch-action: manipulation;
+}
+
+.svg-quiz-map__control-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.svg-quiz-map__control:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.svg-quiz-map__control:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .svg-quiz-map--spain .svg-quiz-map__canvas {

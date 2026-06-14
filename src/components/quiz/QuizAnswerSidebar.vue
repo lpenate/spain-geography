@@ -18,6 +18,8 @@ const emit = defineEmits<{
   correct: []
   restart: []
   'register-row': [itemId: string, element: HTMLElement | null]
+  'focus-item': [itemId: string]
+  'blur-item': []
 }>()
 
 const resultClass = (itemId: string) => {
@@ -87,6 +89,8 @@ const registerRow = (itemId: string, element: Element | ComponentPublicInstance 
             :aria-label="`Respuesta ${hiddenItemIndexById[item.id]}`"
             :placeholder="`Respuesta ${hiddenItemIndexById[item.id]}`"
             @input="updateAnswer(item.id, ($event.target as HTMLInputElement).value)"
+            @focus="emit('focus-item', item.id)"
+            @blur="emit('blur-item')"
           />
           <p
             v-if="corrected && !resultsByItemId[item.id]?.isCorrect"

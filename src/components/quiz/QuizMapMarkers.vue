@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import type { QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
+import { computed } from 'vue'
+import type { MapLabel, QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
+import { mapZoomTransform } from '@/utils/mapZoom'
 
 const props = defineProps<{
   items: QuizSessionItem[]
@@ -8,7 +10,11 @@ const props = defineProps<{
   corrected: boolean
   resultsByItemId: Record<string, QuizAnswerResult>
   bounds: { left: number; top: number; width: number; height: number }
+  zoomScale: number
+  zoomOrigin: MapLabel
 }>()
+
+const zoomStyle = computed(() => mapZoomTransform(props.zoomScale, props.zoomOrigin))
 
 const markerStyle = (itemId: string) => {
   if (props.corrected) {
@@ -33,13 +39,15 @@ const markerStyle = (itemId: string) => {
       height: `${bounds.height}px`,
     }"
   >
-    <div
-      v-for="item in items"
-      :key="item.id"
-      class="quiz-map-markers__marker"
-      :style="{ left: `${item.label.x}%`, top: `${item.label.y}%`, ...markerStyle(item.id) }"
-    >
-      {{ hiddenItemIndexById[item.id] }}
+    <div class="quiz-map-markers__zoom" :style="zoomStyle">
+      <div
+        v-for="item in items"
+        :key="item.id"
+        class="quiz-map-markers__marker"
+        :style="{ left: `${item.label.x}%`, top: `${item.label.y}%`, ...markerStyle(item.id) }"
+      >
+        {{ hiddenItemIndexById[item.id] }}
+      </div>
     </div>
   </div>
 </template>
@@ -49,6 +57,15 @@ const markerStyle = (itemId: string) => {
   position: absolute;
   z-index: 3;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.quiz-map-markers__zoom {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.25s ease;
+  will-change: transform;
 }
 
 .quiz-map-markers__marker {
