@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { QuizCategory } from '@/types/quiz'
 import { RouterLink } from 'vue-router'
+import { quizPlayRoute } from '@/utils/quizNav'
 
 defineProps<{
   category: QuizCategory
@@ -18,7 +19,7 @@ defineProps<{
     <RouterLink
       v-if="category.available"
       class="button button-primary category-card__action"
-      :to="`/quiz/${category.id}`"
+      :to="quizPlayRoute(category.id)"
     >
       Empezar quiz
     </RouterLink>
@@ -32,14 +33,15 @@ defineProps<{
 <style scoped>
 .category-card {
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
   background: var(--surface);
 }
 
 @media (min-width: 640px) {
   .category-card {
-    padding: 1.25rem;
+    padding: 1.35rem;
   }
 }
 
@@ -53,23 +55,26 @@ defineProps<{
 
 .category-card h2 {
   margin: 0;
-  font-size: clamp(1rem, 3vw, 1.15rem);
+  font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 .category-card p {
-  margin: 0 0 1rem;
+  margin: 0 0 1.15rem;
   color: var(--text-muted);
-  line-height: 1.5;
-  font-size: 0.95rem;
+  line-height: 1.55;
+  font-size: 0.98rem;
 }
 
 .badge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-sm);
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-strong);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -84,9 +89,13 @@ defineProps<{
   width: 100%;
   min-height: 3.5rem;
   border: 1px dashed var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: var(--text-muted);
   background: var(--surface-muted);
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 </style>

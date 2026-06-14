@@ -19,8 +19,8 @@ const zoomStyle = computed(() => mapZoomTransform(props.zoomScale, props.zoomOri
 const markerStyle = (itemId: string) => {
   if (props.corrected) {
     const result = props.resultsByItemId[itemId]
-    if (result?.isCorrect) return { background: '#16a34a' }
-    if (result) return { background: '#dc2626' }
+    if (result?.isCorrect) return { background: 'var(--success)' }
+    if (result) return { background: 'var(--error)' }
   }
 
   const color = props.itemColorsById[itemId]
@@ -83,7 +83,7 @@ const markerStyle = (itemId: string) => {
   font-size: 0.78rem;
   font-weight: 700;
   color: #fff;
-  background: var(--accent);
+  background: var(--accent-strong);
   border: 2.5px solid #fff;
   box-shadow:
     0 0 0 1px rgba(15, 23, 42, 0.18),

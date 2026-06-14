@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { RouterLink } from 'vue-router'
 import SvgQuizMap from '@/components/maps/SvgQuizMap.vue'
 import QuizAnswerSidebar from '@/components/quiz/QuizAnswerSidebar.vue'
 import QuizMapMarkers from '@/components/quiz/QuizMapMarkers.vue'
@@ -46,7 +45,7 @@ const {
   loadDataset,
   correctAnswers,
   restartQuiz,
-} = useMapQuiz(props.mode)
+} = useMapQuiz(() => props.mode)
 
 const panelRef = ref<HTMLElement | null>(null)
 const mapComponentRef = ref<InstanceType<typeof SvgQuizMap> | null>(null)
@@ -171,7 +170,7 @@ const updateConnectorLines = () => {
 
       return {
         itemId: item.id,
-        color: itemColorsById.value[item.id] ?? '#2563eb',
+        color: itemColorsById.value[item.id] ?? 'var(--accent-strong)',
         x1: segment.start.x,
         y1: segment.start.y,
         x2: segment.end.x,
@@ -213,30 +212,18 @@ watch(corrected, (isCorrected) => {
 
 watch(
   () => props.mode,
-  () => zoomFitAll(),
+  async () => {
+    zoomFitAll()
+    inputRowRefs.value = {}
+    await loadDataset()
+    await nextTick()
+    updateConnectorLines()
+  },
 )
 </script>
 
 <template>
   <section class="quiz-exercise">
-    <header class="quiz-exercise__header">
-      <div>
-        <p class="quiz-exercise__eyebrow">
-          {{ dataset?.region === 'spain' ? 'España' : 'Europa' }}
-        </p>
-        <h1>{{ dataset?.title ?? 'Cargando quiz...' }}</h1>
-        <p class="quiz-exercise__lead">
-          Completa los 10 campos de la derecha. Cada color une su input con su punto en el mapa.
-        </p>
-      </div>
-      <RouterLink
-        class="button button-secondary quiz-exercise__back"
-        :to="dataset?.region === 'spain' ? '/espana' : '/europa'"
-      >
-        Volver
-      </RouterLink>
-    </header>
-
     <p v-if="loading" class="quiz-exercise__status">Cargando mapa y datos...</p>
 
     <p v-else-if="error" class="quiz-exercise__status quiz-exercise__status--error">
@@ -334,47 +321,13 @@ watch(
   min-height: 0;
 }
 
-.quiz-exercise__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  flex-shrink: 0;
-}
-
-.quiz-exercise__eyebrow {
-  margin: 0 0 0.35rem;
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.quiz-exercise__header h1 {
-  margin: 0 0 0.35rem;
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
-}
-
-.quiz-exercise__lead {
-  margin: 0;
-  color: var(--text-muted);
-  line-height: 1.45;
-  font-size: 0.92rem;
-}
-
-.quiz-exercise__back {
-  flex-shrink: 0;
-}
-
 .quiz-exercise__status {
   margin: 0;
   color: var(--text-muted);
 }
 
 .quiz-exercise__status--error {
-  color: #dc2626;
+  color: var(--error);
 }
 
 .quiz-exercise__panel {
@@ -423,16 +376,6 @@ watch(
 
   .quiz-exercise__connectors {
     display: none;
-  }
-}
-
-@media (max-width: 639px) {
-  .quiz-exercise__header {
-    flex-direction: column;
-  }
-
-  .quiz-exercise__back {
-    width: 100%;
   }
 }
 </style>

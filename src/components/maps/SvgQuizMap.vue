@@ -191,7 +191,7 @@ defineExpose({
   height: min(100cqh, calc(100cqw * 860 / 1000));
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background: var(--surface);
   touch-action: manipulation;
 }
@@ -220,8 +220,8 @@ defineExpose({
   min-height: 2.25rem;
   padding: 0;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--text-strong);
   font-size: 1.1rem;
   font-weight: 700;
@@ -237,8 +237,9 @@ defineExpose({
 }
 
 .svg-quiz-map__control:hover:not(:disabled) {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-strong);
+  color: var(--accent-strong);
+  background: var(--accent);
 }
 
 .svg-quiz-map__control:disabled {
@@ -272,19 +273,19 @@ defineExpose({
 }
 
 .svg-quiz-map__svg :deep(.map-region--hidden) {
-  fill: rgba(37, 99, 235, 0.18);
-  stroke: #2563eb;
+  fill: var(--map-highlight-fill);
+  stroke: var(--map-highlight-stroke);
   stroke-width: 1.4;
 }
 
 .svg-quiz-map__svg :deep(.map-region--correct) {
-  fill: rgba(22, 163, 74, 0.28);
-  stroke: #16a34a;
+  fill: rgba(26, 127, 55, 0.28);
+  stroke: var(--success);
 }
 
 .svg-quiz-map__svg :deep(.map-region--incorrect) {
-  fill: rgba(220, 38, 38, 0.22);
-  stroke: #dc2626;
+  fill: rgba(196, 30, 30, 0.22);
+  stroke: var(--error);
 }
 
 .svg-quiz-map__overlay {
@@ -306,7 +307,7 @@ defineExpose({
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(2px);
   border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   padding: 0.12rem 0.35rem;
   text-align: center;
   line-height: 1.2;

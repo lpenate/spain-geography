@@ -1,7 +1,7 @@
 {
-  "id": "capitales-provincia",
+  "id": "provincias",
   "region": "spain",
-  "title": "Capitales de provincia",
+  "title": "Provincias",
   "map": "/maps/spain.svg",
   "viewBox": "0 0 1000 800",
   "hiddenCount": 10,
@@ -13,14 +13,20 @@
       "aliases": [
         "albacete"
       ],
-      "province": "Albacete",
-      "provinceAliases": [
-        "albacete"
-      ],
       "svgPathId": "provincia-albacete",
       "label": {
         "x": 38.75,
         "y": 56.68
+      },
+      "capital": {
+        "name": "Albacete",
+        "aliases": [
+          "albacete"
+        ],
+        "label": {
+          "x": 38.75,
+          "y": 56.68
+        }
       }
     },
     {
@@ -30,15 +36,21 @@
         "alicante",
         "alacant"
       ],
-      "province": "Alicante",
-      "provinceAliases": [
-        "alicante",
-        "alacant"
-      ],
       "svgPathId": "provincia-alicante",
       "label": {
         "x": 45.76,
         "y": 59.44
+      },
+      "capital": {
+        "name": "Alicante",
+        "aliases": [
+          "alicante",
+          "alacant"
+        ],
+        "label": {
+          "x": 45.76,
+          "y": 59.44
+        }
       }
     },
     {
@@ -48,15 +60,21 @@
         "almeria",
         "almería"
       ],
-      "province": "Almería",
-      "provinceAliases": [
-        "almeria",
-        "almería"
-      ],
       "svgPathId": "provincia-almeria",
       "label": {
         "x": 36.93,
         "y": 69.53
+      },
+      "capital": {
+        "name": "Almería",
+        "aliases": [
+          "almeria",
+          "almería"
+        ],
+        "label": {
+          "x": 36.93,
+          "y": 69.53
+        }
       }
     },
     {
@@ -66,15 +84,21 @@
         "avila",
         "ávila"
       ],
-      "province": "Ávila",
-      "provinceAliases": [
-        "avila",
-        "ávila"
-      ],
       "svgPathId": "provincia-avila",
       "label": {
         "x": 24.02,
         "y": 42.59
+      },
+      "capital": {
+        "name": "Ávila",
+        "aliases": [
+          "avila",
+          "ávila"
+        ],
+        "label": {
+          "x": 24.02,
+          "y": 42.59
+        }
       }
     },
     {
@@ -83,25 +107,26 @@
       "aliases": [
         "badajoz"
       ],
-      "province": "Badajoz",
-      "provinceAliases": [
-        "badajoz"
-      ],
       "svgPathId": "provincia-badajoz",
       "label": {
         "x": 18.07,
         "y": 57.6
+      },
+      "capital": {
+        "name": "Badajoz",
+        "aliases": [
+          "badajoz"
+        ],
+        "label": {
+          "x": 18.07,
+          "y": 57.6
+        }
       }
     },
     {
       "id": "provincia-islas-baleares",
-      "name": "Palma",
+      "name": "Islas Baleares",
       "aliases": [
-        "palma",
-        "palma de mallorca"
-      ],
-      "province": "Islas Baleares",
-      "provinceAliases": [
         "islas baleares",
         "baleares"
       ],
@@ -109,6 +134,17 @@
       "label": {
         "x": 63.03,
         "y": 50.67
+      },
+      "capital": {
+        "name": "Palma",
+        "aliases": [
+          "palma",
+          "palma de mallorca"
+        ],
+        "label": {
+          "x": 63.03,
+          "y": 50.67
+        }
       }
     },
     {
@@ -117,14 +153,20 @@
       "aliases": [
         "barcelona"
       ],
-      "province": "Barcelona",
-      "provinceAliases": [
-        "barcelona"
-      ],
       "svgPathId": "provincia-barcelona",
       "label": {
         "x": 58.44,
         "y": 33.03
+      },
+      "capital": {
+        "name": "Barcelona",
+        "aliases": [
+          "barcelona"
+        ],
+        "label": {
+          "x": 58.44,
+          "y": 33.03
+        }
       }
     },
     {
@@ -133,14 +175,20 @@
       "aliases": [
         "burgos"
       ],
-      "province": "Burgos",
-      "provinceAliases": [
-        "burgos"
-      ],
       "svgPathId": "provincia-burgos",
       "label": {
         "x": 30.77,
         "y": 27.7
+      },
+      "capital": {
+        "name": "Burgos",
+        "aliases": [
+          "burgos"
+        ],
+        "label": {
+          "x": 30.77,
+          "y": 27.7
+        }
       }
     },
     {
@@ -150,15 +198,21 @@
         "caceres",
         "cáceres"
       ],
-      "province": "Cáceres",
-      "provinceAliases": [
-        "caceres",
-        "cáceres"
-      ],
       "svgPathId": "provincia-caceres",
       "label": {
         "x": 17.98,
         "y": 49.57
+      },
+      "capital": {
+        "name": "Cáceres",
+        "aliases": [
+          "caceres",
+          "cáceres"
+        ],
+        "label": {
+          "x": 17.98,
+          "y": 49.57
+        }
       }
     },
     {
@@ -168,27 +222,27 @@
         "cadiz",
         "cádiz"
       ],
-      "province": "Cádiz",
-      "provinceAliases": [
-        "cadiz",
-        "cádiz"
-      ],
       "svgPathId": "provincia-cadiz",
       "label": {
         "x": 19.97,
         "y": 74.51
+      },
+      "capital": {
+        "name": "Cádiz",
+        "aliases": [
+          "cadiz",
+          "cádiz"
+        ],
+        "label": {
+          "x": 19.97,
+          "y": 74.51
+        }
       }
     },
     {
       "id": "provincia-castellon",
-      "name": "Castellón de la Plana",
+      "name": "Castellón",
       "aliases": [
-        "castellon de la plana",
-        "castellón de la plana",
-        "castello de la plana"
-      ],
-      "province": "Castellón",
-      "provinceAliases": [
         "castellon",
         "castellón",
         "castello"
@@ -197,6 +251,18 @@
       "label": {
         "x": 47.85,
         "y": 45.28
+      },
+      "capital": {
+        "name": "Castellón de la Plana",
+        "aliases": [
+          "castellon de la plana",
+          "castellón de la plana",
+          "castello de la plana"
+        ],
+        "label": {
+          "x": 47.85,
+          "y": 45.28
+        }
       }
     },
     {
@@ -205,14 +271,20 @@
       "aliases": [
         "ciudad real"
       ],
-      "province": "Ciudad Real",
-      "provinceAliases": [
-        "ciudad real"
-      ],
       "svgPathId": "provincia-ciudad-real",
       "label": {
         "x": 29.57,
         "y": 55.88
+      },
+      "capital": {
+        "name": "Ciudad Real",
+        "aliases": [
+          "ciudad real"
+        ],
+        "label": {
+          "x": 29.57,
+          "y": 55.88
+        }
       }
     },
     {
@@ -222,15 +294,21 @@
         "cordoba",
         "córdoba"
       ],
-      "province": "Córdoba",
-      "provinceAliases": [
-        "cordoba",
-        "córdoba"
-      ],
       "svgPathId": "provincia-cordoba",
       "label": {
         "x": 24.71,
         "y": 63.29
+      },
+      "capital": {
+        "name": "Córdoba",
+        "aliases": [
+          "cordoba",
+          "córdoba"
+        ],
+        "label": {
+          "x": 24.71,
+          "y": 63.29
+        }
       }
     },
     {
@@ -241,16 +319,22 @@
         "la coruña",
         "coruña"
       ],
-      "province": "A Coruña",
-      "provinceAliases": [
-        "a coruña",
-        "la coruña",
-        "coruña"
-      ],
       "svgPathId": "provincia-a-coruna",
       "label": {
         "x": 6.53,
         "y": 21.29
+      },
+      "capital": {
+        "name": "A Coruña",
+        "aliases": [
+          "a coruña",
+          "la coruña",
+          "coruña"
+        ],
+        "label": {
+          "x": 6.53,
+          "y": 21.29
+        }
       }
     },
     {
@@ -259,14 +343,20 @@
       "aliases": [
         "cuenca"
       ],
-      "province": "Cuenca",
-      "provinceAliases": [
-        "cuenca"
-      ],
       "svgPathId": "provincia-cuenca",
       "label": {
         "x": 37.68,
         "y": 48.09
+      },
+      "capital": {
+        "name": "Cuenca",
+        "aliases": [
+          "cuenca"
+        ],
+        "label": {
+          "x": 37.68,
+          "y": 48.09
+        }
       }
     },
     {
@@ -276,15 +366,21 @@
         "girona",
         "gerona"
       ],
-      "province": "Girona",
-      "provinceAliases": [
-        "girona",
-        "gerona"
-      ],
       "svgPathId": "provincia-girona",
       "label": {
         "x": 61.88,
         "y": 29.71
+      },
+      "capital": {
+        "name": "Girona",
+        "aliases": [
+          "girona",
+          "gerona"
+        ],
+        "label": {
+          "x": 61.88,
+          "y": 29.71
+        }
       }
     },
     {
@@ -293,14 +389,20 @@
       "aliases": [
         "granada"
       ],
-      "province": "Granada",
-      "provinceAliases": [
-        "granada"
-      ],
       "svgPathId": "provincia-granada",
       "label": {
         "x": 32.34,
         "y": 68.62
+      },
+      "capital": {
+        "name": "Granada",
+        "aliases": [
+          "granada"
+        ],
+        "label": {
+          "x": 32.34,
+          "y": 68.62
+        }
       }
     },
     {
@@ -309,26 +411,26 @@
       "aliases": [
         "guadalajara"
       ],
-      "province": "Guadalajara",
-      "provinceAliases": [
-        "guadalajara"
-      ],
       "svgPathId": "provincia-guadalajara",
       "label": {
         "x": 35.56,
         "y": 40.6
+      },
+      "capital": {
+        "name": "Guadalajara",
+        "aliases": [
+          "guadalajara"
+        ],
+        "label": {
+          "x": 35.56,
+          "y": 40.6
+        }
       }
     },
     {
       "id": "provincia-guipuzcoa",
-      "name": "San Sebastián",
+      "name": "Guipúzcoa",
       "aliases": [
-        "san sebastian",
-        "san sebastián",
-        "donostia"
-      ],
-      "province": "Guipúzcoa",
-      "provinceAliases": [
         "guipuzcoa",
         "guipúzcoa",
         "gipuzkoa"
@@ -337,6 +439,18 @@
       "label": {
         "x": 37.69,
         "y": 21.13
+      },
+      "capital": {
+        "name": "San Sebastián",
+        "aliases": [
+          "san sebastian",
+          "san sebastián",
+          "donostia"
+        ],
+        "label": {
+          "x": 37.69,
+          "y": 21.13
+        }
       }
     },
     {
@@ -345,14 +459,20 @@
       "aliases": [
         "huelva"
       ],
-      "province": "Huelva",
-      "provinceAliases": [
-        "huelva"
-      ],
       "svgPathId": "provincia-huelva",
       "label": {
         "x": 14.66,
         "y": 66.55
+      },
+      "capital": {
+        "name": "Huelva",
+        "aliases": [
+          "huelva"
+        ],
+        "label": {
+          "x": 14.66,
+          "y": 66.55
+        }
       }
     },
     {
@@ -361,14 +481,20 @@
       "aliases": [
         "huesca"
       ],
-      "province": "Huesca",
-      "provinceAliases": [
-        "huesca"
-      ],
       "svgPathId": "provincia-huesca",
       "label": {
         "x": 48.23,
         "y": 29.09
+      },
+      "capital": {
+        "name": "Huesca",
+        "aliases": [
+          "huesca"
+        ],
+        "label": {
+          "x": 48.23,
+          "y": 29.09
+        }
       }
     },
     {
@@ -378,15 +504,21 @@
         "jaen",
         "jaén"
       ],
-      "province": "Jaén",
-      "provinceAliases": [
-        "jaen",
-        "jaén"
-      ],
       "svgPathId": "provincia-jaen",
       "label": {
         "x": 31.48,
         "y": 63.09
+      },
+      "capital": {
+        "name": "Jaén",
+        "aliases": [
+          "jaen",
+          "jaén"
+        ],
+        "label": {
+          "x": 31.48,
+          "y": 63.09
+        }
       }
     },
     {
@@ -396,15 +528,21 @@
         "leon",
         "león"
       ],
-      "province": "León",
-      "provinceAliases": [
-        "leon",
-        "león"
-      ],
       "svgPathId": "provincia-leon",
       "label": {
         "x": 19.57,
         "y": 25.57
+      },
+      "capital": {
+        "name": "León",
+        "aliases": [
+          "leon",
+          "león"
+        ],
+        "label": {
+          "x": 19.57,
+          "y": 25.57
+        }
       }
     },
     {
@@ -415,27 +553,28 @@
         "lerida",
         "lérida"
       ],
-      "province": "Lleida",
-      "provinceAliases": [
-        "lleida",
-        "lerida",
-        "lérida"
-      ],
       "svgPathId": "provincia-lleida",
       "label": {
         "x": 53.79,
         "y": 30.43
+      },
+      "capital": {
+        "name": "Lleida",
+        "aliases": [
+          "lleida",
+          "lerida",
+          "lérida"
+        ],
+        "label": {
+          "x": 53.79,
+          "y": 30.43
+        }
       }
     },
     {
       "id": "provincia-la-rioja",
-      "name": "Logroño",
+      "name": "La Rioja",
       "aliases": [
-        "logrono",
-        "logroño"
-      ],
-      "province": "La Rioja",
-      "provinceAliases": [
         "la rioja",
         "rioja"
       ],
@@ -443,6 +582,17 @@
       "label": {
         "x": 36.09,
         "y": 28.48
+      },
+      "capital": {
+        "name": "Logroño",
+        "aliases": [
+          "logrono",
+          "logroño"
+        ],
+        "label": {
+          "x": 36.09,
+          "y": 28.48
+        }
       }
     },
     {
@@ -451,14 +601,20 @@
       "aliases": [
         "lugo"
       ],
-      "province": "Lugo",
-      "provinceAliases": [
-        "lugo"
-      ],
       "svgPathId": "provincia-lugo",
       "label": {
         "x": 11.6,
         "y": 22.27
+      },
+      "capital": {
+        "name": "Lugo",
+        "aliases": [
+          "lugo"
+        ],
+        "label": {
+          "x": 11.6,
+          "y": 22.27
+        }
       }
     },
     {
@@ -467,14 +623,20 @@
       "aliases": [
         "madrid"
       ],
-      "province": "Madrid",
-      "provinceAliases": [
-        "madrid"
-      ],
       "svgPathId": "provincia-madrid",
       "label": {
         "x": 30.13,
         "y": 43.22
+      },
+      "capital": {
+        "name": "Madrid",
+        "aliases": [
+          "madrid"
+        ],
+        "label": {
+          "x": 30.13,
+          "y": 43.22
+        }
       }
     },
     {
@@ -484,15 +646,21 @@
         "malaga",
         "málaga"
       ],
-      "province": "Málaga",
-      "provinceAliases": [
-        "malaga",
-        "málaga"
-      ],
       "svgPathId": "provincia-malaga",
       "label": {
         "x": 25.11,
         "y": 72.5
+      },
+      "capital": {
+        "name": "Málaga",
+        "aliases": [
+          "malaga",
+          "málaga"
+        ],
+        "label": {
+          "x": 25.11,
+          "y": 72.5
+        }
       }
     },
     {
@@ -501,31 +669,43 @@
       "aliases": [
         "murcia"
       ],
-      "province": "Murcia",
-      "provinceAliases": [
-        "murcia"
-      ],
       "svgPathId": "provincia-murcia",
       "label": {
         "x": 41.21,
         "y": 63.21
+      },
+      "capital": {
+        "name": "Murcia",
+        "aliases": [
+          "murcia"
+        ],
+        "label": {
+          "x": 41.21,
+          "y": 63.21
+        }
       }
     },
     {
       "id": "provincia-navarra",
-      "name": "Pamplona",
+      "name": "Navarra",
       "aliases": [
-        "pamplona",
-        "iruña"
-      ],
-      "province": "Navarra",
-      "provinceAliases": [
         "navarra"
       ],
       "svgPathId": "provincia-navarra",
       "label": {
         "x": 40.41,
         "y": 25.18
+      },
+      "capital": {
+        "name": "Pamplona",
+        "aliases": [
+          "pamplona",
+          "iruña"
+        ],
+        "label": {
+          "x": 40.41,
+          "y": 25.18
+        }
       }
     },
     {
@@ -535,31 +715,43 @@
         "ourense",
         "orense"
       ],
-      "province": "Ourense",
-      "provinceAliases": [
-        "ourense",
-        "orense"
-      ],
       "svgPathId": "provincia-ourense",
       "label": {
         "x": 10.87,
         "y": 29.13
+      },
+      "capital": {
+        "name": "Ourense",
+        "aliases": [
+          "ourense",
+          "orense"
+        ],
+        "label": {
+          "x": 10.87,
+          "y": 29.13
+        }
       }
     },
     {
       "id": "provincia-asturias",
-      "name": "Oviedo",
+      "name": "Asturias",
       "aliases": [
-        "oviedo"
-      ],
-      "province": "Asturias",
-      "provinceAliases": [
         "asturias"
       ],
       "svgPathId": "provincia-asturias",
       "label": {
         "x": 18.81,
         "y": 19.86
+      },
+      "capital": {
+        "name": "Oviedo",
+        "aliases": [
+          "oviedo"
+        ],
+        "label": {
+          "x": 18.81,
+          "y": 19.86
+        }
       }
     },
     {
@@ -568,14 +760,20 @@
       "aliases": [
         "palencia"
       ],
-      "province": "Palencia",
-      "provinceAliases": [
-        "palencia"
-      ],
       "svgPathId": "provincia-palencia",
       "label": {
         "x": 26.06,
         "y": 27.68
+      },
+      "capital": {
+        "name": "Palencia",
+        "aliases": [
+          "palencia"
+        ],
+        "label": {
+          "x": 26.06,
+          "y": 27.68
+        }
       }
     },
     {
@@ -584,14 +782,20 @@
       "aliases": [
         "pontevedra"
       ],
-      "province": "Pontevedra",
-      "provinceAliases": [
-        "pontevedra"
-      ],
       "svgPathId": "provincia-pontevedra",
       "label": {
         "x": 6.55,
         "y": 27.13
+      },
+      "capital": {
+        "name": "Pontevedra",
+        "aliases": [
+          "pontevedra"
+        ],
+        "label": {
+          "x": 6.55,
+          "y": 27.13
+        }
       }
     },
     {
@@ -600,30 +804,42 @@
       "aliases": [
         "salamanca"
       ],
-      "province": "Salamanca",
-      "provinceAliases": [
-        "salamanca"
-      ],
       "svgPathId": "provincia-salamanca",
       "label": {
         "x": 18.45,
         "y": 40.68
+      },
+      "capital": {
+        "name": "Salamanca",
+        "aliases": [
+          "salamanca"
+        ],
+        "label": {
+          "x": 18.45,
+          "y": 40.68
+        }
       }
     },
     {
       "id": "provincia-cantabria",
-      "name": "Santander",
+      "name": "Cantabria",
       "aliases": [
-        "santander"
-      ],
-      "province": "Cantabria",
-      "provinceAliases": [
         "cantabria"
       ],
       "svgPathId": "provincia-cantabria",
       "label": {
         "x": 28.57,
         "y": 20.67
+      },
+      "capital": {
+        "name": "Santander",
+        "aliases": [
+          "santander"
+        ],
+        "label": {
+          "x": 28.57,
+          "y": 20.67
+        }
       }
     },
     {
@@ -632,14 +848,20 @@
       "aliases": [
         "segovia"
       ],
-      "province": "Segovia",
-      "provinceAliases": [
-        "segovia"
-      ],
       "svgPathId": "provincia-segovia",
       "label": {
         "x": 28.44,
         "y": 37.66
+      },
+      "capital": {
+        "name": "Segovia",
+        "aliases": [
+          "segovia"
+        ],
+        "label": {
+          "x": 28.44,
+          "y": 37.66
+        }
       }
     },
     {
@@ -648,14 +870,20 @@
       "aliases": [
         "sevilla"
       ],
-      "province": "Sevilla",
-      "provinceAliases": [
-        "sevilla"
-      ],
       "svgPathId": "provincia-sevilla",
       "label": {
         "x": 20.36,
         "y": 67.65
+      },
+      "capital": {
+        "name": "Sevilla",
+        "aliases": [
+          "sevilla"
+        ],
+        "label": {
+          "x": 20.36,
+          "y": 67.65
+        }
       }
     },
     {
@@ -664,14 +892,20 @@
       "aliases": [
         "soria"
       ],
-      "province": "Soria",
-      "provinceAliases": [
-        "soria"
-      ],
       "svgPathId": "provincia-soria",
       "label": {
         "x": 35.73,
         "y": 33.94
+      },
+      "capital": {
+        "name": "Soria",
+        "aliases": [
+          "soria"
+        ],
+        "label": {
+          "x": 35.73,
+          "y": 33.94
+        }
       }
     },
     {
@@ -680,14 +914,20 @@
       "aliases": [
         "tarragona"
       ],
-      "province": "Tarragona",
-      "provinceAliases": [
-        "tarragona"
-      ],
       "svgPathId": "provincia-tarragona",
       "label": {
         "x": 52.65,
         "y": 38.35
+      },
+      "capital": {
+        "name": "Tarragona",
+        "aliases": [
+          "tarragona"
+        ],
+        "label": {
+          "x": 52.65,
+          "y": 38.35
+        }
       }
     },
     {
@@ -696,14 +936,20 @@
       "aliases": [
         "teruel"
       ],
-      "province": "Teruel",
-      "provinceAliases": [
-        "teruel"
-      ],
       "svgPathId": "provincia-teruel",
       "label": {
         "x": 44.53,
         "y": 41.86
+      },
+      "capital": {
+        "name": "Teruel",
+        "aliases": [
+          "teruel"
+        ],
+        "label": {
+          "x": 44.53,
+          "y": 41.86
+        }
       }
     },
     {
@@ -712,14 +958,20 @@
       "aliases": [
         "toledo"
       ],
-      "province": "Toledo",
-      "provinceAliases": [
-        "toledo"
-      ],
       "svgPathId": "provincia-toledo",
       "label": {
         "x": 27.98,
         "y": 48.9
+      },
+      "capital": {
+        "name": "Toledo",
+        "aliases": [
+          "toledo"
+        ],
+        "label": {
+          "x": 27.98,
+          "y": 48.9
+        }
       }
     },
     {
@@ -729,15 +981,21 @@
         "valencia",
         "valència"
       ],
-      "province": "Valencia",
-      "provinceAliases": [
-        "valencia",
-        "valència"
-      ],
       "svgPathId": "provincia-valencia",
       "label": {
         "x": 44.62,
         "y": 52.33
+      },
+      "capital": {
+        "name": "Valencia",
+        "aliases": [
+          "valencia",
+          "valència"
+        ],
+        "label": {
+          "x": 44.62,
+          "y": 52.33
+        }
       }
     },
     {
@@ -746,24 +1004,26 @@
       "aliases": [
         "valladolid"
       ],
-      "province": "Valladolid",
-      "provinceAliases": [
-        "valladolid"
-      ],
       "svgPathId": "provincia-valladolid",
       "label": {
         "x": 24.51,
         "y": 33.83
+      },
+      "capital": {
+        "name": "Valladolid",
+        "aliases": [
+          "valladolid"
+        ],
+        "label": {
+          "x": 24.51,
+          "y": 33.83
+        }
       }
     },
     {
       "id": "provincia-vizcaya",
-      "name": "Bilbao",
+      "name": "Vizcaya",
       "aliases": [
-        "bilbao"
-      ],
-      "province": "Vizcaya",
-      "provinceAliases": [
         "vizcaya",
         "bizkaia"
       ],
@@ -771,6 +1031,16 @@
       "label": {
         "x": 34.42,
         "y": 20.33
+      },
+      "capital": {
+        "name": "Bilbao",
+        "aliases": [
+          "bilbao"
+        ],
+        "label": {
+          "x": 34.42,
+          "y": 20.33
+        }
       }
     },
     {
@@ -779,14 +1049,20 @@
       "aliases": [
         "zamora"
       ],
-      "province": "Zamora",
-      "provinceAliases": [
-        "zamora"
-      ],
       "svgPathId": "provincia-zamora",
       "label": {
         "x": 18.89,
         "y": 33.06
+      },
+      "capital": {
+        "name": "Zamora",
+        "aliases": [
+          "zamora"
+        ],
+        "label": {
+          "x": 18.89,
+          "y": 33.06
+        }
       }
     },
     {
@@ -795,14 +1071,20 @@
       "aliases": [
         "zaragoza"
       ],
-      "province": "Zaragoza",
-      "provinceAliases": [
-        "zaragoza"
-      ],
       "svgPathId": "provincia-zaragoza",
       "label": {
         "x": 43.3,
         "y": 33.95
+      },
+      "capital": {
+        "name": "Zaragoza",
+        "aliases": [
+          "zaragoza"
+        ],
+        "label": {
+          "x": 43.3,
+          "y": 33.95
+        }
       }
     },
     {
@@ -811,14 +1093,20 @@
       "aliases": [
         "ceuta"
       ],
-      "province": "Ceuta",
-      "provinceAliases": [
-        "ceuta"
-      ],
       "svgPathId": "provincia-ceuta",
       "label": {
         "x": 22.03,
         "y": 79.59
+      },
+      "capital": {
+        "name": "Ceuta",
+        "aliases": [
+          "ceuta"
+        ],
+        "label": {
+          "x": 22.03,
+          "y": 79.59
+        }
       }
     },
     {
@@ -827,26 +1115,26 @@
       "aliases": [
         "melilla"
       ],
-      "province": "Melilla",
-      "provinceAliases": [
-        "melilla"
-      ],
       "svgPathId": "provincia-melilla",
       "label": {
         "x": 33.94,
         "y": 84.2
+      },
+      "capital": {
+        "name": "Melilla",
+        "aliases": [
+          "melilla"
+        ],
+        "label": {
+          "x": 33.94,
+          "y": 84.2
+        }
       }
     },
     {
       "id": "provincia-alava",
-      "name": "Vitoria-Gasteiz",
+      "name": "Álava",
       "aliases": [
-        "vitoria",
-        "vitoria-gasteiz",
-        "gasteiz"
-      ],
-      "province": "Álava",
-      "provinceAliases": [
         "alava",
         "álava",
         "araba"
@@ -855,23 +1143,41 @@
       "label": {
         "x": 35.08,
         "y": 23.76
+      },
+      "capital": {
+        "name": "Vitoria-Gasteiz",
+        "aliases": [
+          "vitoria",
+          "vitoria-gasteiz",
+          "gasteiz"
+        ],
+        "label": {
+          "x": 35.08,
+          "y": 23.76
+        }
       }
     },
     {
       "id": "provincia-las-palmas",
-      "name": "Las Palmas de Gran Canaria",
+      "name": "Las Palmas",
       "aliases": [
-        "las palmas de gran canaria",
-        "las palmas"
-      ],
-      "province": "Las Palmas",
-      "provinceAliases": [
         "las palmas"
       ],
       "svgPathId": "provincia-las-palmas",
       "label": {
         "x": 91.76,
         "y": 86.58
+      },
+      "capital": {
+        "name": "Las Palmas de Gran Canaria",
+        "aliases": [
+          "las palmas de gran canaria",
+          "las palmas"
+        ],
+        "label": {
+          "x": 91.76,
+          "y": 86.58
+        }
       }
     },
     {
@@ -880,14 +1186,20 @@
       "aliases": [
         "santa cruz de tenerife"
       ],
-      "province": "Santa Cruz de Tenerife",
-      "provinceAliases": [
-        "santa cruz de tenerife"
-      ],
       "svgPathId": "provincia-santa-cruz-de-tenerife",
       "label": {
         "x": 79.08,
         "y": 86.97
+      },
+      "capital": {
+        "name": "Santa Cruz de Tenerife",
+        "aliases": [
+          "santa cruz de tenerife"
+        ],
+        "label": {
+          "x": 79.08,
+          "y": 86.97
+        }
       }
     }
   ]

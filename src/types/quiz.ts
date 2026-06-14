@@ -35,7 +35,7 @@ export type QuizRegion = 'spain' | 'europe'
 
 export const EUROPE_QUIZ_ENABLED = false
 
-export type SpainQuizMode = 'comunidades' | 'capitales-provincia'
+export type SpainQuizMode = 'comunidades' | 'provincias'
 
 export type EuropeQuizMode = 'paises' | 'capitales'
 
@@ -69,7 +69,7 @@ export interface QuizSessionItem extends QuizItem {
 
 export const QUIZ_DATA_URLS: Record<QuizMode, string> = {
   comunidades: '/data/spain-comunidades.json',
-  'capitales-provincia': '/data/spain-capitales-provincia.json',
+  provincias: '/data/spain-provincias.json',
   paises: '/data/europe-paises.json',
   capitales: '/data/europe-capitales.json',
 }
@@ -84,11 +84,11 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
     available: true,
   },
   {
-    id: 'capitales-provincia',
-    title: 'Capitales de provincia',
-    description: 'Localiza las capitales de provincia en el mapa interactivo.',
+    id: 'provincias',
+    title: 'Provincias',
+    description: 'Identifica las provincias en el mapa de España.',
     region: 'spain',
-    dataUrl: QUIZ_DATA_URLS['capitales-provincia'],
+    dataUrl: QUIZ_DATA_URLS.provincias,
     available: true,
   },
 ]

@@ -525,7 +525,7 @@ const writeSpainAssets = (regions, provinces) => {
     }
   })
 
-  const provinceItems = provinces.map((item) => {
+  const provinciaItems = provinces.map((item) => {
     const sourceName = item.properties.name
     const meta = PROVINCE_CAPITALS[sourceName]
     const centroid = projectSpainCentroid(item, isCanaryProvince, projections)
@@ -533,12 +533,15 @@ const writeSpainAssets = (regions, provinces) => {
 
     return {
       id: `provincia-${slugify(meta.name)}`,
-      name: meta.capital,
-      aliases: meta.capitalAliases,
-      province: meta.name,
-      provinceAliases: meta.aliases,
+      name: meta.name,
+      aliases: meta.aliases,
       svgPathId: `provincia-${slugify(meta.name)}`,
       label,
+      capital: {
+        name: meta.capital,
+        aliases: meta.capitalAliases,
+        label,
+      },
     }
   })
 
@@ -561,17 +564,17 @@ const writeSpainAssets = (regions, provinces) => {
   )
 
   fs.writeFileSync(
-    path.join(dataDir, 'spain-capitales-provincia.json'),
+    path.join(dataDir, 'spain-provincias.json'),
     JSON.stringify(
       {
-        id: 'capitales-provincia',
+        id: 'provincias',
         region: 'spain',
-        title: 'Capitales de provincia',
+        title: 'Provincias',
         map: '/maps/spain.svg',
         viewBox: `0 0 ${SPAIN_VIEWBOX.width} ${SPAIN_VIEWBOX.height}`,
         hiddenCount: 10,
         layer: 'provincia',
-        items: provinceItems,
+        items: provinciaItems,
       },
       null,
       2,

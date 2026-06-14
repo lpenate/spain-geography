@@ -140,11 +140,12 @@ const registerRow = (itemId: string, element: Element | ComponentPublicInstance 
 
 .quiz-sidebar__title {
   margin: 0;
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
 }
 
 .quiz-sidebar__list {
@@ -185,7 +186,7 @@ const registerRow = (itemId: string, element: Element | ComponentPublicInstance 
   width: 100%;
   min-height: 2.25rem;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 0.4rem 0.55rem;
   font-size: 0.9rem;
   color: var(--text-strong);
@@ -193,25 +194,25 @@ const registerRow = (itemId: string, element: Element | ComponentPublicInstance 
 }
 
 .quiz-sidebar__input:focus {
-  outline: 2px solid rgba(37, 99, 235, 0.3);
+  outline: 2px solid var(--accent-soft);
   outline-offset: 1px;
-  border-color: var(--accent);
+  border-color: var(--accent-strong);
 }
 
 .quiz-sidebar__input--correct {
-  border-color: #16a34a;
-  background: #f0fdf4;
+  border-color: var(--success);
+  background: var(--success-soft);
 }
 
 .quiz-sidebar__input--incorrect {
-  border-color: #dc2626;
-  background: #fef2f2;
+  border-color: var(--error);
+  background: var(--error-soft);
 }
 
 .quiz-sidebar__feedback {
   margin: 0.2rem 0 0;
   font-size: 0.72rem;
-  color: #16a34a;
+  color: var(--success);
   font-weight: 600;
 }
 
@@ -228,8 +229,11 @@ const registerRow = (itemId: string, element: Element | ComponentPublicInstance 
 
 .quiz-sidebar__score {
   margin: 0;
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-strong);
   text-align: center;
 }

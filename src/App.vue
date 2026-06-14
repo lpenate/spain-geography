@@ -28,7 +28,7 @@ import AppHeader from '@/components/layout/AppHeader.vue'
   display: flex;
   flex-direction: column;
   min-height: 0;
-  width: min(1120px, 100%);
+  width: min(1200px, 100%);
   margin: 0 auto;
   padding: var(--space-page-y) var(--space-page-x) var(--space-page-bottom);
 }

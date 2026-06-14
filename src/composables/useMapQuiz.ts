@@ -1,10 +1,10 @@
-import { computed, ref } from 'vue'
+import { type MaybeRefOrGetter, computed, ref, toValue } from 'vue'
 import { fetchQuizDataset } from '@/services/quizData'
 import type { QuizAnswerResult, QuizDataset, QuizMode, QuizSessionItem } from '@/types/quiz'
 import { assignQuizItemColors } from '@/utils/quizColors'
 import { countCorrectAnswers, evaluateAnswers, pickHiddenItems } from '@/utils/quizSession'
 
-export const useMapQuiz = (mode: QuizMode) => {
+export const useMapQuiz = (mode: MaybeRefOrGetter<QuizMode>) => {
   const dataset = ref<QuizDataset | null>(null)
   const sessionItems = ref<QuizSessionItem[]>([])
   const answers = ref<Record<string, string>>({})
@@ -41,7 +41,7 @@ export const useMapQuiz = (mode: QuizMode) => {
     error.value = null
 
     try {
-      dataset.value = await fetchQuizDataset(mode)
+      dataset.value = await fetchQuizDataset(toValue(mode))
       initializeSession()
     } catch (loadError) {
       error.value = loadError instanceof Error ? loadError.message : 'Error al cargar el quiz'

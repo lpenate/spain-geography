@@ -5,6 +5,7 @@ const europeQuizModes = new Set<QuizMode>(EUROPE_QUIZ_CATEGORIES.map((category) 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
       path: '/',
@@ -13,13 +14,15 @@ const router = createRouter({
     },
     {
       path: '/espana',
-      name: 'spain-hub',
-      component: () => import('@/views/quizzes/SpainQuizHubView.vue'),
+      redirect: '/',
     },
     {
       path: '/europa',
-      name: 'europe-hub',
-      component: () => import('@/views/quizzes/EuropeQuizHubView.vue'),
+      redirect: '/',
+    },
+    {
+      path: '/quiz/capitales-provincia',
+      redirect: '/quiz/provincias',
     },
     {
       path: '/quiz/:mode',
@@ -32,7 +35,7 @@ const router = createRouter({
 router.beforeEach((to) => {
   if (EUROPE_QUIZ_ENABLED) return true
 
-  if (to.name === 'europe-hub' || europeQuizModes.has(to.params.mode as QuizMode)) {
+  if (europeQuizModes.has(to.params.mode as QuizMode)) {
     return { name: 'home' }
   }
 

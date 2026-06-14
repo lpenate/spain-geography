@@ -13,7 +13,9 @@ describe('App', () => {
     })
 
     expect(wrapper.text()).toContain('Geografía Interactiva')
-    expect(wrapper.text()).toContain('España')
+    expect(wrapper.text()).toContain('Comunidades')
+    expect(wrapper.text()).toContain('Provincias')
+    expect(wrapper.text()).not.toContain('Capitales')
     expect(wrapper.text()).not.toContain('Europa')
   })
 })

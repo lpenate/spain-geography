@@ -1,120 +1,46 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import QuizCategoryCard from '@/components/quiz/QuizCategoryCard.vue'
+import { availableQuizCategories } from '@/utils/quizNav'
 </script>
 
 <template>
-  <section class="hero">
-    <p class="eyebrow">Aprende geografía con mapas interactivos</p>
-    <h1>Quiz de geografía de España</h1>
-    <p class="lead">
-      Practica las comunidades autónomas y capitales de provincia mediante ejercicios con mapas
-      interactivos.
+  <section class="intro">
+    <p class="intro__lead">
+      Practica comunidades autónomas y provincias mediante ejercicios con mapas interactivos. Elige
+      un modo en la cabecera o aquí abajo.
     </p>
-    <div class="actions">
-      <RouterLink class="button button-primary" to="/espana"> Explorar España </RouterLink>
-    </div>
   </section>
 
-  <section class="cards">
-    <article class="card">
-      <h2>España</h2>
-      <p>Comunidades autónomas y capitales de provincia.</p>
-      <ul>
-        <li>Comunidades autónomas</li>
-        <li>Capitales de provincia</li>
-      </ul>
-    </article>
+  <section>
+    <div class="category-grid">
+      <QuizCategoryCard
+        v-for="category in availableQuizCategories()"
+        :key="category.id"
+        :category="category"
+      />
+    </div>
   </section>
 </template>
 
 <style scoped>
-.hero {
-  text-align: center;
+.intro {
   margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 @media (min-width: 640px) {
-  .hero {
-    margin-bottom: 3rem;
+  .intro {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
   }
 }
 
-.eyebrow {
-  color: var(--accent);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-}
-
-.lead {
-  max-width: 42rem;
-  margin: 0 auto 1.5rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-}
-
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .actions {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: auto;
-    gap: 1rem;
-  }
-
-  .actions .button {
-    flex: 0 1 auto;
-  }
-}
-
-@media (max-width: 479px) {
-  .actions .button {
-    width: 100%;
-  }
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  max-width: 28rem;
-  margin: 0 auto;
-}
-
-.card {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
-  background: var(--surface);
-}
-
-@media (min-width: 640px) {
-  .card {
-    padding: 1.5rem;
-  }
-}
-
-.card h2 {
-  margin: 0 0 0.5rem;
-}
-
-.card p {
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-
-.card ul {
+.intro__lead {
+  max-width: 38rem;
   margin: 0;
-  padding-left: 1.2rem;
-  color: var(--text-strong);
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 </style>
