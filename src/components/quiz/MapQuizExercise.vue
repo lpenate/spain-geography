@@ -8,6 +8,7 @@ import { useMapQuiz } from '@/composables/useMapQuiz'
 import type { QuizMode } from '@/types/quiz'
 import { sortItemsNorthToSouth } from '@/utils/quizSession'
 import { shortenLineFromEnd } from '@/utils/connectorLines'
+import { assetUrl } from '@/utils/assetUrl'
 
 interface ConnectorLine {
   itemId: string
@@ -171,7 +172,7 @@ watch(
       <div class="quiz-exercise__map">
         <SvgQuizMap
           ref="mapComponentRef"
-          :map-url="dataset.map"
+          :map-url="assetUrl(dataset.map)"
           :session-items="sessionItems"
           :corrected="corrected"
           :results-by-item-id="resultsByItemId"

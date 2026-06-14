@@ -30,6 +30,14 @@ npm run type-check   # Verificación de tipos
 npm run lint         # Linter
 ```
 
+## Despliegue (GitHub Pages)
+
+Cada push a `main` despliega automáticamente la app en:
+
+**https://lpenate.github.io/spain-geography/**
+
+El workflow en `.github/workflows/deploy.yml` genera los mapas, construye el proyecto y publica el contenido de `dist/` en GitHub Pages.
+
 ## Estructura
 
 ```
