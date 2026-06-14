@@ -103,30 +103,38 @@ defineExpose({
 .svg-quiz-map {
   width: 100%;
   height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
 }
 
 .svg-quiz-map__canvas {
   position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
+  width: min(100cqw, calc(100cqh * 10 / 7));
+  height: min(100cqh, calc(100cqw * 7 / 10));
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
-  touch-action: pan-x pan-y pinch-zoom;
+  touch-action: manipulation;
+}
+
+.svg-quiz-map--spain .svg-quiz-map__canvas {
+  width: min(100cqw, calc(100cqh * 5 / 4));
+  height: min(100cqh, calc(100cqw * 4 / 5));
 }
 
 .svg-quiz-map__svg {
   position: relative;
   z-index: 1;
   width: 100%;
+  height: 100%;
   line-height: 0;
 }
 
 .svg-quiz-map__svg :deep(svg) {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
 }
 
@@ -182,5 +190,23 @@ defineExpose({
 .svg-quiz-map--spain .map-label--visible {
   font-size: clamp(0.54rem, 1vw, 0.68rem);
   max-width: min(18vw, 4.5rem);
+}
+
+@media (max-width: 900px) {
+  .svg-quiz-map {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .svg-quiz-map__canvas {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10 / 7;
+  }
+
+  .svg-quiz-map--spain .svg-quiz-map__canvas {
+    aspect-ratio: 5 / 4;
+  }
 }
 </style>

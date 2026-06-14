@@ -129,6 +129,9 @@ const registerRow = (itemId: string, element: Element | ComponentPublicInstance 
   gap: 0.75rem;
   width: min(100%, 17.5rem);
   flex-shrink: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .quiz-sidebar__title {

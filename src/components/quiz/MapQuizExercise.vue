@@ -242,12 +242,20 @@ watch(
 </template>
 
 <style scoped>
+.quiz-exercise {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
 .quiz-exercise__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .quiz-exercise__eyebrow {
@@ -261,12 +269,14 @@ watch(
 
 .quiz-exercise__header h1 {
   margin: 0 0 0.35rem;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
 }
 
 .quiz-exercise__lead {
   margin: 0;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.45;
+  font-size: 0.92rem;
 }
 
 .quiz-exercise__back {
@@ -287,7 +297,8 @@ watch(
   display: flex;
   align-items: stretch;
   gap: 1rem;
-  min-height: 420px;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   isolation: isolate;
 }
@@ -297,6 +308,10 @@ watch(
   z-index: 1;
   flex: 1;
   min-width: 0;
+  min-height: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
 }
 
 .quiz-exercise__connectors {
@@ -312,11 +327,13 @@ watch(
 @media (max-width: 900px) {
   .quiz-exercise__panel {
     flex-direction: column;
-    min-height: auto;
+    flex: none;
+    overflow: visible;
   }
 
   .quiz-exercise__map {
-    min-height: 300px;
+    container-type: inline-size;
+    min-height: 0;
   }
 
   .quiz-exercise__connectors {

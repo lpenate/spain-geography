@@ -16,9 +16,16 @@ const isValidMode = computed(() => validModes.includes(mode.value))
 </script>
 
 <template>
-  <MapQuizExercise v-if="isValidMode" :mode="mode" />
+  <MapQuizExercise v-if="isValidMode" class="quiz-play" :mode="mode" />
   <section v-else>
     <h1>Quiz no encontrado</h1>
     <p>El modo de quiz solicitado no existe.</p>
   </section>
 </template>
+
+<style scoped>
+.quiz-play {
+  flex: 1;
+  min-height: 0;
+}
+</style>
