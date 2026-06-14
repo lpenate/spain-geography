@@ -363,6 +363,11 @@ watch(
 }
 
 @media (max-width: 900px) {
+  .quiz-exercise {
+    flex: none;
+    min-height: auto;
+  }
+
   .quiz-exercise__panel {
     flex-direction: column;
     flex: none;

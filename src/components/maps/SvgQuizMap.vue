@@ -301,7 +301,7 @@ defineExpose({
 }
 
 .map-label--visible {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text-strong);
   background: rgba(255, 255, 255, 0.72);
@@ -315,7 +315,7 @@ defineExpose({
 }
 
 .map-label--spain {
-  font-size: 0.61rem;
+  font-size: 0.68rem;
   max-width: 4.5rem;
 }
 

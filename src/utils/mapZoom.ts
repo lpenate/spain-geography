@@ -43,5 +43,7 @@ export const mapZoomLabelPosition = (
 export const mapMarkerTransform = (scale: number): string =>
   `translate(-50%, -50%) scale(${1 / scale})`
 
-export const mapZoomedTextTransform = (scale: number): string =>
-  `translate(-50%, -50%) scale(${scale})`
+export const mapZoomedTextTransform = (scale: number): string => {
+  void scale
+  return 'translate(-50%, -50%)'
+}

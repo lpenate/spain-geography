@@ -44,11 +44,11 @@ describe('mapZoomLabelPosition', () => {
 
 describe('mapZoomedTextTransform', () => {
   it('keeps labels at neutral size without zoom', () => {
-    expect(mapZoomedTextTransform(1)).toBe('translate(-50%, -50%) scale(1)')
+    expect(mapZoomedTextTransform(1)).toBe('translate(-50%, -50%)')
   })
 
-  it('scales labels with the map zoom level', () => {
-    expect(mapZoomedTextTransform(MAP_FOCUS_ZOOM)).toBe('translate(-50%, -50%) scale(3)')
+  it('keeps labels at a stable size regardless of zoom', () => {
+    expect(mapZoomedTextTransform(MAP_FOCUS_ZOOM)).toBe('translate(-50%, -50%)')
   })
 })
 

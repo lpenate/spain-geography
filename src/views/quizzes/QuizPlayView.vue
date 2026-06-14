@@ -26,4 +26,11 @@ const isValidMode = computed(() => validModes.includes(mode.value))
   flex: 1;
   min-height: 0;
 }
+
+@media (max-width: 900px) {
+  .quiz-play {
+    flex: none;
+    min-height: auto;
+  }
+}
 </style>
