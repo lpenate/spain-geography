@@ -4,6 +4,7 @@ import {
   MAP_FOCUS_ZOOM,
   decreaseMapZoom,
   increaseMapZoom,
+  mapMarkerTransform,
   mapZoomTransform,
 } from '@/utils/mapZoom'
 
@@ -20,6 +21,18 @@ describe('mapZoomTransform', () => {
       transform: 'scale(3)',
       transformOrigin: '42.5% 61.2%',
     })
+  })
+})
+
+describe('mapMarkerTransform', () => {
+  it('keeps markers at neutral size without zoom', () => {
+    expect(mapMarkerTransform(1)).toBe('translate(-50%, -50%) scale(1)')
+  })
+
+  it('counter-scales markers when the map is zoomed in', () => {
+    expect(mapMarkerTransform(MAP_FOCUS_ZOOM)).toBe(
+      'translate(-50%, -50%) scale(0.3333333333333333)',
+    )
   })
 })
 

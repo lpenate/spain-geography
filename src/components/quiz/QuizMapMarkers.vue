@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { MapLabel, QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
-import { mapZoomTransform } from '@/utils/mapZoom'
+import { mapMarkerTransform, mapZoomTransform } from '@/utils/mapZoom'
 
 const props = defineProps<{
   items: QuizSessionItem[]
@@ -44,7 +44,12 @@ const markerStyle = (itemId: string) => {
         v-for="item in items"
         :key="item.id"
         class="quiz-map-markers__marker"
-        :style="{ left: `${item.label.x}%`, top: `${item.label.y}%`, ...markerStyle(item.id) }"
+        :style="{
+          left: `${item.label.x}%`,
+          top: `${item.label.y}%`,
+          transform: mapMarkerTransform(zoomScale),
+          ...markerStyle(item.id),
+        }"
       >
         {{ hiddenItemIndexById[item.id] }}
       </div>
@@ -70,7 +75,6 @@ const markerStyle = (itemId: string) => {
 
 .quiz-map-markers__marker {
   position: absolute;
-  transform: translate(-50%, -50%);
   width: 1.65rem;
   height: 1.65rem;
   border-radius: 999px;
