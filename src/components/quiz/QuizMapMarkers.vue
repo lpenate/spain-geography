@@ -1,0 +1,71 @@
+<script setup lang="ts">
+import type { QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
+
+const props = defineProps<{
+  items: QuizSessionItem[]
+  hiddenItemIndexById: Record<string, number>
+  itemColorsById: Record<string, string>
+  corrected: boolean
+  resultsByItemId: Record<string, QuizAnswerResult>
+  bounds: { left: number; top: number; width: number; height: number }
+}>()
+
+const markerStyle = (itemId: string) => {
+  if (props.corrected) {
+    const result = props.resultsByItemId[itemId]
+    if (result?.isCorrect) return { background: '#16a34a' }
+    if (result) return { background: '#dc2626' }
+  }
+
+  const color = props.itemColorsById[itemId]
+  return color ? { background: color } : undefined
+}
+</script>
+
+<template>
+  <div
+    v-if="bounds.width > 0"
+    class="quiz-map-markers"
+    :style="{
+      left: `${bounds.left}px`,
+      top: `${bounds.top}px`,
+      width: `${bounds.width}px`,
+      height: `${bounds.height}px`,
+    }"
+  >
+    <div
+      v-for="item in items"
+      :key="item.id"
+      class="quiz-map-markers__marker"
+      :style="{ left: `${item.label.x}%`, top: `${item.label.y}%`, ...markerStyle(item.id) }"
+    >
+      {{ hiddenItemIndexById[item.id] }}
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.quiz-map-markers {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.quiz-map-markers__marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: 2.5px solid #fff;
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.18),
+    0 2px 6px rgba(15, 23, 42, 0.28);
+}
+</style>

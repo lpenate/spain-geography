@@ -1,0 +1,885 @@
+{
+  "id": "capitales",
+  "region": "europe",
+  "title": "Capitales europeas",
+  "map": "/maps/europe.svg",
+  "viewBox": "0 0 1000 700",
+  "hiddenCount": 10,
+  "layer": "capital",
+  "items": [
+    {
+      "id": "capital-azerbaiyan",
+      "name": "Bakú",
+      "aliases": [
+        "baku",
+        "bakú"
+      ],
+      "country": "Azerbaiyán",
+      "countryAliases": [
+        "azerbaiyan",
+        "azerbaiyán"
+      ],
+      "svgPathId": "azerbaiyan",
+      "label": {
+        "x": 81.72,
+        "y": 79.85
+      }
+    },
+    {
+      "id": "capital-albania",
+      "name": "Tirana",
+      "aliases": [
+        "tirana"
+      ],
+      "country": "Albania",
+      "countryAliases": [
+        "albania"
+      ],
+      "svgPathId": "albania",
+      "label": {
+        "x": 56.56,
+        "y": 78.39
+      }
+    },
+    {
+      "id": "capital-armenia",
+      "name": "Ereván",
+      "aliases": [
+        "erevan",
+        "ereván",
+        "yerevan"
+      ],
+      "country": "Armenia",
+      "countryAliases": [
+        "armenia"
+      ],
+      "svgPathId": "armenia",
+      "label": {
+        "x": 79.36,
+        "y": 79.86
+      }
+    },
+    {
+      "id": "capital-bosnia-y-herzegovina",
+      "name": "Sarajevo",
+      "aliases": [
+        "sarajevo"
+      ],
+      "country": "Bosnia y Herzegovina",
+      "countryAliases": [
+        "bosnia",
+        "bosnia y herzegovina"
+      ],
+      "svgPathId": "bosnia-y-herzegovina",
+      "label": {
+        "x": 54.47,
+        "y": 73
+      }
+    },
+    {
+      "id": "capital-bulgaria",
+      "name": "Sofía",
+      "aliases": [
+        "sofia",
+        "sofía"
+      ],
+      "country": "Bulgaria",
+      "countryAliases": [
+        "bulgaria"
+      ],
+      "svgPathId": "bulgaria",
+      "label": {
+        "x": 61.28,
+        "y": 75.52
+      }
+    },
+    {
+      "id": "capital-chipre",
+      "name": "Nicosia",
+      "aliases": [
+        "nicosia"
+      ],
+      "country": "Chipre",
+      "countryAliases": [
+        "chipre"
+      ],
+      "svgPathId": "chipre",
+      "label": {
+        "x": 68.6,
+        "y": 88.53
+      }
+    },
+    {
+      "id": "capital-dinamarca",
+      "name": "Copenhague",
+      "aliases": [
+        "copenhague",
+        "copenhagen"
+      ],
+      "country": "Dinamarca",
+      "countryAliases": [
+        "dinamarca"
+      ],
+      "svgPathId": "dinamarca",
+      "label": {
+        "x": 47.39,
+        "y": 48.79
+      }
+    },
+    {
+      "id": "capital-irlanda",
+      "name": "Dublín",
+      "aliases": [
+        "dublin",
+        "dublín"
+      ],
+      "country": "Irlanda",
+      "countryAliases": [
+        "irlanda"
+      ],
+      "svgPathId": "irlanda",
+      "label": {
+        "x": 30.69,
+        "y": 55.09
+      }
+    },
+    {
+      "id": "capital-estonia",
+      "name": "Tallin",
+      "aliases": [
+        "tallin",
+        "tallinn"
+      ],
+      "country": "Estonia",
+      "countryAliases": [
+        "estonia"
+      ],
+      "svgPathId": "estonia",
+      "label": {
+        "x": 61.56,
+        "y": 42.19
+      }
+    },
+    {
+      "id": "capital-austria",
+      "name": "Viena",
+      "aliases": [
+        "viena",
+        "wien"
+      ],
+      "country": "Austria",
+      "countryAliases": [
+        "austria"
+      ],
+      "svgPathId": "austria",
+      "label": {
+        "x": 51.11,
+        "y": 66.53
+      }
+    },
+    {
+      "id": "capital-republica-checa",
+      "name": "Praga",
+      "aliases": [
+        "praga",
+        "prague"
+      ],
+      "country": "República Checa",
+      "countryAliases": [
+        "republica checa",
+        "república checa",
+        "chequia",
+        "czechia"
+      ],
+      "svgPathId": "republica-checa",
+      "label": {
+        "x": 52.23,
+        "y": 62.28
+      }
+    },
+    {
+      "id": "capital-finlandia",
+      "name": "Helsinki",
+      "aliases": [
+        "helsinki"
+      ],
+      "country": "Finlandia",
+      "countryAliases": [
+        "finlandia"
+      ],
+      "svgPathId": "finlandia",
+      "label": {
+        "x": 62.17,
+        "y": 26.84
+      }
+    },
+    {
+      "id": "capital-francia",
+      "name": "París",
+      "aliases": [
+        "paris",
+        "parís"
+      ],
+      "country": "Francia",
+      "countryAliases": [
+        "francia"
+      ],
+      "svgPathId": "francia",
+      "label": {
+        "x": 40.52,
+        "y": 68.62
+      }
+    },
+    {
+      "id": "capital-georgia",
+      "name": "Tiflis",
+      "aliases": [
+        "tiflis",
+        "tbilisi"
+      ],
+      "country": "Georgia",
+      "countryAliases": [
+        "georgia"
+      ],
+      "svgPathId": "georgia",
+      "label": {
+        "x": 78.06,
+        "y": 76.56
+      }
+    },
+    {
+      "id": "capital-alemania",
+      "name": "Berlín",
+      "aliases": [
+        "berlin",
+        "berlín"
+      ],
+      "country": "Alemania",
+      "countryAliases": [
+        "alemania"
+      ],
+      "svgPathId": "alemania",
+      "label": {
+        "x": 47.67,
+        "y": 59.59
+      }
+    },
+    {
+      "id": "capital-grecia",
+      "name": "Atenas",
+      "aliases": [
+        "atenas",
+        "athens"
+      ],
+      "country": "Grecia",
+      "countryAliases": [
+        "grecia"
+      ],
+      "svgPathId": "grecia",
+      "label": {
+        "x": 59.24,
+        "y": 82.01
+      }
+    },
+    {
+      "id": "capital-croacia",
+      "name": "Zagreb",
+      "aliases": [
+        "zagreb"
+      ],
+      "country": "Croacia",
+      "countryAliases": [
+        "croacia"
+      ],
+      "svgPathId": "croacia",
+      "label": {
+        "x": 53.2,
+        "y": 71.39
+      }
+    },
+    {
+      "id": "capital-hungria",
+      "name": "Budapest",
+      "aliases": [
+        "budapest"
+      ],
+      "country": "Hungría",
+      "countryAliases": [
+        "hungria",
+        "hungría"
+      ],
+      "svgPathId": "hungria",
+      "label": {
+        "x": 55.94,
+        "y": 67.37
+      }
+    },
+    {
+      "id": "capital-islandia",
+      "name": "Reikiavik",
+      "aliases": [
+        "reikiavik",
+        "reykjavik"
+      ],
+      "country": "Islandia",
+      "countryAliases": [
+        "islandia"
+      ],
+      "svgPathId": "islandia",
+      "label": {
+        "x": 21.11,
+        "y": 24.58
+      }
+    },
+    {
+      "id": "capital-israel",
+      "name": "Jerusalén",
+      "aliases": [
+        "jerusalen",
+        "jerusalén",
+        "jerusalem"
+      ],
+      "country": "Israel",
+      "countryAliases": [
+        "israel"
+      ],
+      "svgPathId": "israel",
+      "label": {
+        "x": 70.2,
+        "y": 94.31
+      }
+    },
+    {
+      "id": "capital-italia",
+      "name": "Roma",
+      "aliases": [
+        "roma",
+        "rome"
+      ],
+      "country": "Italia",
+      "countryAliases": [
+        "italia"
+      ],
+      "svgPathId": "italia",
+      "label": {
+        "x": 49.35,
+        "y": 75.62
+      }
+    },
+    {
+      "id": "capital-letonia",
+      "name": "Riga",
+      "aliases": [
+        "riga"
+      ],
+      "country": "Letonia",
+      "countryAliases": [
+        "letonia"
+      ],
+      "svgPathId": "letonia",
+      "label": {
+        "x": 61.02,
+        "y": 46.63
+      }
+    },
+    {
+      "id": "capital-bielorrusia",
+      "name": "Minsk",
+      "aliases": [
+        "minsk"
+      ],
+      "country": "Bielorrusia",
+      "countryAliases": [
+        "bielorrusia",
+        "belarus"
+      ],
+      "svgPathId": "bielorrusia",
+      "label": {
+        "x": 63.85,
+        "y": 54.29
+      }
+    },
+    {
+      "id": "capital-lituania",
+      "name": "Vilna",
+      "aliases": [
+        "vilna",
+        "vilnius"
+      ],
+      "country": "Lituania",
+      "countryAliases": [
+        "lituania"
+      ],
+      "svgPathId": "lituania",
+      "label": {
+        "x": 60.07,
+        "y": 50.23
+      }
+    },
+    {
+      "id": "capital-eslovaquia",
+      "name": "Bratislava",
+      "aliases": [
+        "bratislava"
+      ],
+      "country": "Eslovaquia",
+      "countryAliases": [
+        "eslovaquia"
+      ],
+      "svgPathId": "eslovaquia",
+      "label": {
+        "x": 56.02,
+        "y": 64.35
+      }
+    },
+    {
+      "id": "capital-liechtenstein",
+      "name": "Vaduz",
+      "aliases": [
+        "vaduz"
+      ],
+      "country": "Liechtenstein",
+      "countryAliases": [
+        "liechtenstein"
+      ],
+      "svgPathId": "liechtenstein",
+      "label": {
+        "x": 46.92,
+        "y": 67.4
+      }
+    },
+    {
+      "id": "capital-macedonia-del-norte",
+      "name": "Skopie",
+      "aliases": [
+        "skopie",
+        "skopje"
+      ],
+      "country": "Macedonia del Norte",
+      "countryAliases": [
+        "macedonia del norte",
+        "macedonia"
+      ],
+      "svgPathId": "macedonia-del-norte",
+      "label": {
+        "x": 58.05,
+        "y": 77.58
+      }
+    },
+    {
+      "id": "capital-malta",
+      "name": "La Valeta",
+      "aliases": [
+        "la valeta",
+        "valletta"
+      ],
+      "country": "Malta",
+      "countryAliases": [
+        "malta"
+      ],
+      "svgPathId": "malta",
+      "label": {
+        "x": 51.36,
+        "y": 87.12
+      }
+    },
+    {
+      "id": "capital-belgica",
+      "name": "Bruselas",
+      "aliases": [
+        "bruselas",
+        "brussels"
+      ],
+      "country": "Bélgica",
+      "countryAliases": [
+        "belgica",
+        "bélgica"
+      ],
+      "svgPathId": "belgica",
+      "label": {
+        "x": 42.44,
+        "y": 60.45
+      }
+    },
+    {
+      "id": "capital-islas-feroe",
+      "name": "Tórshavn",
+      "aliases": [
+        "torshavn",
+        "tórshavn"
+      ],
+      "country": "Islas Feroe",
+      "countryAliases": [
+        "islas feroe",
+        "feroe"
+      ],
+      "svgPathId": "islas-feroe",
+      "label": {
+        "x": 31.87,
+        "y": 33.25
+      }
+    },
+    {
+      "id": "capital-andorra",
+      "name": "Andorra la Vella",
+      "aliases": [
+        "andorra la vella"
+      ],
+      "country": "Andorra",
+      "countryAliases": [
+        "andorra"
+      ],
+      "svgPathId": "andorra",
+      "label": {
+        "x": 39.61,
+        "y": 75.91
+      }
+    },
+    {
+      "id": "capital-luxemburgo",
+      "name": "Luxemburgo",
+      "aliases": [
+        "luxemburgo"
+      ],
+      "country": "Luxemburgo",
+      "countryAliases": [
+        "luxemburgo"
+      ],
+      "svgPathId": "luxemburgo",
+      "label": {
+        "x": 43.74,
+        "y": 62.23
+      }
+    },
+    {
+      "id": "capital-monaco",
+      "name": "Mónaco",
+      "aliases": [
+        "monaco",
+        "mónaco"
+      ],
+      "country": "Mónaco",
+      "countryAliases": [
+        "monaco",
+        "mónaco"
+      ],
+      "svgPathId": "monaco",
+      "label": {
+        "x": 44.96,
+        "y": 73.75
+      }
+    },
+    {
+      "id": "capital-montenegro",
+      "name": "Podgorica",
+      "aliases": [
+        "podgorica"
+      ],
+      "country": "Montenegro",
+      "countryAliases": [
+        "montenegro"
+      ],
+      "svgPathId": "montenegro",
+      "label": {
+        "x": 55.81,
+        "y": 75.48
+      }
+    },
+    {
+      "id": "capital-paises-bajos",
+      "name": "Ámsterdam",
+      "aliases": [
+        "amsterdam",
+        "ámsterdam"
+      ],
+      "country": "Países Bajos",
+      "countryAliases": [
+        "paises bajos",
+        "países bajos",
+        "holanda"
+      ],
+      "svgPathId": "paises-bajos",
+      "label": {
+        "x": 43.29,
+        "y": 57.07
+      }
+    },
+    {
+      "id": "capital-noruega",
+      "name": "Oslo",
+      "aliases": [
+        "oslo"
+      ],
+      "country": "Noruega",
+      "countryAliases": [
+        "noruega"
+      ],
+      "svgPathId": "noruega",
+      "label": {
+        "x": 49.43,
+        "y": 27.7
+      }
+    },
+    {
+      "id": "capital-polonia",
+      "name": "Varsovia",
+      "aliases": [
+        "varsovia",
+        "warsaw"
+      ],
+      "country": "Polonia",
+      "countryAliases": [
+        "polonia"
+      ],
+      "svgPathId": "polonia",
+      "label": {
+        "x": 55.97,
+        "y": 57.37
+      }
+    },
+    {
+      "id": "capital-portugal",
+      "name": "Lisboa",
+      "aliases": [
+        "lisboa"
+      ],
+      "country": "Portugal",
+      "countryAliases": [
+        "portugal"
+      ],
+      "svgPathId": "portugal",
+      "label": {
+        "x": 30.86,
+        "y": 80.92
+      }
+    },
+    {
+      "id": "capital-rumania",
+      "name": "Bucarest",
+      "aliases": [
+        "bucarest",
+        "bucharest"
+      ],
+      "country": "Rumanía",
+      "countryAliases": [
+        "rumania",
+        "rumanía"
+      ],
+      "svgPathId": "rumania",
+      "label": {
+        "x": 61.05,
+        "y": 69.9
+      }
+    },
+    {
+      "id": "capital-moldavia",
+      "name": "Chisináu",
+      "aliases": [
+        "chisinau",
+        "chisináu",
+        "kishinev"
+      ],
+      "country": "Moldavia",
+      "countryAliases": [
+        "moldavia",
+        "moldova"
+      ],
+      "svgPathId": "moldavia",
+      "label": {
+        "x": 64.26,
+        "y": 67.34
+      }
+    },
+    {
+      "id": "capital-eslovenia",
+      "name": "Liubliana",
+      "aliases": [
+        "liubliana",
+        "ljubljana"
+      ],
+      "country": "Eslovenia",
+      "countryAliases": [
+        "eslovenia"
+      ],
+      "svgPathId": "eslovenia",
+      "label": {
+        "x": 51.75,
+        "y": 69.36
+      }
+    },
+    {
+      "id": "capital-espana",
+      "name": "Madrid",
+      "aliases": [
+        "madrid"
+      ],
+      "country": "España",
+      "countryAliases": [
+        "espana",
+        "españa"
+      ],
+      "svgPathId": "espana",
+      "label": {
+        "x": 34.96,
+        "y": 79.74
+      }
+    },
+    {
+      "id": "capital-suecia",
+      "name": "Estocolmo",
+      "aliases": [
+        "estocolmo",
+        "stockholm"
+      ],
+      "country": "Suecia",
+      "countryAliases": [
+        "suecia"
+      ],
+      "svgPathId": "suecia",
+      "label": {
+        "x": 53.07,
+        "y": 32.29
+      }
+    },
+    {
+      "id": "capital-suiza",
+      "name": "Berna",
+      "aliases": [
+        "berna",
+        "bern"
+      ],
+      "country": "Suiza",
+      "countryAliases": [
+        "suiza"
+      ],
+      "svgPathId": "suiza",
+      "label": {
+        "x": 45.71,
+        "y": 68.07
+      }
+    },
+    {
+      "id": "capital-turquia",
+      "name": "Ankara",
+      "aliases": [
+        "ankara"
+      ],
+      "country": "Turquía",
+      "countryAliases": [
+        "turquia",
+        "turquía"
+      ],
+      "svgPathId": "turquia",
+      "label": {
+        "x": 70.4,
+        "y": 81.81
+      }
+    },
+    {
+      "id": "capital-reino-unido",
+      "name": "Londres",
+      "aliases": [
+        "londres",
+        "london"
+      ],
+      "country": "Reino Unido",
+      "countryAliases": [
+        "reino unido",
+        "inglaterra",
+        "uk"
+      ],
+      "svgPathId": "reino-unido",
+      "label": {
+        "x": 35.61,
+        "y": 53.15
+      }
+    },
+    {
+      "id": "capital-ucrania",
+      "name": "Kiev",
+      "aliases": [
+        "kiev",
+        "kyiv"
+      ],
+      "country": "Ucrania",
+      "countryAliases": [
+        "ucrania"
+      ],
+      "svgPathId": "ucrania",
+      "label": {
+        "x": 67,
+        "y": 63.7
+      }
+    },
+    {
+      "id": "capital-san-marino",
+      "name": "San Marino",
+      "aliases": [
+        "san marino"
+      ],
+      "country": "San Marino",
+      "countryAliases": [
+        "san marino"
+      ],
+      "svgPathId": "san-marino",
+      "label": {
+        "x": 49.58,
+        "y": 73.4
+      }
+    },
+    {
+      "id": "capital-serbia",
+      "name": "Belgrado",
+      "aliases": [
+        "belgrado",
+        "belgrade"
+      ],
+      "country": "Serbia",
+      "countryAliases": [
+        "serbia"
+      ],
+      "svgPathId": "serbia",
+      "label": {
+        "x": 57.24,
+        "y": 73.26
+      }
+    },
+    {
+      "id": "capital-ciudad-del-vaticano",
+      "name": "Ciudad del Vaticano",
+      "aliases": [
+        "vaticano",
+        "ciudad del vaticano"
+      ],
+      "country": "Ciudad del Vaticano",
+      "countryAliases": [
+        "vaticano",
+        "ciudad del vaticano",
+        "santa sede"
+      ],
+      "svgPathId": "ciudad-del-vaticano",
+      "label": {
+        "x": 49.57,
+        "y": 77.05
+      }
+    },
+    {
+      "id": "capital-rusia",
+      "name": "Moscú",
+      "aliases": [
+        "moscu",
+        "moscú",
+        "moscow"
+      ],
+      "country": "Rusia",
+      "countryAliases": [
+        "rusia"
+      ],
+      "svgPathId": "rusia",
+      "label": {
+        "x": 74.02,
+        "y": 51.89
+      }
+    }
+  ]
+}

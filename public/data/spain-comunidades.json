@@ -1,0 +1,456 @@
+{
+  "id": "comunidades",
+  "region": "spain",
+  "title": "Comunidades autónomas",
+  "map": "/maps/spain.svg",
+  "viewBox": "0 0 1000 800",
+  "hiddenCount": 10,
+  "layer": "comunidad",
+  "items": [
+    {
+      "id": "andalucia",
+      "name": "Andalucía",
+      "aliases": [
+        "andalucia"
+      ],
+      "svgPathId": "andalucia",
+      "label": {
+        "x": 25.85,
+        "y": 67.4
+      },
+      "capital": {
+        "name": "Sevilla",
+        "aliases": [
+          "sevilla"
+        ],
+        "label": {
+          "x": 25.85,
+          "y": 67.4
+        }
+      }
+    },
+    {
+      "id": "aragon",
+      "name": "Aragón",
+      "aliases": [
+        "aragon"
+      ],
+      "svgPathId": "aragon",
+      "label": {
+        "x": 45.29,
+        "y": 34.83
+      },
+      "capital": {
+        "name": "Zaragoza",
+        "aliases": [
+          "zaragoza"
+        ],
+        "label": {
+          "x": 45.29,
+          "y": 34.83
+        }
+      }
+    },
+    {
+      "id": "asturias",
+      "name": "Asturias",
+      "aliases": [
+        "asturias",
+        "principado de asturias"
+      ],
+      "svgPathId": "asturias",
+      "label": {
+        "x": 18.81,
+        "y": 19.86
+      },
+      "capital": {
+        "name": "Oviedo",
+        "aliases": [
+          "oviedo"
+        ],
+        "label": {
+          "x": 18.81,
+          "y": 19.86
+        }
+      }
+    },
+    {
+      "id": "islas-baleares",
+      "name": "Islas Baleares",
+      "aliases": [
+        "islas baleares",
+        "illes balears",
+        "baleares"
+      ],
+      "svgPathId": "islas-baleares",
+      "label": {
+        "x": 63.03,
+        "y": 50.67
+      },
+      "capital": {
+        "name": "Palma",
+        "aliases": [
+          "palma",
+          "palma de mallorca"
+        ],
+        "label": {
+          "x": 63.03,
+          "y": 50.67
+        }
+      }
+    },
+    {
+      "id": "cantabria",
+      "name": "Cantabria",
+      "aliases": [
+        "cantabria"
+      ],
+      "svgPathId": "cantabria",
+      "label": {
+        "x": 28.57,
+        "y": 20.67
+      },
+      "capital": {
+        "name": "Santander",
+        "aliases": [
+          "santander"
+        ],
+        "label": {
+          "x": 28.57,
+          "y": 20.67
+        }
+      }
+    },
+    {
+      "id": "castilla-y-leon",
+      "name": "Castilla y León",
+      "aliases": [
+        "castilla y leon",
+        "castilla y león"
+      ],
+      "svgPathId": "castilla-y-leon",
+      "label": {
+        "x": 24.82,
+        "y": 32.85
+      },
+      "capital": {
+        "name": "Valladolid",
+        "aliases": [
+          "valladolid"
+        ],
+        "label": {
+          "x": 24.82,
+          "y": 32.85
+        }
+      }
+    },
+    {
+      "id": "castilla-la-mancha",
+      "name": "Castilla-La Mancha",
+      "aliases": [
+        "castilla la mancha",
+        "castilla-la mancha"
+      ],
+      "svgPathId": "castilla-la-mancha",
+      "label": {
+        "x": 33.65,
+        "y": 50.65
+      },
+      "capital": {
+        "name": "Toledo",
+        "aliases": [
+          "toledo"
+        ],
+        "label": {
+          "x": 33.65,
+          "y": 50.65
+        }
+      }
+    },
+    {
+      "id": "cataluna",
+      "name": "Cataluña",
+      "aliases": [
+        "cataluna",
+        "catalunya",
+        "cataluña"
+      ],
+      "svgPathId": "cataluna",
+      "label": {
+        "x": 56.16,
+        "y": 32.47
+      },
+      "capital": {
+        "name": "Barcelona",
+        "aliases": [
+          "barcelona"
+        ],
+        "label": {
+          "x": 56.16,
+          "y": 32.47
+        }
+      }
+    },
+    {
+      "id": "comunidad-valenciana",
+      "name": "Comunidad Valenciana",
+      "aliases": [
+        "comunidad valenciana",
+        "comunitat valenciana",
+        "valencia"
+      ],
+      "svgPathId": "comunidad-valenciana",
+      "label": {
+        "x": 45.82,
+        "y": 52.12
+      },
+      "capital": {
+        "name": "Valencia",
+        "aliases": [
+          "valencia"
+        ],
+        "label": {
+          "x": 45.82,
+          "y": 52.12
+        }
+      }
+    },
+    {
+      "id": "extremadura",
+      "name": "Extremadura",
+      "aliases": [
+        "extremadura"
+      ],
+      "svgPathId": "extremadura",
+      "label": {
+        "x": 18.03,
+        "y": 53.78
+      },
+      "capital": {
+        "name": "Mérida",
+        "aliases": [
+          "merida",
+          "mérida"
+        ],
+        "label": {
+          "x": 18.03,
+          "y": 53.78
+        }
+      }
+    },
+    {
+      "id": "galicia",
+      "name": "Galicia",
+      "aliases": [
+        "galicia"
+      ],
+      "svgPathId": "galicia",
+      "label": {
+        "x": 9.29,
+        "y": 24.43
+      },
+      "capital": {
+        "name": "Santiago de Compostela",
+        "aliases": [
+          "santiago",
+          "santiago de compostela"
+        ],
+        "label": {
+          "x": 9.29,
+          "y": 24.43
+        }
+      }
+    },
+    {
+      "id": "madrid",
+      "name": "Madrid",
+      "aliases": [
+        "comunidad de madrid",
+        "madrid"
+      ],
+      "svgPathId": "madrid",
+      "label": {
+        "x": 30.13,
+        "y": 43.22
+      },
+      "capital": {
+        "name": "Madrid",
+        "aliases": [
+          "madrid"
+        ],
+        "label": {
+          "x": 30.13,
+          "y": 43.22
+        }
+      }
+    },
+    {
+      "id": "murcia",
+      "name": "Murcia",
+      "aliases": [
+        "region de murcia",
+        "región de murcia",
+        "murcia"
+      ],
+      "svgPathId": "murcia",
+      "label": {
+        "x": 41.21,
+        "y": 63.21
+      },
+      "capital": {
+        "name": "Murcia",
+        "aliases": [
+          "murcia"
+        ],
+        "label": {
+          "x": 41.21,
+          "y": 63.21
+        }
+      }
+    },
+    {
+      "id": "navarra",
+      "name": "Navarra",
+      "aliases": [
+        "navarra",
+        "comunidad foral de navarra"
+      ],
+      "svgPathId": "navarra",
+      "label": {
+        "x": 40.41,
+        "y": 25.18
+      },
+      "capital": {
+        "name": "Pamplona",
+        "aliases": [
+          "pamplona",
+          "iruña"
+        ],
+        "label": {
+          "x": 40.41,
+          "y": 25.18
+        }
+      }
+    },
+    {
+      "id": "pais-vasco",
+      "name": "País Vasco",
+      "aliases": [
+        "pais vasco",
+        "euskadi",
+        "país vasco"
+      ],
+      "svgPathId": "pais-vasco",
+      "label": {
+        "x": 35.6,
+        "y": 21.99
+      },
+      "capital": {
+        "name": "Vitoria-Gasteiz",
+        "aliases": [
+          "vitoria",
+          "vitoria-gasteiz",
+          "gasteiz"
+        ],
+        "label": {
+          "x": 35.6,
+          "y": 21.99
+        }
+      }
+    },
+    {
+      "id": "la-rioja",
+      "name": "La Rioja",
+      "aliases": [
+        "la rioja",
+        "rioja"
+      ],
+      "svgPathId": "la-rioja",
+      "label": {
+        "x": 36.09,
+        "y": 28.48
+      },
+      "capital": {
+        "name": "Logroño",
+        "aliases": [
+          "logrono",
+          "logroño"
+        ],
+        "label": {
+          "x": 36.09,
+          "y": 28.48
+        }
+      }
+    },
+    {
+      "id": "ceuta",
+      "name": "Ceuta",
+      "aliases": [
+        "ceuta",
+        "ciudad autonoma de ceuta"
+      ],
+      "svgPathId": "ceuta",
+      "label": {
+        "x": 22.03,
+        "y": 79.59
+      },
+      "capital": {
+        "name": "Ceuta",
+        "aliases": [
+          "ceuta"
+        ],
+        "label": {
+          "x": 22.03,
+          "y": 79.59
+        }
+      }
+    },
+    {
+      "id": "melilla",
+      "name": "Melilla",
+      "aliases": [
+        "melilla",
+        "ciudad autonoma de melilla"
+      ],
+      "svgPathId": "melilla",
+      "label": {
+        "x": 33.94,
+        "y": 84.2
+      },
+      "capital": {
+        "name": "Melilla",
+        "aliases": [
+          "melilla"
+        ],
+        "label": {
+          "x": 33.94,
+          "y": 84.2
+        }
+      }
+    },
+    {
+      "id": "canarias",
+      "name": "Canarias",
+      "aliases": [
+        "islas canarias"
+      ],
+      "svgPathId": "canarias",
+      "label": {
+        "x": 86.01,
+        "y": 86.72
+      },
+      "capital": {
+        "name": "Santa Cruz de Tenerife",
+        "aliases": [
+          "santa cruz de tenerife",
+          "las palmas de gran canaria",
+          "las palmas"
+        ],
+        "label": {
+          "x": 86.01,
+          "y": 86.72
+        }
+      }
+    }
+  ]
+}

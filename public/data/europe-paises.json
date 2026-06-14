@@ -1,0 +1,1191 @@
+{
+  "id": "paises",
+  "region": "europe",
+  "title": "Países de Europa",
+  "map": "/maps/europe.svg",
+  "viewBox": "0 0 1000 700",
+  "hiddenCount": 10,
+  "layer": "pais",
+  "items": [
+    {
+      "id": "azerbaiyan",
+      "name": "Azerbaiyán",
+      "aliases": [
+        "azerbaiyan",
+        "azerbaiyán"
+      ],
+      "svgPathId": "azerbaiyan",
+      "label": {
+        "x": 81.72,
+        "y": 79.85
+      },
+      "capital": {
+        "name": "Bakú",
+        "aliases": [
+          "baku",
+          "bakú"
+        ],
+        "label": {
+          "x": 81.72,
+          "y": 79.85
+        }
+      }
+    },
+    {
+      "id": "albania",
+      "name": "Albania",
+      "aliases": [
+        "albania"
+      ],
+      "svgPathId": "albania",
+      "label": {
+        "x": 56.56,
+        "y": 78.39
+      },
+      "capital": {
+        "name": "Tirana",
+        "aliases": [
+          "tirana"
+        ],
+        "label": {
+          "x": 56.56,
+          "y": 78.39
+        }
+      }
+    },
+    {
+      "id": "armenia",
+      "name": "Armenia",
+      "aliases": [
+        "armenia"
+      ],
+      "svgPathId": "armenia",
+      "label": {
+        "x": 79.36,
+        "y": 79.86
+      },
+      "capital": {
+        "name": "Ereván",
+        "aliases": [
+          "erevan",
+          "ereván",
+          "yerevan"
+        ],
+        "label": {
+          "x": 79.36,
+          "y": 79.86
+        }
+      }
+    },
+    {
+      "id": "bosnia-y-herzegovina",
+      "name": "Bosnia y Herzegovina",
+      "aliases": [
+        "bosnia",
+        "bosnia y herzegovina"
+      ],
+      "svgPathId": "bosnia-y-herzegovina",
+      "label": {
+        "x": 54.47,
+        "y": 73
+      },
+      "capital": {
+        "name": "Sarajevo",
+        "aliases": [
+          "sarajevo"
+        ],
+        "label": {
+          "x": 54.47,
+          "y": 73
+        }
+      }
+    },
+    {
+      "id": "bulgaria",
+      "name": "Bulgaria",
+      "aliases": [
+        "bulgaria"
+      ],
+      "svgPathId": "bulgaria",
+      "label": {
+        "x": 61.28,
+        "y": 75.52
+      },
+      "capital": {
+        "name": "Sofía",
+        "aliases": [
+          "sofia",
+          "sofía"
+        ],
+        "label": {
+          "x": 61.28,
+          "y": 75.52
+        }
+      }
+    },
+    {
+      "id": "chipre",
+      "name": "Chipre",
+      "aliases": [
+        "chipre"
+      ],
+      "svgPathId": "chipre",
+      "label": {
+        "x": 68.6,
+        "y": 88.53
+      },
+      "capital": {
+        "name": "Nicosia",
+        "aliases": [
+          "nicosia"
+        ],
+        "label": {
+          "x": 68.6,
+          "y": 88.53
+        }
+      }
+    },
+    {
+      "id": "dinamarca",
+      "name": "Dinamarca",
+      "aliases": [
+        "dinamarca"
+      ],
+      "svgPathId": "dinamarca",
+      "label": {
+        "x": 47.39,
+        "y": 48.79
+      },
+      "capital": {
+        "name": "Copenhague",
+        "aliases": [
+          "copenhague",
+          "copenhagen"
+        ],
+        "label": {
+          "x": 47.39,
+          "y": 48.79
+        }
+      }
+    },
+    {
+      "id": "irlanda",
+      "name": "Irlanda",
+      "aliases": [
+        "irlanda"
+      ],
+      "svgPathId": "irlanda",
+      "label": {
+        "x": 30.69,
+        "y": 55.09
+      },
+      "capital": {
+        "name": "Dublín",
+        "aliases": [
+          "dublin",
+          "dublín"
+        ],
+        "label": {
+          "x": 30.69,
+          "y": 55.09
+        }
+      }
+    },
+    {
+      "id": "estonia",
+      "name": "Estonia",
+      "aliases": [
+        "estonia"
+      ],
+      "svgPathId": "estonia",
+      "label": {
+        "x": 61.56,
+        "y": 42.19
+      },
+      "capital": {
+        "name": "Tallin",
+        "aliases": [
+          "tallin",
+          "tallinn"
+        ],
+        "label": {
+          "x": 61.56,
+          "y": 42.19
+        }
+      }
+    },
+    {
+      "id": "austria",
+      "name": "Austria",
+      "aliases": [
+        "austria"
+      ],
+      "svgPathId": "austria",
+      "label": {
+        "x": 51.11,
+        "y": 66.53
+      },
+      "capital": {
+        "name": "Viena",
+        "aliases": [
+          "viena",
+          "wien"
+        ],
+        "label": {
+          "x": 51.11,
+          "y": 66.53
+        }
+      }
+    },
+    {
+      "id": "republica-checa",
+      "name": "República Checa",
+      "aliases": [
+        "republica checa",
+        "república checa",
+        "chequia",
+        "czechia"
+      ],
+      "svgPathId": "republica-checa",
+      "label": {
+        "x": 52.23,
+        "y": 62.28
+      },
+      "capital": {
+        "name": "Praga",
+        "aliases": [
+          "praga",
+          "prague"
+        ],
+        "label": {
+          "x": 52.23,
+          "y": 62.28
+        }
+      }
+    },
+    {
+      "id": "finlandia",
+      "name": "Finlandia",
+      "aliases": [
+        "finlandia"
+      ],
+      "svgPathId": "finlandia",
+      "label": {
+        "x": 62.17,
+        "y": 26.84
+      },
+      "capital": {
+        "name": "Helsinki",
+        "aliases": [
+          "helsinki"
+        ],
+        "label": {
+          "x": 62.17,
+          "y": 26.84
+        }
+      }
+    },
+    {
+      "id": "francia",
+      "name": "Francia",
+      "aliases": [
+        "francia"
+      ],
+      "svgPathId": "francia",
+      "label": {
+        "x": 40.52,
+        "y": 68.62
+      },
+      "capital": {
+        "name": "París",
+        "aliases": [
+          "paris",
+          "parís"
+        ],
+        "label": {
+          "x": 40.52,
+          "y": 68.62
+        }
+      }
+    },
+    {
+      "id": "georgia",
+      "name": "Georgia",
+      "aliases": [
+        "georgia"
+      ],
+      "svgPathId": "georgia",
+      "label": {
+        "x": 78.06,
+        "y": 76.56
+      },
+      "capital": {
+        "name": "Tiflis",
+        "aliases": [
+          "tiflis",
+          "tbilisi"
+        ],
+        "label": {
+          "x": 78.06,
+          "y": 76.56
+        }
+      }
+    },
+    {
+      "id": "alemania",
+      "name": "Alemania",
+      "aliases": [
+        "alemania"
+      ],
+      "svgPathId": "alemania",
+      "label": {
+        "x": 47.67,
+        "y": 59.59
+      },
+      "capital": {
+        "name": "Berlín",
+        "aliases": [
+          "berlin",
+          "berlín"
+        ],
+        "label": {
+          "x": 47.67,
+          "y": 59.59
+        }
+      }
+    },
+    {
+      "id": "grecia",
+      "name": "Grecia",
+      "aliases": [
+        "grecia"
+      ],
+      "svgPathId": "grecia",
+      "label": {
+        "x": 59.24,
+        "y": 82.01
+      },
+      "capital": {
+        "name": "Atenas",
+        "aliases": [
+          "atenas",
+          "athens"
+        ],
+        "label": {
+          "x": 59.24,
+          "y": 82.01
+        }
+      }
+    },
+    {
+      "id": "croacia",
+      "name": "Croacia",
+      "aliases": [
+        "croacia"
+      ],
+      "svgPathId": "croacia",
+      "label": {
+        "x": 53.2,
+        "y": 71.39
+      },
+      "capital": {
+        "name": "Zagreb",
+        "aliases": [
+          "zagreb"
+        ],
+        "label": {
+          "x": 53.2,
+          "y": 71.39
+        }
+      }
+    },
+    {
+      "id": "hungria",
+      "name": "Hungría",
+      "aliases": [
+        "hungria",
+        "hungría"
+      ],
+      "svgPathId": "hungria",
+      "label": {
+        "x": 55.94,
+        "y": 67.37
+      },
+      "capital": {
+        "name": "Budapest",
+        "aliases": [
+          "budapest"
+        ],
+        "label": {
+          "x": 55.94,
+          "y": 67.37
+        }
+      }
+    },
+    {
+      "id": "islandia",
+      "name": "Islandia",
+      "aliases": [
+        "islandia"
+      ],
+      "svgPathId": "islandia",
+      "label": {
+        "x": 21.11,
+        "y": 24.58
+      },
+      "capital": {
+        "name": "Reikiavik",
+        "aliases": [
+          "reikiavik",
+          "reykjavik"
+        ],
+        "label": {
+          "x": 21.11,
+          "y": 24.58
+        }
+      }
+    },
+    {
+      "id": "israel",
+      "name": "Israel",
+      "aliases": [
+        "israel"
+      ],
+      "svgPathId": "israel",
+      "label": {
+        "x": 70.2,
+        "y": 94.31
+      },
+      "capital": {
+        "name": "Jerusalén",
+        "aliases": [
+          "jerusalen",
+          "jerusalén",
+          "jerusalem"
+        ],
+        "label": {
+          "x": 70.2,
+          "y": 94.31
+        }
+      }
+    },
+    {
+      "id": "italia",
+      "name": "Italia",
+      "aliases": [
+        "italia"
+      ],
+      "svgPathId": "italia",
+      "label": {
+        "x": 49.35,
+        "y": 75.62
+      },
+      "capital": {
+        "name": "Roma",
+        "aliases": [
+          "roma",
+          "rome"
+        ],
+        "label": {
+          "x": 49.35,
+          "y": 75.62
+        }
+      }
+    },
+    {
+      "id": "letonia",
+      "name": "Letonia",
+      "aliases": [
+        "letonia"
+      ],
+      "svgPathId": "letonia",
+      "label": {
+        "x": 61.02,
+        "y": 46.63
+      },
+      "capital": {
+        "name": "Riga",
+        "aliases": [
+          "riga"
+        ],
+        "label": {
+          "x": 61.02,
+          "y": 46.63
+        }
+      }
+    },
+    {
+      "id": "bielorrusia",
+      "name": "Bielorrusia",
+      "aliases": [
+        "bielorrusia",
+        "belarus"
+      ],
+      "svgPathId": "bielorrusia",
+      "label": {
+        "x": 63.85,
+        "y": 54.29
+      },
+      "capital": {
+        "name": "Minsk",
+        "aliases": [
+          "minsk"
+        ],
+        "label": {
+          "x": 63.85,
+          "y": 54.29
+        }
+      }
+    },
+    {
+      "id": "lituania",
+      "name": "Lituania",
+      "aliases": [
+        "lituania"
+      ],
+      "svgPathId": "lituania",
+      "label": {
+        "x": 60.07,
+        "y": 50.23
+      },
+      "capital": {
+        "name": "Vilna",
+        "aliases": [
+          "vilna",
+          "vilnius"
+        ],
+        "label": {
+          "x": 60.07,
+          "y": 50.23
+        }
+      }
+    },
+    {
+      "id": "eslovaquia",
+      "name": "Eslovaquia",
+      "aliases": [
+        "eslovaquia"
+      ],
+      "svgPathId": "eslovaquia",
+      "label": {
+        "x": 56.02,
+        "y": 64.35
+      },
+      "capital": {
+        "name": "Bratislava",
+        "aliases": [
+          "bratislava"
+        ],
+        "label": {
+          "x": 56.02,
+          "y": 64.35
+        }
+      }
+    },
+    {
+      "id": "liechtenstein",
+      "name": "Liechtenstein",
+      "aliases": [
+        "liechtenstein"
+      ],
+      "svgPathId": "liechtenstein",
+      "label": {
+        "x": 46.92,
+        "y": 67.4
+      },
+      "capital": {
+        "name": "Vaduz",
+        "aliases": [
+          "vaduz"
+        ],
+        "label": {
+          "x": 46.92,
+          "y": 67.4
+        }
+      }
+    },
+    {
+      "id": "macedonia-del-norte",
+      "name": "Macedonia del Norte",
+      "aliases": [
+        "macedonia del norte",
+        "macedonia"
+      ],
+      "svgPathId": "macedonia-del-norte",
+      "label": {
+        "x": 58.05,
+        "y": 77.58
+      },
+      "capital": {
+        "name": "Skopie",
+        "aliases": [
+          "skopie",
+          "skopje"
+        ],
+        "label": {
+          "x": 58.05,
+          "y": 77.58
+        }
+      }
+    },
+    {
+      "id": "malta",
+      "name": "Malta",
+      "aliases": [
+        "malta"
+      ],
+      "svgPathId": "malta",
+      "label": {
+        "x": 51.36,
+        "y": 87.12
+      },
+      "capital": {
+        "name": "La Valeta",
+        "aliases": [
+          "la valeta",
+          "valletta"
+        ],
+        "label": {
+          "x": 51.36,
+          "y": 87.12
+        }
+      }
+    },
+    {
+      "id": "belgica",
+      "name": "Bélgica",
+      "aliases": [
+        "belgica",
+        "bélgica"
+      ],
+      "svgPathId": "belgica",
+      "label": {
+        "x": 42.44,
+        "y": 60.45
+      },
+      "capital": {
+        "name": "Bruselas",
+        "aliases": [
+          "bruselas",
+          "brussels"
+        ],
+        "label": {
+          "x": 42.44,
+          "y": 60.45
+        }
+      }
+    },
+    {
+      "id": "islas-feroe",
+      "name": "Islas Feroe",
+      "aliases": [
+        "islas feroe",
+        "feroe"
+      ],
+      "svgPathId": "islas-feroe",
+      "label": {
+        "x": 31.87,
+        "y": 33.25
+      },
+      "capital": {
+        "name": "Tórshavn",
+        "aliases": [
+          "torshavn",
+          "tórshavn"
+        ],
+        "label": {
+          "x": 31.87,
+          "y": 33.25
+        }
+      }
+    },
+    {
+      "id": "andorra",
+      "name": "Andorra",
+      "aliases": [
+        "andorra"
+      ],
+      "svgPathId": "andorra",
+      "label": {
+        "x": 39.61,
+        "y": 75.91
+      },
+      "capital": {
+        "name": "Andorra la Vella",
+        "aliases": [
+          "andorra la vella"
+        ],
+        "label": {
+          "x": 39.61,
+          "y": 75.91
+        }
+      }
+    },
+    {
+      "id": "luxemburgo",
+      "name": "Luxemburgo",
+      "aliases": [
+        "luxemburgo"
+      ],
+      "svgPathId": "luxemburgo",
+      "label": {
+        "x": 43.74,
+        "y": 62.23
+      },
+      "capital": {
+        "name": "Luxemburgo",
+        "aliases": [
+          "luxemburgo"
+        ],
+        "label": {
+          "x": 43.74,
+          "y": 62.23
+        }
+      }
+    },
+    {
+      "id": "monaco",
+      "name": "Mónaco",
+      "aliases": [
+        "monaco",
+        "mónaco"
+      ],
+      "svgPathId": "monaco",
+      "label": {
+        "x": 44.96,
+        "y": 73.75
+      },
+      "capital": {
+        "name": "Mónaco",
+        "aliases": [
+          "monaco",
+          "mónaco"
+        ],
+        "label": {
+          "x": 44.96,
+          "y": 73.75
+        }
+      }
+    },
+    {
+      "id": "montenegro",
+      "name": "Montenegro",
+      "aliases": [
+        "montenegro"
+      ],
+      "svgPathId": "montenegro",
+      "label": {
+        "x": 55.81,
+        "y": 75.48
+      },
+      "capital": {
+        "name": "Podgorica",
+        "aliases": [
+          "podgorica"
+        ],
+        "label": {
+          "x": 55.81,
+          "y": 75.48
+        }
+      }
+    },
+    {
+      "id": "paises-bajos",
+      "name": "Países Bajos",
+      "aliases": [
+        "paises bajos",
+        "países bajos",
+        "holanda"
+      ],
+      "svgPathId": "paises-bajos",
+      "label": {
+        "x": 43.29,
+        "y": 57.07
+      },
+      "capital": {
+        "name": "Ámsterdam",
+        "aliases": [
+          "amsterdam",
+          "ámsterdam"
+        ],
+        "label": {
+          "x": 43.29,
+          "y": 57.07
+        }
+      }
+    },
+    {
+      "id": "noruega",
+      "name": "Noruega",
+      "aliases": [
+        "noruega"
+      ],
+      "svgPathId": "noruega",
+      "label": {
+        "x": 49.43,
+        "y": 27.7
+      },
+      "capital": {
+        "name": "Oslo",
+        "aliases": [
+          "oslo"
+        ],
+        "label": {
+          "x": 49.43,
+          "y": 27.7
+        }
+      }
+    },
+    {
+      "id": "polonia",
+      "name": "Polonia",
+      "aliases": [
+        "polonia"
+      ],
+      "svgPathId": "polonia",
+      "label": {
+        "x": 55.97,
+        "y": 57.37
+      },
+      "capital": {
+        "name": "Varsovia",
+        "aliases": [
+          "varsovia",
+          "warsaw"
+        ],
+        "label": {
+          "x": 55.97,
+          "y": 57.37
+        }
+      }
+    },
+    {
+      "id": "portugal",
+      "name": "Portugal",
+      "aliases": [
+        "portugal"
+      ],
+      "svgPathId": "portugal",
+      "label": {
+        "x": 30.86,
+        "y": 80.92
+      },
+      "capital": {
+        "name": "Lisboa",
+        "aliases": [
+          "lisboa"
+        ],
+        "label": {
+          "x": 30.86,
+          "y": 80.92
+        }
+      }
+    },
+    {
+      "id": "rumania",
+      "name": "Rumanía",
+      "aliases": [
+        "rumania",
+        "rumanía"
+      ],
+      "svgPathId": "rumania",
+      "label": {
+        "x": 61.05,
+        "y": 69.9
+      },
+      "capital": {
+        "name": "Bucarest",
+        "aliases": [
+          "bucarest",
+          "bucharest"
+        ],
+        "label": {
+          "x": 61.05,
+          "y": 69.9
+        }
+      }
+    },
+    {
+      "id": "moldavia",
+      "name": "Moldavia",
+      "aliases": [
+        "moldavia",
+        "moldova"
+      ],
+      "svgPathId": "moldavia",
+      "label": {
+        "x": 64.26,
+        "y": 67.34
+      },
+      "capital": {
+        "name": "Chisináu",
+        "aliases": [
+          "chisinau",
+          "chisináu",
+          "kishinev"
+        ],
+        "label": {
+          "x": 64.26,
+          "y": 67.34
+        }
+      }
+    },
+    {
+      "id": "eslovenia",
+      "name": "Eslovenia",
+      "aliases": [
+        "eslovenia"
+      ],
+      "svgPathId": "eslovenia",
+      "label": {
+        "x": 51.75,
+        "y": 69.36
+      },
+      "capital": {
+        "name": "Liubliana",
+        "aliases": [
+          "liubliana",
+          "ljubljana"
+        ],
+        "label": {
+          "x": 51.75,
+          "y": 69.36
+        }
+      }
+    },
+    {
+      "id": "espana",
+      "name": "España",
+      "aliases": [
+        "espana",
+        "españa"
+      ],
+      "svgPathId": "espana",
+      "label": {
+        "x": 34.96,
+        "y": 79.74
+      },
+      "capital": {
+        "name": "Madrid",
+        "aliases": [
+          "madrid"
+        ],
+        "label": {
+          "x": 34.96,
+          "y": 79.74
+        }
+      }
+    },
+    {
+      "id": "suecia",
+      "name": "Suecia",
+      "aliases": [
+        "suecia"
+      ],
+      "svgPathId": "suecia",
+      "label": {
+        "x": 53.07,
+        "y": 32.29
+      },
+      "capital": {
+        "name": "Estocolmo",
+        "aliases": [
+          "estocolmo",
+          "stockholm"
+        ],
+        "label": {
+          "x": 53.07,
+          "y": 32.29
+        }
+      }
+    },
+    {
+      "id": "suiza",
+      "name": "Suiza",
+      "aliases": [
+        "suiza"
+      ],
+      "svgPathId": "suiza",
+      "label": {
+        "x": 45.71,
+        "y": 68.07
+      },
+      "capital": {
+        "name": "Berna",
+        "aliases": [
+          "berna",
+          "bern"
+        ],
+        "label": {
+          "x": 45.71,
+          "y": 68.07
+        }
+      }
+    },
+    {
+      "id": "turquia",
+      "name": "Turquía",
+      "aliases": [
+        "turquia",
+        "turquía"
+      ],
+      "svgPathId": "turquia",
+      "label": {
+        "x": 70.4,
+        "y": 81.81
+      },
+      "capital": {
+        "name": "Ankara",
+        "aliases": [
+          "ankara"
+        ],
+        "label": {
+          "x": 70.4,
+          "y": 81.81
+        }
+      }
+    },
+    {
+      "id": "reino-unido",
+      "name": "Reino Unido",
+      "aliases": [
+        "reino unido",
+        "inglaterra",
+        "uk"
+      ],
+      "svgPathId": "reino-unido",
+      "label": {
+        "x": 35.61,
+        "y": 53.15
+      },
+      "capital": {
+        "name": "Londres",
+        "aliases": [
+          "londres",
+          "london"
+        ],
+        "label": {
+          "x": 35.61,
+          "y": 53.15
+        }
+      }
+    },
+    {
+      "id": "ucrania",
+      "name": "Ucrania",
+      "aliases": [
+        "ucrania"
+      ],
+      "svgPathId": "ucrania",
+      "label": {
+        "x": 67,
+        "y": 63.7
+      },
+      "capital": {
+        "name": "Kiev",
+        "aliases": [
+          "kiev",
+          "kyiv"
+        ],
+        "label": {
+          "x": 67,
+          "y": 63.7
+        }
+      }
+    },
+    {
+      "id": "san-marino",
+      "name": "San Marino",
+      "aliases": [
+        "san marino"
+      ],
+      "svgPathId": "san-marino",
+      "label": {
+        "x": 49.58,
+        "y": 73.4
+      },
+      "capital": {
+        "name": "San Marino",
+        "aliases": [
+          "san marino"
+        ],
+        "label": {
+          "x": 49.58,
+          "y": 73.4
+        }
+      }
+    },
+    {
+      "id": "serbia",
+      "name": "Serbia",
+      "aliases": [
+        "serbia"
+      ],
+      "svgPathId": "serbia",
+      "label": {
+        "x": 57.24,
+        "y": 73.26
+      },
+      "capital": {
+        "name": "Belgrado",
+        "aliases": [
+          "belgrado",
+          "belgrade"
+        ],
+        "label": {
+          "x": 57.24,
+          "y": 73.26
+        }
+      }
+    },
+    {
+      "id": "ciudad-del-vaticano",
+      "name": "Ciudad del Vaticano",
+      "aliases": [
+        "vaticano",
+        "ciudad del vaticano",
+        "santa sede"
+      ],
+      "svgPathId": "ciudad-del-vaticano",
+      "label": {
+        "x": 49.57,
+        "y": 77.05
+      },
+      "capital": {
+        "name": "Ciudad del Vaticano",
+        "aliases": [
+          "vaticano",
+          "ciudad del vaticano"
+        ],
+        "label": {
+          "x": 49.57,
+          "y": 77.05
+        }
+      }
+    },
+    {
+      "id": "rusia",
+      "name": "Rusia",
+      "aliases": [
+        "rusia"
+      ],
+      "svgPathId": "rusia",
+      "label": {
+        "x": 74.02,
+        "y": 51.89
+      },
+      "capital": {
+        "name": "Moscú",
+        "aliases": [
+          "moscu",
+          "moscú",
+          "moscow"
+        ],
+        "label": {
+          "x": 74.02,
+          "y": 51.89
+        }
+      }
+    }
+  ]
+}
