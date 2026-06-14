@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { EUROPE_QUIZ_ENABLED } from '@/types/quiz'
 </script>
 
 <template>
@@ -7,7 +8,7 @@ import { RouterLink } from 'vue-router'
     <RouterLink to="/" class="brand"> Geografía Interactiva </RouterLink>
     <nav class="nav" aria-label="Secciones principales">
       <RouterLink to="/espana" class="nav-link"> España </RouterLink>
-      <RouterLink to="/europa" class="nav-link"> Europa </RouterLink>
+      <RouterLink v-if="EUROPE_QUIZ_ENABLED" to="/europa" class="nav-link"> Europa </RouterLink>
     </nav>
   </header>
 </template>

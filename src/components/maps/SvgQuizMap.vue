@@ -110,8 +110,8 @@ defineExpose({
 
 .svg-quiz-map__canvas {
   position: relative;
-  width: min(100cqw, calc(100cqh * 10 / 7));
-  height: min(100cqh, calc(100cqw * 7 / 10));
+  width: min(100cqw, calc(100cqh * 1000 / 860));
+  height: min(100cqh, calc(100cqw * 860 / 1000));
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -202,7 +202,7 @@ defineExpose({
   .svg-quiz-map__canvas {
     width: 100%;
     height: auto;
-    aspect-ratio: 10 / 7;
+    aspect-ratio: 1000 / 860;
   }
 
   .svg-quiz-map--spain .svg-quiz-map__canvas {

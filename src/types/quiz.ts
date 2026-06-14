@@ -33,6 +33,8 @@ export interface QuizDataset {
 
 export type QuizRegion = 'spain' | 'europe'
 
+export const EUROPE_QUIZ_ENABLED = false
+
 export type SpainQuizMode = 'comunidades' | 'capitales-provincia'
 
 export type EuropeQuizMode = 'paises' | 'capitales'
@@ -98,7 +100,7 @@ export const EUROPE_QUIZ_CATEGORIES: QuizCategory[] = [
     description: 'Identifica los países europeos en el mapa.',
     region: 'europe',
     dataUrl: QUIZ_DATA_URLS.paises,
-    available: true,
+    available: EUROPE_QUIZ_ENABLED,
   },
   {
     id: 'capitales',
@@ -106,6 +108,6 @@ export const EUROPE_QUIZ_CATEGORIES: QuizCategory[] = [
     description: 'Localiza las capitales de los países europeos.',
     region: 'europe',
     dataUrl: QUIZ_DATA_URLS.capitales,
-    available: true,
+    available: EUROPE_QUIZ_ENABLED,
   },
 ]

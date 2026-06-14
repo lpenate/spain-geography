@@ -5,14 +5,13 @@ import { RouterLink } from 'vue-router'
 <template>
   <section class="hero">
     <p class="eyebrow">Aprende geografía con mapas interactivos</p>
-    <h1>Quiz de España y Europa</h1>
+    <h1>Quiz de geografía de España</h1>
     <p class="lead">
-      Practica las comunidades autónomas, capitales de provincia, países europeos y sus capitales
-      mediante ejercicios con mapas interactivos.
+      Practica las comunidades autónomas y capitales de provincia mediante ejercicios con mapas
+      interactivos.
     </p>
     <div class="actions">
       <RouterLink class="button button-primary" to="/espana"> Explorar España </RouterLink>
-      <RouterLink class="button button-secondary" to="/europa"> Explorar Europa </RouterLink>
     </div>
   </section>
 
@@ -23,14 +22,6 @@ import { RouterLink } from 'vue-router'
       <ul>
         <li>Comunidades autónomas</li>
         <li>Capitales de provincia</li>
-      </ul>
-    </article>
-    <article class="card">
-      <h2>Europa</h2>
-      <p>Países y capitales del continente europeo.</p>
-      <ul>
-        <li>Países de Europa</li>
-        <li>Capitales europeas</li>
       </ul>
     </article>
   </section>
@@ -95,13 +86,8 @@ import { RouterLink } from 'vue-router'
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-}
-
-@media (min-width: 640px) {
-  .cards {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
+  max-width: 28rem;
+  margin: 0 auto;
 }
 
 .card {

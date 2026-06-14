@@ -14,6 +14,6 @@ describe('App', () => {
 
     expect(wrapper.text()).toContain('Geografía Interactiva')
     expect(wrapper.text()).toContain('España')
-    expect(wrapper.text()).toContain('Europa')
+    expect(wrapper.text()).not.toContain('Europa')
   })
 })

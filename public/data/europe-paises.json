@@ -3,7 +3,7 @@
   "region": "europe",
   "title": "Países de Europa",
   "map": "/maps/europe.svg",
-  "viewBox": "0 0 1000 700",
+  "viewBox": "0 0 1000 860",
   "hiddenCount": 10,
   "layer": "pais",
   "items": [
@@ -16,8 +16,8 @@
       ],
       "svgPathId": "azerbaiyan",
       "label": {
-        "x": 81.72,
-        "y": 79.85
+        "x": 94.93,
+        "y": 85.48
       },
       "capital": {
         "name": "Bakú",
@@ -26,8 +26,8 @@
           "bakú"
         ],
         "label": {
-          "x": 81.72,
-          "y": 79.85
+          "x": 94.93,
+          "y": 85.48
         }
       }
     },
@@ -39,8 +39,8 @@
       ],
       "svgPathId": "albania",
       "label": {
-        "x": 56.56,
-        "y": 78.39
+        "x": 61.35,
+        "y": 83.89
       },
       "capital": {
         "name": "Tirana",
@@ -48,8 +48,8 @@
           "tirana"
         ],
         "label": {
-          "x": 56.56,
-          "y": 78.39
+          "x": 61.35,
+          "y": 83.89
         }
       }
     },
@@ -61,8 +61,8 @@
       ],
       "svgPathId": "armenia",
       "label": {
-        "x": 79.36,
-        "y": 79.86
+        "x": 91.77,
+        "y": 85.49
       },
       "capital": {
         "name": "Ereván",
@@ -72,8 +72,8 @@
           "yerevan"
         ],
         "label": {
-          "x": 79.36,
-          "y": 79.86
+          "x": 91.77,
+          "y": 85.49
         }
       }
     },
@@ -86,8 +86,8 @@
       ],
       "svgPathId": "bosnia-y-herzegovina",
       "label": {
-        "x": 54.47,
-        "y": 73
+        "x": 58.56,
+        "y": 78.03
       },
       "capital": {
         "name": "Sarajevo",
@@ -95,8 +95,8 @@
           "sarajevo"
         ],
         "label": {
-          "x": 54.47,
-          "y": 73
+          "x": 58.56,
+          "y": 78.03
         }
       }
     },
@@ -108,8 +108,8 @@
       ],
       "svgPathId": "bulgaria",
       "label": {
-        "x": 61.28,
-        "y": 75.52
+        "x": 67.65,
+        "y": 80.78
       },
       "capital": {
         "name": "Sofía",
@@ -118,8 +118,8 @@
           "sofía"
         ],
         "label": {
-          "x": 61.28,
-          "y": 75.52
+          "x": 67.65,
+          "y": 80.78
         }
       }
     },
@@ -131,8 +131,8 @@
       ],
       "svgPathId": "chipre",
       "label": {
-        "x": 68.6,
-        "y": 88.53
+        "x": 77.42,
+        "y": 94.91
       },
       "capital": {
         "name": "Nicosia",
@@ -140,8 +140,8 @@
           "nicosia"
         ],
         "label": {
-          "x": 68.6,
-          "y": 88.53
+          "x": 77.42,
+          "y": 94.91
         }
       }
     },
@@ -153,8 +153,8 @@
       ],
       "svgPathId": "dinamarca",
       "label": {
-        "x": 47.39,
-        "y": 48.79
+        "x": 49.11,
+        "y": 51.74
       },
       "capital": {
         "name": "Copenhague",
@@ -163,8 +163,8 @@
           "copenhagen"
         ],
         "label": {
-          "x": 47.39,
-          "y": 48.79
+          "x": 49.11,
+          "y": 51.74
         }
       }
     },
@@ -176,8 +176,8 @@
       ],
       "svgPathId": "irlanda",
       "label": {
-        "x": 30.69,
-        "y": 55.09
+        "x": 26.83,
+        "y": 58.59
       },
       "capital": {
         "name": "Dublín",
@@ -186,8 +186,8 @@
           "dublín"
         ],
         "label": {
-          "x": 30.69,
-          "y": 55.09
+          "x": 26.83,
+          "y": 58.59
         }
       }
     },
@@ -199,8 +199,8 @@
       ],
       "svgPathId": "estonia",
       "label": {
-        "x": 61.56,
-        "y": 42.19
+        "x": 68.02,
+        "y": 44.58
       },
       "capital": {
         "name": "Tallin",
@@ -209,8 +209,8 @@
           "tallinn"
         ],
         "label": {
-          "x": 61.56,
-          "y": 42.19
+          "x": 68.02,
+          "y": 44.58
         }
       }
     },
@@ -222,8 +222,8 @@
       ],
       "svgPathId": "austria",
       "label": {
-        "x": 51.11,
-        "y": 66.53
+        "x": 54.08,
+        "y": 71.02
       },
       "capital": {
         "name": "Viena",
@@ -232,8 +232,8 @@
           "wien"
         ],
         "label": {
-          "x": 51.11,
-          "y": 66.53
+          "x": 54.08,
+          "y": 71.02
         }
       }
     },
@@ -248,8 +248,8 @@
       ],
       "svgPathId": "republica-checa",
       "label": {
-        "x": 52.23,
-        "y": 62.28
+        "x": 55.57,
+        "y": 66.39
       },
       "capital": {
         "name": "Praga",
@@ -258,8 +258,8 @@
           "prague"
         ],
         "label": {
-          "x": 52.23,
-          "y": 62.28
+          "x": 55.57,
+          "y": 66.39
         }
       }
     },
@@ -271,8 +271,8 @@
       ],
       "svgPathId": "finlandia",
       "label": {
-        "x": 62.17,
-        "y": 26.84
+        "x": 68.83,
+        "y": 27.91
       },
       "capital": {
         "name": "Helsinki",
@@ -280,8 +280,8 @@
           "helsinki"
         ],
         "label": {
-          "x": 62.17,
-          "y": 26.84
+          "x": 68.83,
+          "y": 27.91
         }
       }
     },
@@ -293,8 +293,8 @@
       ],
       "svgPathId": "francia",
       "label": {
-        "x": 40.52,
-        "y": 68.62
+        "x": 39.96,
+        "y": 73.28
       },
       "capital": {
         "name": "París",
@@ -303,8 +303,8 @@
           "parís"
         ],
         "label": {
-          "x": 40.52,
-          "y": 68.62
+          "x": 39.96,
+          "y": 73.28
         }
       }
     },
@@ -316,8 +316,8 @@
       ],
       "svgPathId": "georgia",
       "label": {
-        "x": 78.06,
-        "y": 76.56
+        "x": 90.04,
+        "y": 81.9
       },
       "capital": {
         "name": "Tiflis",
@@ -326,8 +326,8 @@
           "tbilisi"
         ],
         "label": {
-          "x": 78.06,
-          "y": 76.56
+          "x": 90.04,
+          "y": 81.9
         }
       }
     },
@@ -339,8 +339,8 @@
       ],
       "svgPathId": "alemania",
       "label": {
-        "x": 47.67,
-        "y": 59.59
+        "x": 49.49,
+        "y": 63.48
       },
       "capital": {
         "name": "Berlín",
@@ -349,8 +349,8 @@
           "berlín"
         ],
         "label": {
-          "x": 47.67,
-          "y": 59.59
+          "x": 49.49,
+          "y": 63.48
         }
       }
     },
@@ -362,8 +362,8 @@
       ],
       "svgPathId": "grecia",
       "label": {
-        "x": 59.24,
-        "y": 82.01
+        "x": 64.93,
+        "y": 87.83
       },
       "capital": {
         "name": "Atenas",
@@ -372,8 +372,8 @@
           "athens"
         ],
         "label": {
-          "x": 59.24,
-          "y": 82.01
+          "x": 64.93,
+          "y": 87.83
         }
       }
     },
@@ -385,8 +385,8 @@
       ],
       "svgPathId": "croacia",
       "label": {
-        "x": 53.2,
-        "y": 71.39
+        "x": 56.86,
+        "y": 76.29
       },
       "capital": {
         "name": "Zagreb",
@@ -394,8 +394,8 @@
           "zagreb"
         ],
         "label": {
-          "x": 53.2,
-          "y": 71.39
+          "x": 56.86,
+          "y": 76.29
         }
       }
     },
@@ -408,8 +408,8 @@
       ],
       "svgPathId": "hungria",
       "label": {
-        "x": 55.94,
-        "y": 67.37
+        "x": 60.52,
+        "y": 71.92
       },
       "capital": {
         "name": "Budapest",
@@ -417,8 +417,8 @@
           "budapest"
         ],
         "label": {
-          "x": 55.94,
-          "y": 67.37
+          "x": 60.52,
+          "y": 71.92
         }
       }
     },
@@ -430,8 +430,8 @@
       ],
       "svgPathId": "islandia",
       "label": {
-        "x": 21.11,
-        "y": 24.58
+        "x": 13.66,
+        "y": 11.67
       },
       "capital": {
         "name": "Reikiavik",
@@ -440,32 +440,8 @@
           "reykjavik"
         ],
         "label": {
-          "x": 21.11,
-          "y": 24.58
-        }
-      }
-    },
-    {
-      "id": "israel",
-      "name": "Israel",
-      "aliases": [
-        "israel"
-      ],
-      "svgPathId": "israel",
-      "label": {
-        "x": 70.2,
-        "y": 94.31
-      },
-      "capital": {
-        "name": "Jerusalén",
-        "aliases": [
-          "jerusalen",
-          "jerusalén",
-          "jerusalem"
-        ],
-        "label": {
-          "x": 70.2,
-          "y": 94.31
+          "x": 13.66,
+          "y": 11.67
         }
       }
     },
@@ -477,8 +453,8 @@
       ],
       "svgPathId": "italia",
       "label": {
-        "x": 49.35,
-        "y": 75.62
+        "x": 51.73,
+        "y": 80.88
       },
       "capital": {
         "name": "Roma",
@@ -487,8 +463,8 @@
           "rome"
         ],
         "label": {
-          "x": 49.35,
-          "y": 75.62
+          "x": 51.73,
+          "y": 80.88
         }
       }
     },
@@ -500,8 +476,8 @@
       ],
       "svgPathId": "letonia",
       "label": {
-        "x": 61.02,
-        "y": 46.63
+        "x": 67.3,
+        "y": 49.4
       },
       "capital": {
         "name": "Riga",
@@ -509,8 +485,8 @@
           "riga"
         ],
         "label": {
-          "x": 61.02,
-          "y": 46.63
+          "x": 67.3,
+          "y": 49.4
         }
       }
     },
@@ -523,8 +499,8 @@
       ],
       "svgPathId": "bielorrusia",
       "label": {
-        "x": 63.85,
-        "y": 54.29
+        "x": 71.08,
+        "y": 57.72
       },
       "capital": {
         "name": "Minsk",
@@ -532,8 +508,8 @@
           "minsk"
         ],
         "label": {
-          "x": 63.85,
-          "y": 54.29
+          "x": 71.08,
+          "y": 57.72
         }
       }
     },
@@ -545,8 +521,8 @@
       ],
       "svgPathId": "lituania",
       "label": {
-        "x": 60.07,
-        "y": 50.23
+        "x": 66.04,
+        "y": 53.31
       },
       "capital": {
         "name": "Vilna",
@@ -555,8 +531,8 @@
           "vilnius"
         ],
         "label": {
-          "x": 60.07,
-          "y": 50.23
+          "x": 66.04,
+          "y": 53.31
         }
       }
     },
@@ -568,8 +544,8 @@
       ],
       "svgPathId": "eslovaquia",
       "label": {
-        "x": 56.02,
-        "y": 64.35
+        "x": 60.63,
+        "y": 68.64
       },
       "capital": {
         "name": "Bratislava",
@@ -577,8 +553,8 @@
           "bratislava"
         ],
         "label": {
-          "x": 56.02,
-          "y": 64.35
+          "x": 60.63,
+          "y": 68.64
         }
       }
     },
@@ -590,8 +566,8 @@
       ],
       "svgPathId": "liechtenstein",
       "label": {
-        "x": 46.92,
-        "y": 67.4
+        "x": 48.49,
+        "y": 71.96
       },
       "capital": {
         "name": "Vaduz",
@@ -599,8 +575,8 @@
           "vaduz"
         ],
         "label": {
-          "x": 46.92,
-          "y": 67.4
+          "x": 48.49,
+          "y": 71.96
         }
       }
     },
@@ -613,8 +589,8 @@
       ],
       "svgPathId": "macedonia-del-norte",
       "label": {
-        "x": 58.05,
-        "y": 77.58
+        "x": 63.34,
+        "y": 83.01
       },
       "capital": {
         "name": "Skopie",
@@ -623,8 +599,8 @@
           "skopje"
         ],
         "label": {
-          "x": 58.05,
-          "y": 77.58
+          "x": 63.34,
+          "y": 83.01
         }
       }
     },
@@ -636,8 +612,8 @@
       ],
       "svgPathId": "malta",
       "label": {
-        "x": 51.36,
-        "y": 87.12
+        "x": 54.42,
+        "y": 93.38
       },
       "capital": {
         "name": "La Valeta",
@@ -646,8 +622,8 @@
           "valletta"
         ],
         "label": {
-          "x": 51.36,
-          "y": 87.12
+          "x": 54.42,
+          "y": 93.38
         }
       }
     },
@@ -660,8 +636,8 @@
       ],
       "svgPathId": "belgica",
       "label": {
-        "x": 42.44,
-        "y": 60.45
+        "x": 42.52,
+        "y": 64.4
       },
       "capital": {
         "name": "Bruselas",
@@ -670,8 +646,8 @@
           "brussels"
         ],
         "label": {
-          "x": 42.44,
-          "y": 60.45
+          "x": 42.52,
+          "y": 64.4
         }
       }
     },
@@ -684,8 +660,8 @@
       ],
       "svgPathId": "islas-feroe",
       "label": {
-        "x": 31.87,
-        "y": 33.25
+        "x": 28.42,
+        "y": 34.87
       },
       "capital": {
         "name": "Tórshavn",
@@ -694,8 +670,8 @@
           "tórshavn"
         ],
         "label": {
-          "x": 31.87,
-          "y": 33.25
+          "x": 28.42,
+          "y": 34.87
         }
       }
     },
@@ -707,8 +683,8 @@
       ],
       "svgPathId": "andorra",
       "label": {
-        "x": 39.61,
-        "y": 75.91
+        "x": 38.73,
+        "y": 81.2
       },
       "capital": {
         "name": "Andorra la Vella",
@@ -716,8 +692,8 @@
           "andorra la vella"
         ],
         "label": {
-          "x": 39.61,
-          "y": 75.91
+          "x": 38.73,
+          "y": 81.2
         }
       }
     },
@@ -729,8 +705,8 @@
       ],
       "svgPathId": "luxemburgo",
       "label": {
-        "x": 43.74,
-        "y": 62.23
+        "x": 44.25,
+        "y": 66.34
       },
       "capital": {
         "name": "Luxemburgo",
@@ -738,8 +714,8 @@
           "luxemburgo"
         ],
         "label": {
-          "x": 43.74,
-          "y": 62.23
+          "x": 44.25,
+          "y": 66.34
         }
       }
     },
@@ -752,8 +728,8 @@
       ],
       "svgPathId": "monaco",
       "label": {
-        "x": 44.96,
-        "y": 73.75
+        "x": 45.87,
+        "y": 78.85
       },
       "capital": {
         "name": "Mónaco",
@@ -762,8 +738,8 @@
           "mónaco"
         ],
         "label": {
-          "x": 44.96,
-          "y": 73.75
+          "x": 45.87,
+          "y": 78.85
         }
       }
     },
@@ -775,8 +751,8 @@
       ],
       "svgPathId": "montenegro",
       "label": {
-        "x": 55.81,
-        "y": 75.48
+        "x": 60.35,
+        "y": 80.73
       },
       "capital": {
         "name": "Podgorica",
@@ -784,8 +760,8 @@
           "podgorica"
         ],
         "label": {
-          "x": 55.81,
-          "y": 75.48
+          "x": 60.35,
+          "y": 80.73
         }
       }
     },
@@ -799,8 +775,8 @@
       ],
       "svgPathId": "paises-bajos",
       "label": {
-        "x": 43.29,
-        "y": 57.07
+        "x": 43.64,
+        "y": 60.74
       },
       "capital": {
         "name": "Ámsterdam",
@@ -809,8 +785,8 @@
           "ámsterdam"
         ],
         "label": {
-          "x": 43.29,
-          "y": 57.07
+          "x": 43.64,
+          "y": 60.74
         }
       }
     },
@@ -822,8 +798,8 @@
       ],
       "svgPathId": "noruega",
       "label": {
-        "x": 49.43,
-        "y": 27.7
+        "x": 51.84,
+        "y": 28.84
       },
       "capital": {
         "name": "Oslo",
@@ -831,8 +807,8 @@
           "oslo"
         ],
         "label": {
-          "x": 49.43,
-          "y": 27.7
+          "x": 51.84,
+          "y": 28.84
         }
       }
     },
@@ -844,8 +820,8 @@
       ],
       "svgPathId": "polonia",
       "label": {
-        "x": 55.97,
-        "y": 57.37
+        "x": 60.56,
+        "y": 61.06
       },
       "capital": {
         "name": "Varsovia",
@@ -854,8 +830,8 @@
           "warsaw"
         ],
         "label": {
-          "x": 55.97,
-          "y": 57.37
+          "x": 60.56,
+          "y": 61.06
         }
       }
     },
@@ -867,8 +843,8 @@
       ],
       "svgPathId": "portugal",
       "label": {
-        "x": 30.86,
-        "y": 80.92
+        "x": 27.06,
+        "y": 86.64
       },
       "capital": {
         "name": "Lisboa",
@@ -876,8 +852,8 @@
           "lisboa"
         ],
         "label": {
-          "x": 30.86,
-          "y": 80.92
+          "x": 27.06,
+          "y": 86.64
         }
       }
     },
@@ -890,8 +866,8 @@
       ],
       "svgPathId": "rumania",
       "label": {
-        "x": 61.05,
-        "y": 69.9
+        "x": 67.35,
+        "y": 74.67
       },
       "capital": {
         "name": "Bucarest",
@@ -900,8 +876,8 @@
           "bucharest"
         ],
         "label": {
-          "x": 61.05,
-          "y": 69.9
+          "x": 67.35,
+          "y": 74.67
         }
       }
     },
@@ -914,8 +890,8 @@
       ],
       "svgPathId": "moldavia",
       "label": {
-        "x": 64.26,
-        "y": 67.34
+        "x": 71.63,
+        "y": 71.89
       },
       "capital": {
         "name": "Chisináu",
@@ -925,8 +901,8 @@
           "kishinev"
         ],
         "label": {
-          "x": 64.26,
-          "y": 67.34
+          "x": 71.63,
+          "y": 71.89
         }
       }
     },
@@ -938,8 +914,8 @@
       ],
       "svgPathId": "eslovenia",
       "label": {
-        "x": 51.75,
-        "y": 69.36
+        "x": 54.93,
+        "y": 74.09
       },
       "capital": {
         "name": "Liubliana",
@@ -948,8 +924,8 @@
           "ljubljana"
         ],
         "label": {
-          "x": 51.75,
-          "y": 69.36
+          "x": 54.93,
+          "y": 74.09
         }
       }
     },
@@ -962,8 +938,8 @@
       ],
       "svgPathId": "espana",
       "label": {
-        "x": 34.96,
-        "y": 79.74
+        "x": 32.53,
+        "y": 85.35
       },
       "capital": {
         "name": "Madrid",
@@ -971,8 +947,8 @@
           "madrid"
         ],
         "label": {
-          "x": 34.96,
-          "y": 79.74
+          "x": 32.53,
+          "y": 85.35
         }
       }
     },
@@ -984,8 +960,8 @@
       ],
       "svgPathId": "suecia",
       "label": {
-        "x": 53.07,
-        "y": 32.29
+        "x": 56.69,
+        "y": 33.82
       },
       "capital": {
         "name": "Estocolmo",
@@ -994,8 +970,8 @@
           "stockholm"
         ],
         "label": {
-          "x": 53.07,
-          "y": 32.29
+          "x": 56.69,
+          "y": 33.82
         }
       }
     },
@@ -1007,8 +983,8 @@
       ],
       "svgPathId": "suiza",
       "label": {
-        "x": 45.71,
-        "y": 68.07
+        "x": 46.87,
+        "y": 72.68
       },
       "capital": {
         "name": "Berna",
@@ -1017,8 +993,8 @@
           "bern"
         ],
         "label": {
-          "x": 45.71,
-          "y": 68.07
+          "x": 46.87,
+          "y": 72.68
         }
       }
     },
@@ -1031,8 +1007,8 @@
       ],
       "svgPathId": "turquia",
       "label": {
-        "x": 70.4,
-        "y": 81.81
+        "x": 79.83,
+        "y": 87.61
       },
       "capital": {
         "name": "Ankara",
@@ -1040,8 +1016,8 @@
           "ankara"
         ],
         "label": {
-          "x": 70.4,
-          "y": 81.81
+          "x": 79.83,
+          "y": 87.61
         }
       }
     },
@@ -1055,8 +1031,8 @@
       ],
       "svgPathId": "reino-unido",
       "label": {
-        "x": 35.61,
-        "y": 53.15
+        "x": 33.4,
+        "y": 56.48
       },
       "capital": {
         "name": "Londres",
@@ -1065,8 +1041,8 @@
           "london"
         ],
         "label": {
-          "x": 35.61,
-          "y": 53.15
+          "x": 33.4,
+          "y": 56.48
         }
       }
     },
@@ -1078,8 +1054,8 @@
       ],
       "svgPathId": "ucrania",
       "label": {
-        "x": 67,
-        "y": 63.7
+        "x": 75.28,
+        "y": 67.93
       },
       "capital": {
         "name": "Kiev",
@@ -1088,8 +1064,8 @@
           "kyiv"
         ],
         "label": {
-          "x": 67,
-          "y": 63.7
+          "x": 75.28,
+          "y": 67.93
         }
       }
     },
@@ -1101,8 +1077,8 @@
       ],
       "svgPathId": "san-marino",
       "label": {
-        "x": 49.58,
-        "y": 73.4
+        "x": 52.04,
+        "y": 78.48
       },
       "capital": {
         "name": "San Marino",
@@ -1110,8 +1086,8 @@
           "san marino"
         ],
         "label": {
-          "x": 49.58,
-          "y": 73.4
+          "x": 52.04,
+          "y": 78.48
         }
       }
     },
@@ -1123,8 +1099,8 @@
       ],
       "svgPathId": "serbia",
       "label": {
-        "x": 57.24,
-        "y": 73.26
+        "x": 62.27,
+        "y": 78.33
       },
       "capital": {
         "name": "Belgrado",
@@ -1133,8 +1109,8 @@
           "belgrade"
         ],
         "label": {
-          "x": 57.24,
-          "y": 73.26
+          "x": 62.27,
+          "y": 78.33
         }
       }
     },
@@ -1148,8 +1124,8 @@
       ],
       "svgPathId": "ciudad-del-vaticano",
       "label": {
-        "x": 49.57,
-        "y": 77.05
+        "x": 52.03,
+        "y": 82.43
       },
       "capital": {
         "name": "Ciudad del Vaticano",
@@ -1158,8 +1134,8 @@
           "ciudad del vaticano"
         ],
         "label": {
-          "x": 49.57,
-          "y": 77.05
+          "x": 52.03,
+          "y": 82.43
         }
       }
     },
@@ -1171,8 +1147,8 @@
       ],
       "svgPathId": "rusia",
       "label": {
-        "x": 74.02,
-        "y": 51.89
+        "x": 84.64,
+        "y": 55.11
       },
       "capital": {
         "name": "Moscú",
@@ -1182,8 +1158,8 @@
           "moscow"
         ],
         "label": {
-          "x": 74.02,
-          "y": 51.89
+          "x": 84.64,
+          "y": 55.11
         }
       }
     }

@@ -11,7 +11,7 @@ const mapsDir = path.join(publicDir, 'maps')
 const dataDir = path.join(publicDir, 'data')
 
 const SPAIN_VIEWBOX = { width: 1000, height: 800 }
-const EUROPE_VIEWBOX = { width: 1000, height: 700 }
+const EUROPE_VIEWBOX = { width: 1000, height: 860 }
 
 const CANARY_REGION_NAMES = new Set(['Canarias'])
 const CANARY_PROVINCE_NAMES = new Set(['Las Palmas', 'Santa Cruz de Tenerife'])
@@ -25,6 +25,19 @@ const SPAIN_CANARY_INSET = {
   topLeft: [732, 590],
   bottomRight: [976, 776],
   frame: { x: 722, y: 578, width: 264, height: 206 },
+}
+
+const ICELAND_COUNTRY_NAME = 'Iceland'
+
+const EUROPE_MAIN_EXTENT = {
+  topLeft: [240, 16],
+  bottomRight: [984, 844],
+}
+
+const EUROPE_ICELAND_INSET = {
+  topLeft: [40, 40],
+  bottomRight: [220, 160],
+  frame: { x: 28, y: 28, width: 204, height: 144 },
 }
 
 const EXCLUDED_SPAIN_NAMES = new Set([
@@ -212,7 +225,6 @@ const EUROPE_META = {
   Hungary: { name: 'Hungría', aliases: ['hungria', 'hungría'], capital: 'Budapest', capitalAliases: ['budapest'] },
   Iceland: { name: 'Islandia', aliases: ['islandia'], capital: 'Reikiavik', capitalAliases: ['reikiavik', 'reykjavik'] },
   Ireland: { name: 'Irlanda', aliases: ['irlanda'], capital: 'Dublín', capitalAliases: ['dublin', 'dublín'] },
-  Israel: { name: 'Israel', aliases: ['israel'], capital: 'Jerusalén', capitalAliases: ['jerusalen', 'jerusalén', 'jerusalem'] },
   Italy: { name: 'Italia', aliases: ['italia'], capital: 'Roma', capitalAliases: ['roma', 'rome'] },
   Latvia: { name: 'Letonia', aliases: ['letonia'], capital: 'Riga', capitalAliases: ['riga'] },
   Liechtenstein: { name: 'Liechtenstein', aliases: ['liechtenstein'], capital: 'Vaduz', capitalAliases: ['vaduz'] },
@@ -271,18 +283,6 @@ const toPercentLabel = (centroid, viewBox) => ({
   y: Number(((centroid[1] / viewBox.height) * 100).toFixed(2)),
 })
 
-const createProjection = (features, viewBox) => {
-  const projection = geoMercator().fitExtent(
-    [
-      [20, 20],
-      [viewBox.width - 20, viewBox.height - 20],
-    ],
-    { type: 'FeatureCollection', features },
-  )
-
-  return { projection, path: geoPath(projection) }
-}
-
 const createProjectionForExtent = (features, topLeft, bottomRight) => {
   const projection = geoMercator().fitExtent([topLeft, bottomRight], {
     type: 'FeatureCollection',
@@ -292,8 +292,27 @@ const createProjectionForExtent = (features, topLeft, bottomRight) => {
   return { projection, path: geoPath(projection) }
 }
 
+const createProjectionForAlignedExtent = (features, topLeft, bottomRight) => {
+  const { projection } = createProjectionForExtent(features, topLeft, bottomRight)
+  const path = geoPath(projection)
+  let minX = Infinity
+  let minY = Infinity
+
+  for (const featureItem of features) {
+    const bounds = path.bounds(featureItem)
+    minX = Math.min(minX, bounds[0][0])
+    minY = Math.min(minY, bounds[0][1])
+  }
+
+  const [translateX, translateY] = projection.translate()
+  projection.translate([translateX + (topLeft[0] - minX), translateY + (topLeft[1] - minY)])
+
+  return { projection, path: geoPath(projection) }
+}
+
 const isCanaryRegion = (item) => CANARY_REGION_NAMES.has(item.properties.name)
 const isCanaryProvince = (item) => CANARY_PROVINCE_NAMES.has(item.properties.name)
+const isIcelandCountry = (item) => item.properties.NAME === ICELAND_COUNTRY_NAME
 
 const buildSpainPaths = (features, layer, getId, isCanaryFeature, projections) =>
   features
@@ -316,15 +335,26 @@ const projectSpainCentroid = (featureItem, isCanaryFeature, projections) => {
   return projection(geoCentroid(featureItem))
 }
 
-const buildPaths = (features, pathGenerator, layer, getId) =>
+const buildEuropePaths = (features, layer, getId, useIcelandProjection, projections) =>
   features
     .map((featureItem) => {
       const id = getId(featureItem)
+      const pathGenerator = useIcelandProjection(featureItem)
+        ? projections.iceland.path
+        : projections.mainland.path
       const d = pathGenerator(featureItem)
       if (!d) return ''
       return `<path id="${id}" data-layer="${layer}" d="${d}" />`
     })
     .join('\n    ')
+
+const projectEuropeCentroid = (featureItem, useIcelandProjection, projections) => {
+  const projection = useIcelandProjection(featureItem)
+    ? projections.iceland.projection
+    : projections.mainland.projection
+
+  return projection(geoCentroid(featureItem))
+}
 
 const ensureDirs = () => {
   fs.mkdirSync(mapsDir, { recursive: true })
@@ -550,27 +580,73 @@ const writeSpainAssets = (regions, provinces) => {
 }
 
 const writeEuropeAssets = (countries) => {
-  const { projection, path: pathGenerator } = createProjection(countries, EUROPE_VIEWBOX)
+  const mainlandCountries = countries.filter((item) => !isIcelandCountry(item))
+  const icelandCountries = countries.filter(isIcelandCountry)
 
-  const countryPaths = buildPaths(countries, pathGenerator, 'pais', (item) => {
-    const meta = EUROPE_META[item.properties.NAME]
-    return slugify(meta.name)
-  })
+  const projections = {
+    mainland: createProjectionForAlignedExtent(
+      mainlandCountries,
+      EUROPE_MAIN_EXTENT.topLeft,
+      EUROPE_MAIN_EXTENT.bottomRight,
+    ),
+    iceland: createProjectionForExtent(
+      icelandCountries,
+      EUROPE_ICELAND_INSET.topLeft,
+      EUROPE_ICELAND_INSET.bottomRight,
+    ),
+  }
+
+  const mainlandCountryPaths = buildEuropePaths(
+    mainlandCountries,
+    'pais',
+    (item) => slugify(EUROPE_META[item.properties.NAME].name),
+    () => false,
+    projections,
+  )
+
+  const icelandCountryPaths = buildEuropePaths(
+    icelandCountries,
+    'pais',
+    (item) => slugify(EUROPE_META[item.properties.NAME].name),
+    () => true,
+    projections,
+  )
 
   const capitalMarkers = countries
     .map((item) => {
       const meta = EUROPE_META[item.properties.NAME]
-      const centroid = projection(geoCentroid(item))
+      const centroid = projectEuropeCentroid(item, isIcelandCountry, projections)
       if (!centroid) return ''
       const [x, y] = centroid
       return `<circle id="capital-${slugify(meta.name)}" data-layer="capital-pais" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.5" />`
     })
     .join('\n    ')
 
+  const { frame } = EUROPE_ICELAND_INSET
+
   const europeSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${EUROPE_VIEWBOX.width} ${EUROPE_VIEWBOX.height}" role="img" aria-label="Mapa simplificado de Europa">
-  <g id="paises" fill="#dcfce7" stroke="#16a34a" stroke-width="1">
-    ${countryPaths}
+  <g id="continente">
+    <g id="paises-continente" fill="#dcfce7" stroke="#16a34a" stroke-width="1">
+      ${mainlandCountryPaths}
+    </g>
+  </g>
+  <g id="islandia-inset">
+    <rect
+      x="${frame.x}"
+      y="${frame.y}"
+      width="${frame.width}"
+      height="${frame.height}"
+      rx="10"
+      fill="#f8fafc"
+      stroke="#94a3b8"
+      stroke-width="1.2"
+      stroke-dasharray="5 4"
+    />
+    <text x="${frame.x + 12}" y="${frame.y + 20}" font-size="13" fill="#64748b" font-family="system-ui, sans-serif">Islandia</text>
+    <g id="paises-islandia" fill="#dcfce7" stroke="#16a34a" stroke-width="1">
+      ${icelandCountryPaths}
+    </g>
   </g>
   <g id="capitales" fill="#dc2626" stroke="#ffffff" stroke-width="1">
     ${capitalMarkers}
@@ -581,7 +657,7 @@ const writeEuropeAssets = (countries) => {
 
   const countryItems = countries.map((item) => {
     const meta = EUROPE_META[item.properties.NAME]
-    const centroid = projection(geoCentroid(item))
+    const centroid = projectEuropeCentroid(item, isIcelandCountry, projections)
     const label = toPercentLabel(centroid, EUROPE_VIEWBOX)
 
     return {
