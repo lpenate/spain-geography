@@ -1,24 +1,32 @@
-import { mount } from '@vue/test-utils'
-import { defineComponent } from 'vue'
 import { describe, expect, it } from 'vitest'
-import { useViewport } from '@/composables/useViewport'
+import { MIN_SUPPORTED_WIDTH } from '@/composables/useViewport'
+import { mountUseViewport } from '@/test/mountUseViewport'
+import { setViewportWidth } from '@/test/viewport'
 
 describe('useViewport', () => {
-  it('detecta móvil por ancho de pantalla', () => {
-    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
-    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 844 })
+  it('rechaza anchos inferiores al mínimo soportado', () => {
+    setViewportWidth(MIN_SUPPORTED_WIDTH - 1)
 
-    const TestComponent = defineComponent({
-      setup() {
-        return useViewport()
-      },
-      template: '<div />',
-    })
+    const wrapper = mountUseViewport()
 
-    const wrapper = mount(TestComponent)
+    expect(wrapper.vm.isSupportedViewport).toBe(false)
+    expect(wrapper.vm.width).toBe(MIN_SUPPORTED_WIDTH - 1)
+  })
 
-    expect(wrapper.vm.isMobile).toBe(true)
-    expect(wrapper.vm.isTablet).toBe(false)
-    expect(wrapper.vm.isDesktop).toBe(false)
+  it('acepta el ancho mínimo soportado', () => {
+    setViewportWidth(MIN_SUPPORTED_WIDTH)
+
+    const wrapper = mountUseViewport()
+
+    expect(wrapper.vm.isSupportedViewport).toBe(true)
+    expect(wrapper.vm.width).toBe(MIN_SUPPORTED_WIDTH)
+  })
+
+  it('acepta anchos superiores al mínimo soportado', () => {
+    setViewportWidth(1280)
+
+    const wrapper = mountUseViewport()
+
+    expect(wrapper.vm.isSupportedViewport).toBe(true)
   })
 })

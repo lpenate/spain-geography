@@ -318,22 +318,4 @@ defineExpose({
   font-size: 0.68rem;
   max-width: 4.5rem;
 }
-
-@media (max-width: 900px) {
-  .svg-quiz-map {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .svg-quiz-map__canvas {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1000 / 860;
-  }
-
-  .svg-quiz-map--spain .svg-quiz-map__canvas {
-    aspect-ratio: 5 / 4;
-  }
-}
 </style>

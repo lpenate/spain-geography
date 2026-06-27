@@ -31,9 +31,6 @@
   --radius-sm: 2px;
   --radius-md: 4px;
 
-  --bp-mobile: 640px;
-  --bp-tablet: 1024px;
-
   --space-page-x: max(1rem, env(safe-area-inset-left), env(safe-area-inset-right));
   --space-page-y: max(1rem, env(safe-area-inset-top));
   --space-page-bottom: max(1.5rem, env(safe-area-inset-bottom));
@@ -191,13 +188,6 @@ a {
 
 .category-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-
-@media (min-width: 640px) {
-  .category-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }

@@ -134,56 +134,31 @@ const pageContext = computed(() =>
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .nav {
-    width: auto;
-    gap: 0.5rem;
-    justify-content: flex-end;
-    flex: 0 0 auto;
-  }
-}
-
-@media (max-width: 479px) {
-  .header__context {
-    width: 100%;
-    padding-left: 0;
-    border-left: none;
-    padding-top: 0.15rem;
-  }
+  gap: 0.5rem;
+  width: auto;
+  justify-content: flex-end;
+  flex: 0 0 auto;
 }
 
 .nav-link {
-  flex: 1;
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: var(--touch-target);
-  padding: 0.5rem 0.85rem;
+  padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   color: var(--header-muted);
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  touch-action: manipulation;
   transition:
     color 0.2s ease,
     background-color 0.2s ease;
   white-space: nowrap;
-}
-
-@media (min-width: 480px) {
-  .nav-link {
-    flex: 0 0 auto;
-    font-size: 0.82rem;
-    padding: 0.5rem 1rem;
-  }
 }
 
 .nav-link:hover {

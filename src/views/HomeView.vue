@@ -24,16 +24,9 @@ import { availableQuizCategories } from '@/utils/quizNav'
 
 <style scoped>
 .intro {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
-}
-
-@media (min-width: 640px) {
-  .intro {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
-  }
 }
 
 .intro__lead {

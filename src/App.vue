@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import AppHeader from '@/components/layout/AppHeader.vue'
+import UnsupportedViewportNotice from '@/components/layout/UnsupportedViewportNotice.vue'
+import { useViewport } from '@/composables/useViewport'
+
+const { isSupportedViewport } = useViewport()
 </script>
 
 <template>
-  <div class="app-shell">
+  <UnsupportedViewportNotice v-if="!isSupportedViewport" />
+  <div v-else class="app-shell">
     <AppHeader />
     <main class="app-main">
       <RouterView />
@@ -30,14 +35,7 @@ import AppHeader from '@/components/layout/AppHeader.vue'
   min-height: 0;
   width: min(1200px, 100%);
   margin: 0 auto;
-  padding: var(--space-page-y) var(--space-page-x) var(--space-page-bottom);
-}
-
-@media (min-width: 640px) {
-  .app-main {
-    padding-top: 1.5rem;
-    padding-bottom: 2.5rem;
-  }
+  padding: 1.5rem var(--space-page-x) 2.5rem;
 }
 
 @media (min-width: 1024px) {

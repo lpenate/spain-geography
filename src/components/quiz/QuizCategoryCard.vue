@@ -35,14 +35,8 @@ defineProps<{
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
   border-radius: var(--radius-md);
-  padding: 1.15rem;
+  padding: 1.35rem;
   background: var(--surface);
-}
-
-@media (min-width: 640px) {
-  .category-card {
-    padding: 1.35rem;
-  }
 }
 
 .category-card__header {

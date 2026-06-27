@@ -388,22 +388,4 @@ watch(
   pointer-events: none;
   overflow: visible;
 }
-
-@media (max-width: 900px) {
-  .quiz-exercise {
-    flex: none;
-    min-height: auto;
-  }
-
-  .quiz-exercise__panel {
-    flex-direction: column;
-    flex: none;
-    overflow: visible;
-  }
-
-  .quiz-exercise__map {
-    container-type: inline-size;
-    min-height: 0;
-  }
-}
 </style>
