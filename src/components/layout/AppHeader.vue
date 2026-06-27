@@ -26,8 +26,12 @@ const pageContext = computed(() =>
       </RouterLink>
 
       <div v-if="pageContext" class="header__context">
-        <p class="header__eyebrow">{{ pageContext.eyebrow }}</p>
-        <p class="header__title">{{ pageContext.title }}</p>
+        <p class="header__eyebrow">
+          {{ pageContext.eyebrow }}
+        </p>
+        <p class="header__title">
+          {{ pageContext.title }}
+        </p>
       </div>
     </div>
 

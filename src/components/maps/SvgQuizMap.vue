@@ -109,8 +109,9 @@ defineExpose({
   <div class="svg-quiz-map" :class="{ 'svg-quiz-map--spain': isSpainMap }">
     <div ref="mapRoot" class="svg-quiz-map__canvas">
       <div class="svg-quiz-map__zoom" :style="zoomStyle">
-        <!-- eslint-disable-next-line vue/no-v-html -->
+        <!-- eslint-disable vue/no-v-html, vue/html-self-closing -- SVG cargado desde assets locales del proyecto -->
         <div class="svg-quiz-map__svg" v-html="svgMarkup" />
+        <!-- eslint-enable vue/no-v-html, vue/html-self-closing -->
       </div>
 
       <div class="svg-quiz-map__overlay">
