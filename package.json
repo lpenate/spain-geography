@@ -43,6 +43,7 @@
     "@vue/tsconfig": "^0.9.1",
     "es-atlas": "^0.6.0",
     "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.3.0",
     "globals": "^16.3.0",
     "happy-dom": "^20.10.6",
