@@ -452,17 +452,6 @@ const writeSpainAssets = (regions, provinces) => {
     })
     .join('\n    ')
 
-  const communityCapitals = regions
-    .map((item) => {
-      const meta = COMMUNITY_META[item.properties.name]
-      const centroid = projectSpainCentroid(item, isCanaryRegion, projections)
-      if (!centroid) return ''
-      const [x, y] = centroid
-      const id = slugify(meta.name)
-      return `<circle id="capital-comunidad-${id}" data-layer="capital-comunidad" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="4" />`
-    })
-    .join('\n    ')
-
   const { frame } = SPAIN_CANARY_INSET
 
   const spainSvg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -497,9 +486,6 @@ const writeSpainAssets = (regions, provinces) => {
     <g id="provincias-canarias" fill="transparent" stroke="#64748b" stroke-width="0.6">
       ${canaryProvincePaths}
     </g>
-  </g>
-  <g id="capitales-comunidad" fill="#dc2626" stroke="#ffffff" stroke-width="1">
-    ${communityCapitals}
   </g>
 </svg>`
 
@@ -615,16 +601,6 @@ const writeEuropeAssets = (countries) => {
     projections,
   )
 
-  const capitalMarkers = countries
-    .map((item) => {
-      const meta = EUROPE_META[item.properties.NAME]
-      const centroid = projectEuropeCentroid(item, isIcelandCountry, projections)
-      if (!centroid) return ''
-      const [x, y] = centroid
-      return `<circle id="capital-${slugify(meta.name)}" data-layer="capital-pais" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.5" />`
-    })
-    .join('\n    ')
-
   const { frame } = EUROPE_ICELAND_INSET
 
   const europeSvg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -650,9 +626,6 @@ const writeEuropeAssets = (countries) => {
     <g id="paises-islandia" fill="#dcfce7" stroke="#16a34a" stroke-width="1">
       ${icelandCountryPaths}
     </g>
-  </g>
-  <g id="capitales" fill="#dc2626" stroke="#ffffff" stroke-width="1">
-    ${capitalMarkers}
   </g>
 </svg>`
 

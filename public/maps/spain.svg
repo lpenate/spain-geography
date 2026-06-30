@@ -98,25 +98,4 @@
     <path id="provincia-santa-cruz-de-tenerife" data-layer="provincia" d="M742.302,731.909L741.723,733.13L741.839,734.444L741.028,735.101L739.755,734.444L738.829,732.848L737.672,731.909L733.852,731.158L732.81,731.252L732,730.5L732.463,729.655L732.463,727.964L733.505,727.306L734.894,728.152L736.977,728.34L738.25,727.87L740.45,726.178L741.028,725.238L740.681,724.392L742.649,723.264L744.501,722.888L745.774,723.828L746.353,724.956L744.154,728.809L743.806,729.843L742.533,730.312ZM744.501,679.386L743.459,676.639L742.186,674.934L741.26,671.426L740.218,670.004L739.987,668.581L740.565,667.443L741.376,666.968L741.954,665.734L744.385,663.836L745.658,664.69L747.626,665.26L750.173,664.69L751.677,664.975L752.719,666.968L752.719,668.012L754.455,670.573L754.108,671.9L753.414,672.374L752.14,674.46L753.182,677.776L752.835,678.155L752.603,680.711L751.214,682.226L750.751,683.74L749.71,685.16L748.899,687.241L747.626,687.146L746.7,685.349L746.469,682.415L745.427,680.522ZM774.827,709.332L773.786,708.295L774.249,706.315L773.901,705.373L775.406,702.166L777.605,701.316L778.416,701.316L779.226,702.354L781.425,702.354L782.698,703.675L785.708,705.184L786.402,706.504L786.634,708.484L783.856,710.84L783.161,711.876L781.541,712.629L780.036,712.441L779.226,712.818L777.837,712.535L777.721,711.97L775.29,710.463ZM810.362,713.571L808.973,713.571L808.279,714.136L806.774,713.383L806.658,711.311L805.269,710.84L805.154,708.861L803.649,707.635L802.376,705.844L801.797,704.052L800.292,702.26L799.713,700.09L800.061,699.146L798.903,697.257L797.861,696.313L796.704,694.235L795.894,694.046L796.009,693.007L798.44,692.346L800.524,691.022L801.565,692.062L804.343,692.157L808.163,691.211L808.51,690.644L809.668,690.928L812.214,691.022L814.645,689.605L816.381,689.605L817.307,689.226L817.655,688.375L818.696,688.281L818.812,687.524L821.127,685.443L821.474,683.74L823.789,682.037L824.368,682.131L826.104,681.469L826.22,680.333L827.841,680.806L829.114,680.238L831.66,680.995L833.281,680.617L835.133,679.575L836.29,680.049L836.985,681.753L835.827,683.551L835.249,683.456L831.892,685.443L831.082,685.633L830.156,687.713L829.461,687.808L826.799,690.644L826.336,690.55L824.947,691.684L824.252,693.29L824.715,695.369L824.6,696.124L823.442,697.446L823.326,698.579L821.359,702.26L821.59,702.449L820.896,704.901L821.359,705.184L819.391,707.07L817.886,709.238L815.34,711.499L815.108,712.535L814.414,712.158L812.562,712.347Z" />
     </g>
   </g>
-  <g id="capitales-comunidad" fill="#dc2626" stroke="#ffffff" stroke-width="1">
-    <circle id="capital-comunidad-andalucia" data-layer="capital-comunidad" cx="258.47" cy="539.20" r="4" />
-    <circle id="capital-comunidad-aragon" data-layer="capital-comunidad" cx="452.86" cy="278.63" r="4" />
-    <circle id="capital-comunidad-asturias" data-layer="capital-comunidad" cx="188.12" cy="158.85" r="4" />
-    <circle id="capital-comunidad-islas-baleares" data-layer="capital-comunidad" cx="630.32" cy="405.35" r="4" />
-    <circle id="capital-comunidad-cantabria" data-layer="capital-comunidad" cx="285.68" cy="165.37" r="4" />
-    <circle id="capital-comunidad-castilla-y-leon" data-layer="capital-comunidad" cx="248.19" cy="262.77" r="4" />
-    <circle id="capital-comunidad-castilla-la-mancha" data-layer="capital-comunidad" cx="336.53" cy="405.22" r="4" />
-    <circle id="capital-comunidad-cataluna" data-layer="capital-comunidad" cx="561.63" cy="259.78" r="4" />
-    <circle id="capital-comunidad-comunidad-valenciana" data-layer="capital-comunidad" cx="458.20" cy="416.97" r="4" />
-    <circle id="capital-comunidad-extremadura" data-layer="capital-comunidad" cx="180.29" cy="430.26" r="4" />
-    <circle id="capital-comunidad-galicia" data-layer="capital-comunidad" cx="92.93" cy="195.47" r="4" />
-    <circle id="capital-comunidad-madrid" data-layer="capital-comunidad" cx="301.26" cy="345.72" r="4" />
-    <circle id="capital-comunidad-murcia" data-layer="capital-comunidad" cx="412.11" cy="505.69" r="4" />
-    <circle id="capital-comunidad-navarra" data-layer="capital-comunidad" cx="404.11" cy="201.45" r="4" />
-    <circle id="capital-comunidad-pais-vasco" data-layer="capital-comunidad" cx="355.96" cy="175.89" r="4" />
-    <circle id="capital-comunidad-la-rioja" data-layer="capital-comunidad" cx="360.89" cy="227.80" r="4" />
-    <circle id="capital-comunidad-ceuta" data-layer="capital-comunidad" cx="220.27" cy="636.73" r="4" />
-    <circle id="capital-comunidad-melilla" data-layer="capital-comunidad" cx="339.40" cy="673.62" r="4" />
-    <circle id="capital-comunidad-canarias" data-layer="capital-comunidad" cx="860.13" cy="693.73" r="4" />
-  </g>
 </svg>
