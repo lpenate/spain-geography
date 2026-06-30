@@ -21,7 +21,7 @@ export interface QuizItem {
 }
 
 export interface QuizDataset {
-  id: QuizMode
+  id: string
   region: QuizRegion
   title: string
   map: string
@@ -33,11 +33,13 @@ export interface QuizDataset {
 
 export type QuizRegion = 'spain' | 'europe'
 
-export const EUROPE_QUIZ_ENABLED = false
+export const EUROPE_QUIZ_ENABLED = true
+
+export type QuizInteraction = 'text-batch' | 'click-timed'
 
 export type SpainQuizMode = 'comunidades' | 'provincias'
 
-export type EuropeQuizMode = 'paises' | 'capitales'
+export type EuropeQuizMode = 'paises' | 'paises-ubicacion'
 
 export type QuizMode = SpainQuizMode | EuropeQuizMode
 
@@ -46,7 +48,10 @@ export interface QuizCategory {
   title: string
   description: string
   region: QuizRegion
+  mapUrl: string
   dataUrl: string
+  interaction: QuizInteraction
+  timerSeconds?: number
   available: boolean
 }
 
@@ -63,15 +68,28 @@ export interface QuizAnswerResult {
   isCorrect: boolean
 }
 
+export interface QuizClickResult {
+  itemId: string
+  countryName: string
+  clickedPathId: string | null
+  isCorrect: boolean
+  timedOut: boolean
+}
+
 export interface QuizSessionItem extends QuizItem {
   isHidden: boolean
 }
+
+export const QUIZ_MAP_URLS = {
+  spain: '/maps/spain.svg',
+  europe: '/maps/europe.svg',
+} as const
 
 export const QUIZ_DATA_URLS: Record<QuizMode, string> = {
   comunidades: '/data/spain-comunidades.json',
   provincias: '/data/spain-provincias.json',
   paises: '/data/europe-paises.json',
-  capitales: '/data/europe-capitales.json',
+  'paises-ubicacion': '/data/europe-paises.json',
 }
 
 export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
@@ -80,7 +98,9 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
     title: 'Comunidades autónomas',
     description: 'Identifica las comunidades autónomas en el mapa de España.',
     region: 'spain',
+    mapUrl: QUIZ_MAP_URLS.spain,
     dataUrl: QUIZ_DATA_URLS.comunidades,
+    interaction: 'text-batch',
     available: true,
   },
   {
@@ -88,7 +108,9 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
     title: 'Provincias',
     description: 'Identifica las provincias en el mapa de España.',
     region: 'spain',
+    mapUrl: QUIZ_MAP_URLS.spain,
     dataUrl: QUIZ_DATA_URLS.provincias,
+    interaction: 'text-batch',
     available: true,
   },
 ]
@@ -97,17 +119,27 @@ export const EUROPE_QUIZ_CATEGORIES: QuizCategory[] = [
   {
     id: 'paises',
     title: 'Países de Europa',
-    description: 'Identifica los países europeos en el mapa.',
+    description: 'Escribe el nombre de cada país sobre el mapa de Europa.',
     region: 'europe',
+    mapUrl: QUIZ_MAP_URLS.europe,
     dataUrl: QUIZ_DATA_URLS.paises,
+    interaction: 'text-batch',
     available: EUROPE_QUIZ_ENABLED,
   },
   {
-    id: 'capitales',
-    title: 'Capitales europeas',
-    description: 'Localiza las capitales de los países europeos.',
+    id: 'paises-ubicacion',
+    title: 'Ubicación en Europa',
+    description: 'Localiza cada país en el mapa antes de que se acabe el tiempo.',
     region: 'europe',
-    dataUrl: QUIZ_DATA_URLS.capitales,
+    mapUrl: QUIZ_MAP_URLS.europe,
+    dataUrl: QUIZ_DATA_URLS['paises-ubicacion'],
+    interaction: 'click-timed',
+    timerSeconds: 20,
     available: EUROPE_QUIZ_ENABLED,
   },
+]
+
+export const ALL_QUIZ_CATEGORIES: QuizCategory[] = [
+  ...SPAIN_QUIZ_CATEGORIES,
+  ...EUROPE_QUIZ_CATEGORIES,
 ]

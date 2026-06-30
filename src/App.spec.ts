@@ -21,8 +21,8 @@ describe('App', () => {
     expect(wrapper.text()).toContain('Geografía Interactiva')
     expect(wrapper.text()).toContain('Comunidades')
     expect(wrapper.text()).toContain('Provincias')
-    expect(wrapper.text()).not.toContain('Capitales')
-    expect(wrapper.text()).not.toContain('Europa')
+    expect(wrapper.text()).toContain('Países EU')
+    expect(wrapper.text()).toContain('Ubicación EU')
     expect(wrapper.find('.app-shell').exists()).toBe(true)
   })
 

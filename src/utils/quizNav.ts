@@ -1,16 +1,18 @@
 import {
-  EUROPE_QUIZ_CATEGORIES,
+  ALL_QUIZ_CATEGORIES,
   EUROPE_QUIZ_ENABLED,
-  SPAIN_QUIZ_CATEGORIES,
   type QuizCategory,
   type QuizMode,
 } from '@/types/quiz'
 
 export const availableQuizCategories = (): QuizCategory[] =>
   (EUROPE_QUIZ_ENABLED
-    ? [...SPAIN_QUIZ_CATEGORIES, ...EUROPE_QUIZ_CATEGORIES]
-    : SPAIN_QUIZ_CATEGORIES
+    ? ALL_QUIZ_CATEGORIES
+    : ALL_QUIZ_CATEGORIES.filter((c) => c.region === 'spain')
   ).filter((category) => category.available)
+
+export const quizCategoryByMode = (mode: QuizMode): QuizCategory | undefined =>
+  availableQuizCategories().find((category) => category.id === mode)
 
 export const quizPlayRoute = (mode: QuizMode) => ({
   name: 'quiz-play' as const,
@@ -29,12 +31,12 @@ export const pageHeaderContext = (
   if (routeName === 'home') {
     return {
       eyebrow: 'Aprende geografía con mapas interactivos',
-      title: 'Quiz de geografía de España',
+      title: 'Quiz de geografía de España y Europa',
     }
   }
 
   if (routeName === 'quiz-play' && mode) {
-    const category = availableQuizCategories().find((entry) => entry.id === mode)
+    const category = quizCategoryByMode(mode as QuizMode)
     if (!category) return null
 
     return {
@@ -49,8 +51,32 @@ export const pageHeaderContext = (
 export const quizNavLabel = (category: QuizCategory): string => {
   if (category.id === 'comunidades') return 'Comunidades'
   if (category.id === 'provincias') return 'Provincias'
-  if (category.id === 'paises') return 'Países'
-  if (category.id === 'capitales') return 'Capitales EU'
+  if (category.id === 'paises') return 'Países EU'
+  if (category.id === 'paises-ubicacion') return 'Ubicación EU'
 
   return category.title
+}
+
+export const quizRegionLabel = (region: QuizCategory['region']): string =>
+  region === 'spain' ? 'España' : 'Europa'
+
+export const quizInteractionLabel = (category: QuizCategory): string => {
+  if (category.interaction === 'click-timed') {
+    return `Clic · ${category.timerSeconds ?? 20}s`
+  }
+
+  return 'Escribir nombres'
+}
+
+export const quizCategoriesByRegion = (): Record<QuizCategory['region'], QuizCategory[]> => {
+  const grouped: Record<QuizCategory['region'], QuizCategory[]> = {
+    spain: [],
+    europe: [],
+  }
+
+  for (const category of availableQuizCategories()) {
+    grouped[category.region].push(category)
+  }
+
+  return grouped
 }
