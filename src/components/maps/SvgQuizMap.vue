@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import type { MapLabel, QuizAnswerResult, QuizSessionItem } from '@/types/quiz'
 import { withAlpha } from '@/utils/quizColors'
 import {
@@ -9,6 +9,7 @@ import {
   mapZoomTransform,
   mapZoomedTextTransform,
 } from '@/utils/mapZoom'
+import { MICROSTATE_PROXIMITY_RADIUS_PERCENT } from '@/utils/clickQuizMatch'
 
 const props = defineProps<{
   mapUrl: string
@@ -18,16 +19,32 @@ const props = defineProps<{
   itemColorsById: Record<string, string>
   zoomScale: number
   zoomOrigin: MapLabel
+  interactive?: boolean
+  interactiveLayer?: string
+  interactionLocked?: boolean
+  mapFeedback?: {
+    clickedPathId: string | null
+    answerPathId: string
+    state: 'correct' | 'incorrect' | 'reveal'
+  } | null
+  mapHeaderTitle?: string
+  proximityClickTarget?: {
+    answerPathId: string
+    label: MapLabel
+    radiusPercent?: number
+  } | null
 }>()
 
 const emit = defineEmits<{
   'zoom-in': []
   'zoom-out': []
   'zoom-fit': []
+  'region-click': [pathId: string]
 }>()
 
 const svgMarkup = ref('')
 const mapRoot = ref<HTMLElement | null>(null)
+const pathListeners = new Map<SVGGraphicsElement, (event: Event) => void>()
 const isSpainMap = computed(() => props.mapUrl.includes('spain'))
 const zoomStyle = computed(() => mapZoomTransform(props.zoomScale, props.zoomOrigin))
 
@@ -43,6 +60,32 @@ const visibleLabelStyle = (label: MapLabel) => {
   }
 }
 
+const proximityHitStyle = computed(() => {
+  if (!props.proximityClickTarget) return {}
+
+  const position = mapZoomLabelPosition(
+    props.zoomScale,
+    props.zoomOrigin,
+    props.proximityClickTarget.label,
+  )
+  const radius = props.proximityClickTarget.radiusPercent ?? MICROSTATE_PROXIMITY_RADIUS_PERCENT
+  const size = radius * 2
+
+  return {
+    left: `${position.x}%`,
+    top: `${position.y}%`,
+    width: `${size}%`,
+    height: `${size}%`,
+    transform: mapZoomedTextTransform(props.zoomScale),
+  }
+})
+
+const onProximityHitClick = () => {
+  if (props.interactionLocked || !props.proximityClickTarget) return
+
+  emit('region-click', props.proximityClickTarget.answerPathId)
+}
+
 const loadMap = async () => {
   const response = await fetch(props.mapUrl)
   svgMarkup.value = await response.text()
@@ -54,14 +97,64 @@ const highlightPaths = () => {
   const svgElement = mapRoot.value.querySelector('svg')
   if (!svgElement) return
 
+  const feedbackPathIds = new Set<string>()
+  if (props.mapFeedback?.clickedPathId) feedbackPathIds.add(props.mapFeedback.clickedPathId)
+  if (props.mapFeedback?.answerPathId) feedbackPathIds.add(props.mapFeedback.answerPathId)
+
   props.sessionItems.forEach((item) => {
     const path = svgElement.querySelector(`#${CSS.escape(item.svgPathId)}`)
     if (!path || !(path instanceof SVGGraphicsElement)) return
 
-    path.classList.remove('map-region--hidden', 'map-region--correct', 'map-region--incorrect')
+    path.classList.remove(
+      'map-region--hidden',
+      'map-region--correct',
+      'map-region--incorrect',
+      'map-region--reveal',
+      'map-region--clickable',
+      'map-region--click-feedback-correct',
+      'map-region--click-feedback-incorrect',
+    )
     path.style.removeProperty('fill')
     path.style.removeProperty('stroke')
     path.style.removeProperty('stroke-width')
+    path.style.removeProperty('cursor')
+    path.style.removeProperty('pointer-events')
+
+    if (props.interactive) {
+      path.classList.add('map-region--clickable')
+      path.style.cursor = props.interactionLocked ? 'default' : 'pointer'
+      path.style.pointerEvents = props.interactionLocked ? 'none' : 'auto'
+    }
+
+    if (props.mapFeedback && feedbackPathIds.has(item.svgPathId)) {
+      if (
+        props.mapFeedback.state === 'correct' &&
+        item.svgPathId === props.mapFeedback.answerPathId
+      ) {
+        path.classList.add('map-region--click-feedback-correct')
+        return
+      }
+
+      if (
+        props.mapFeedback.state === 'incorrect' &&
+        item.svgPathId === props.mapFeedback.clickedPathId
+      ) {
+        path.classList.add('map-region--click-feedback-incorrect')
+      }
+
+      if (
+        (props.mapFeedback.state === 'incorrect' || props.mapFeedback.state === 'reveal') &&
+        item.svgPathId === props.mapFeedback.answerPathId
+      ) {
+        path.classList.add('map-region--reveal')
+      }
+
+      return
+    }
+
+    if (props.interactive && !props.mapFeedback) {
+      return
+    }
 
     if (!item.isHidden) return
 
@@ -83,9 +176,44 @@ const highlightPaths = () => {
   })
 }
 
+const onPathClick = (event: Event) => {
+  if (props.interactionLocked) return
+
+  const path = event.currentTarget
+  if (!(path instanceof SVGGraphicsElement) || !path.id) return
+
+  emit('region-click', path.id)
+}
+
+const teardownPathListeners = () => {
+  pathListeners.forEach((listener, path) => {
+    path.removeEventListener('click', listener)
+  })
+  pathListeners.clear()
+}
+
+const setupPathListeners = () => {
+  teardownPathListeners()
+
+  if (!props.interactive || !mapRoot.value) return
+
+  const svgElement = mapRoot.value.querySelector('svg')
+  if (!svgElement) return
+
+  const layer = props.interactiveLayer ?? 'pais'
+  svgElement.querySelectorAll(`path[data-layer="${layer}"]`).forEach((node) => {
+    if (!(node instanceof SVGGraphicsElement)) return
+
+    const listener = (event: Event) => onPathClick(event)
+    pathListeners.set(node, listener)
+    node.addEventListener('click', listener)
+  })
+}
+
 onMounted(async () => {
   await loadMap()
   highlightPaths()
+  setupPathListeners()
 })
 
 watch(
@@ -94,11 +222,21 @@ watch(
     props.corrected,
     props.resultsByItemId,
     props.itemColorsById,
+    props.interactive,
+    props.interactionLocked,
+    props.mapFeedback,
     svgMarkup.value,
   ],
-  () => highlightPaths(),
+  () => {
+    highlightPaths()
+    setupPathListeners()
+  },
   { deep: true },
 )
+
+onUnmounted(() => {
+  teardownPathListeners()
+})
 
 defineExpose({
   mapCanvas: mapRoot,
@@ -115,6 +253,15 @@ defineExpose({
       </div>
 
       <div class="svg-quiz-map__overlay">
+        <button
+          v-if="proximityClickTarget && interactive && !interactionLocked"
+          class="map-proximity-hit"
+          type="button"
+          :style="proximityHitStyle"
+          :aria-label="`Zona ampliada del país objetivo`"
+          @click="onProximityHitClick"
+        />
+
         <div
           v-for="item in visibleItems"
           :key="`visible-${item.id}`"
@@ -124,6 +271,11 @@ defineExpose({
         >
           {{ item.name }}
         </div>
+      </div>
+
+      <div v-if="mapHeaderTitle" class="svg-quiz-map__header" role="status" aria-live="polite">
+        <span class="svg-quiz-map__header-prompt">¿Dónde está</span>
+        <span class="svg-quiz-map__header-title">{{ mapHeaderTitle }}</span>
       </div>
 
       <div class="svg-quiz-map__controls" role="toolbar" aria-label="Controles de zoom del mapa">
@@ -202,6 +354,45 @@ defineExpose({
   height: 100%;
   transition: transform 0.25s ease;
   will-change: transform;
+}
+
+.svg-quiz-map__header {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+  max-width: calc(100% - 5rem);
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.svg-quiz-map__header-prompt {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.svg-quiz-map__header-title {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-strong);
+  line-height: 1.15;
 }
 
 .svg-quiz-map__controls {
@@ -289,6 +480,37 @@ defineExpose({
   stroke: var(--error);
 }
 
+.svg-quiz-map__svg :deep(.map-region--clickable) {
+  transition:
+    fill 0.15s ease,
+    stroke 0.15s ease,
+    filter 0.15s ease;
+}
+
+.svg-quiz-map__svg :deep(.map-region--clickable:hover) {
+  filter: brightness(1.05);
+  stroke: var(--accent-strong);
+  stroke-width: 1.4;
+}
+
+.svg-quiz-map__svg :deep(.map-region--click-feedback-correct) {
+  fill: rgba(26, 127, 55, 0.42);
+  stroke: var(--success);
+  stroke-width: 2;
+}
+
+.svg-quiz-map__svg :deep(.map-region--click-feedback-incorrect) {
+  fill: rgba(196, 30, 30, 0.34);
+  stroke: var(--error);
+  stroke-width: 2;
+}
+
+.svg-quiz-map__svg :deep(.map-region--reveal) {
+  fill: rgba(26, 127, 55, 0.28);
+  stroke: var(--success);
+  stroke-width: 2;
+}
+
 .svg-quiz-map__overlay {
   position: absolute;
   inset: 0;
@@ -299,6 +521,23 @@ defineExpose({
 .map-label {
   position: absolute;
   pointer-events: none;
+}
+
+.map-proximity-hit {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.map-proximity-hit:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
 }
 
 .map-label--visible {

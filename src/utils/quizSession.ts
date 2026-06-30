@@ -46,3 +46,9 @@ export const evaluateAnswers = (
 
 export const countCorrectAnswers = (results: QuizAnswerResult[]): number =>
   results.filter((result) => result.isCorrect).length
+
+export const pickQuestionItems = (items: QuizItem[], questionCount: number): QuizItem[] => {
+  const shuffled = [...items].sort(() => Math.random() - 0.5)
+
+  return shuffled.slice(0, Math.min(questionCount, items.length))
+}

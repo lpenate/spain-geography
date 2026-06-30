@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { useQuizPlayHeader } from '@/composables/useQuizPlayHeader'
 import {
   availableQuizCategories,
   pageHeaderContext,
@@ -9,11 +10,13 @@ import {
 } from '@/utils/quizNav'
 
 const route = useRoute()
+const headerOverride = useQuizPlayHeader()
 
 const navCategories = computed(() => availableQuizCategories())
 
-const pageContext = computed(() =>
-  pageHeaderContext(route.name, route.params.mode as string | undefined),
+const pageContext = computed(
+  () =>
+    headerOverride.value ?? pageHeaderContext(route.name, route.params.mode as string | undefined),
 )
 </script>
 
