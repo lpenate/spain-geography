@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isApproximateMatch, normalizeAnswer } from '@/utils/textMatch'
+import { isApproximateMatch, isCloseMatch, normalizeAnswer } from '@/utils/textMatch'
 
 describe('textMatch', () => {
   it('normaliza mayúsculas y acentos', () => {
@@ -14,5 +14,14 @@ describe('textMatch', () => {
 
   it('rechaza respuestas claramente incorrectas', () => {
     expect(isApproximateMatch('barcelona', ['Sevilla'])).toBe(false)
+  })
+
+  it('acepta erratas sin confundir lugares parecidos ni nombres contenidos', () => {
+    expect(isCloseMatch('sevila', ['Sevilla'])).toBe(true)
+    expect(isCloseMatch('Palencia', ['Valencia'])).toBe(false)
+    expect(isCloseMatch('Valencia', ['Palencia'])).toBe(false)
+    expect(isCloseMatch('León', ['Castilla y León'])).toBe(false)
+    expect(isCloseMatch('Castilla y León', ['León'])).toBe(false)
+    expect(isCloseMatch('   ', ['Madrid'])).toBe(false)
   })
 })

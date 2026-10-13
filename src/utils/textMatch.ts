@@ -84,3 +84,23 @@ export const isApproximateMatch = (
   threshold = 0.82,
 ): boolean =>
   expectedAnswers.some((candidate) => matchesCandidate(userAnswer, candidate, threshold))
+
+export const isCloseMatch = (
+  userAnswer: string,
+  expectedAnswers: string[],
+  threshold = 0.82,
+): boolean => {
+  const normalizedUser = normalizeAnswer(userAnswer)
+  if (!normalizedUser) return false
+
+  return expectedAnswers.some((candidate) => {
+    const normalizedCandidate = normalizeAnswer(candidate)
+    if (!normalizedCandidate) return false
+    if (normalizedUser === normalizedCandidate) return true
+
+    // Evita confusiones entre lugares cercanos (p. ej. Palencia / Valencia).
+    if (normalizedUser[0] !== normalizedCandidate[0]) return false
+
+    return similarityRatio(normalizedUser, normalizedCandidate) >= threshold
+  })
+}

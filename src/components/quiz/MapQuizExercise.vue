@@ -4,7 +4,7 @@ import SvgQuizMap from '@/components/maps/SvgQuizMap.vue'
 import QuizAnswerSidebar from '@/components/quiz/QuizAnswerSidebar.vue'
 import QuizMapMarkers from '@/components/quiz/QuizMapMarkers.vue'
 import { useMapQuiz } from '@/composables/useMapQuiz'
-import type { QuizMode } from '@/types/quiz'
+import type { MapQuizMode } from '@/types/quiz'
 import { sortItemsNorthToSouth } from '@/utils/quizSession'
 import { shortenLineFromEnd } from '@/utils/connectorLines'
 import { assetUrl } from '@/utils/assetUrl'
@@ -30,7 +30,7 @@ interface ConnectorLine {
 }
 
 const props = defineProps<{
-  mode: QuizMode
+  mode: MapQuizMode
 }>()
 
 const {

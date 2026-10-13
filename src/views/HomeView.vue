@@ -93,7 +93,7 @@ const sections = computed(() =>
 
 .home-band__cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   gap: 0.85rem;
   min-height: 0;
 }

@@ -51,6 +51,7 @@ export const pageHeaderContext = (
 export const quizNavLabel = (category: QuizCategory): string => {
   if (category.id === 'comunidades') return 'Comunidades'
   if (category.id === 'provincias') return 'Provincias'
+  if (category.id === 'gentilicios') return 'Gentilicios'
   if (category.id === 'paises') return 'Países EU'
   if (category.id === 'paises-ubicacion') return 'Ubicación EU'
 
@@ -61,6 +62,10 @@ export const quizRegionLabel = (region: QuizCategory['region']): string =>
   region === 'spain' ? 'España' : 'Europa'
 
 export const quizInteractionLabel = (category: QuizCategory): string => {
+  if (category.id === 'gentilicios') {
+    return 'Escribir lugares'
+  }
+
   if (category.interaction === 'click-timed') {
     return `Clic · ${category.timerSeconds ?? 20}s`
   }

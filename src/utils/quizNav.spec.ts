@@ -11,6 +11,7 @@ describe('quizNav', () => {
     expect(availableQuizCategories().map((category) => category.id)).toEqual([
       'comunidades',
       'provincias',
+      'gentilicios',
       'paises',
       'paises-ubicacion',
     ])
@@ -21,8 +22,9 @@ describe('quizNav', () => {
 
     expect(quizNavLabel(categories[0])).toBe('Comunidades')
     expect(quizNavLabel(categories[1])).toBe('Provincias')
-    expect(quizNavLabel(categories[2])).toBe('Países EU')
-    expect(quizNavLabel(categories[3])).toBe('Ubicación EU')
+    expect(quizNavLabel(categories[2])).toBe('Gentilicios')
+    expect(quizNavLabel(categories[3])).toBe('Países EU')
+    expect(quizNavLabel(categories[4])).toBe('Ubicación EU')
   })
 
   it('builds named quiz routes for navigation', () => {
@@ -41,6 +43,11 @@ describe('quizNav', () => {
     expect(pageHeaderContext('quiz-play', 'provincias')).toEqual({
       eyebrow: 'España',
       title: 'Provincias',
+    })
+
+    expect(pageHeaderContext('quiz-play', 'gentilicios')).toEqual({
+      eyebrow: 'España',
+      title: 'Gentilicios',
     })
 
     expect(pageHeaderContext('quiz-play', 'paises')).toEqual({

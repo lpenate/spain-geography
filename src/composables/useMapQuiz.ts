@@ -1,10 +1,10 @@
 import { type MaybeRefOrGetter, computed, ref, toValue } from 'vue'
 import { fetchQuizDataset } from '@/services/quizData'
-import type { QuizAnswerResult, QuizDataset, QuizMode, QuizSessionItem } from '@/types/quiz'
+import type { MapQuizMode, QuizAnswerResult, QuizDataset, QuizSessionItem } from '@/types/quiz'
 import { assignQuizItemColors } from '@/utils/quizColors'
 import { countCorrectAnswers, evaluateAnswers, pickHiddenItems } from '@/utils/quizSession'
 
-export const useMapQuiz = (mode: MaybeRefOrGetter<QuizMode>) => {
+export const useMapQuiz = (mode: MaybeRefOrGetter<MapQuizMode>) => {
   const dataset = ref<QuizDataset | null>(null)
   const sessionItems = ref<QuizSessionItem[]>([])
   const answers = ref<Record<string, string>>({})

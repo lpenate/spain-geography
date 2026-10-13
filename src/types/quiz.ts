@@ -37,11 +37,13 @@ export const EUROPE_QUIZ_ENABLED = true
 
 export type QuizInteraction = 'text-batch' | 'click-timed'
 
-export type SpainQuizMode = 'comunidades' | 'provincias'
+export type SpainMapQuizMode = 'comunidades' | 'provincias'
 
 export type EuropeQuizMode = 'paises' | 'paises-ubicacion'
 
-export type QuizMode = SpainQuizMode | EuropeQuizMode
+export type MapQuizMode = SpainMapQuizMode | EuropeQuizMode
+
+export type QuizMode = MapQuizMode | 'gentilicios'
 
 export interface QuizCategory {
   id: QuizMode
@@ -85,7 +87,7 @@ export const QUIZ_MAP_URLS = {
   europe: '/maps/europe.svg',
 } as const
 
-export const QUIZ_DATA_URLS: Record<QuizMode, string> = {
+export const QUIZ_DATA_URLS: Record<MapQuizMode, string> = {
   comunidades: '/data/spain-comunidades.json',
   provincias: '/data/spain-provincias.json',
   paises: '/data/europe-paises.json',
@@ -110,6 +112,17 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
     region: 'spain',
     mapUrl: QUIZ_MAP_URLS.spain,
     dataUrl: QUIZ_DATA_URLS.provincias,
+    interaction: 'text-batch',
+    available: true,
+  },
+  {
+    id: 'gentilicios',
+    title: 'Gentilicios',
+    description:
+      'Escribe el lugar de cada gentilicio (comunidad, provincia o localidad). Los fallos salen antes en el siguiente test.',
+    region: 'spain',
+    mapUrl: QUIZ_MAP_URLS.spain,
+    dataUrl: '/data/spain-gentilicios.json',
     interaction: 'text-batch',
     available: true,
   },
