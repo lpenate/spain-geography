@@ -63,7 +63,7 @@ export const quizRegionLabel = (region: QuizCategory['region']): string =>
 
 export const quizInteractionLabel = (category: QuizCategory): string => {
   if (category.id === 'gentilicios') {
-    return 'Escribir lugares'
+    return 'Escribir gentilicios'
   }
 
   if (category.interaction === 'click-timed') {

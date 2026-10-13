@@ -41,6 +41,9 @@ const isHomeRoute = computed(() => route.name === 'home')
   width: min(1200px, 100%);
   margin: 0 auto;
   padding: 1.5rem var(--space-page-x) 2.5rem;
+  overflow-x: clip;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .app-main--home {

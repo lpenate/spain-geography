@@ -119,7 +119,7 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
     id: 'gentilicios',
     title: 'Gentilicios',
     description:
-      'Escribe el lugar de cada gentilicio (comunidad, provincia o localidad). Los fallos salen antes en el siguiente test.',
+      'Escribe el gentilicio de cada localidad, provincia o comunidad. Los fallos salen antes en el siguiente test.',
     region: 'spain',
     mapUrl: QUIZ_MAP_URLS.spain,
     dataUrl: '/data/spain-gentilicios.json',

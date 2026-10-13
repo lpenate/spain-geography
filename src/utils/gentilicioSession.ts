@@ -19,19 +19,15 @@ const KIND_LABELS: Record<GentilicioKind, string> = {
 export const gentilicioKindLabel = (kind: GentilicioKind): string => KIND_LABELS[kind]
 
 export const gentilicioAnswerCandidates = (item: GentilicioItem): string[] => [
-  item.name,
-  ...item.aliases,
+  item.gentilicio,
+  ...(item.gentilicioAliases ?? []),
 ]
 
 export const formatExpectedAnswer = (item: GentilicioItem): string => {
-  if (item.kind !== 'ambos') return item.name
+  const alternatives = item.gentilicioAliases ?? []
+  if (alternatives.length === 0) return item.gentilicio
 
-  const alternate = item.aliases.find(
-    (alias) => normalizeAnswer(alias) !== normalizeAnswer(item.name),
-  )
-
-  if (!alternate) return item.name
-  return `${item.name} o ${alternate}`
+  return [item.gentilicio, ...alternatives].join(' / ')
 }
 
 export const isGentilicioAnswerCorrect = (userAnswer: string, item: GentilicioItem): boolean =>
@@ -70,9 +66,15 @@ export const pickGentilicioRound = (
   const filler = shuffle(
     items.filter((item) => !selectedIds.has(item.id)),
     random,
-  ).slice(0, target - prioritized.length)
+  ).slice(0, Math.max(0, target - prioritized.length))
 
-  return shuffle([...prioritized, ...filler], random)
+  const round = shuffle([...prioritized, ...filler], random)
+
+  if (round.length < target) {
+    throw new Error(`El test de gentilicios debe tener ${target} preguntas`)
+  }
+
+  return round
 }
 
 export const evaluateGentilicioAnswers = (
@@ -138,4 +140,15 @@ export const applyGentilicioResults = (
   })
 
   return next
+}
+
+export const promptPlaceLabel = (item: GentilicioItem): string => {
+  if (item.kind !== 'ambos') return item.name
+
+  const alternate = item.aliases.find(
+    (alias) => normalizeAnswer(alias) !== normalizeAnswer(item.name),
+  )
+
+  if (!alternate) return item.name
+  return `${item.name} / ${alternate}`
 }

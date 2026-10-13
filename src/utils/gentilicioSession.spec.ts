@@ -13,6 +13,7 @@ import {
   gentilicioAnswerCandidates,
   isGentilicioAnswerCorrect,
   pickGentilicioRound,
+  promptPlaceLabel,
   readGentilicioMistakes,
   writeGentilicioMistakes,
 } from '@/utils/gentilicioSession'
@@ -21,12 +22,12 @@ const dataset = JSON.parse(
   readFileSync(path.resolve(process.cwd(), 'public/data/spain-gentilicios.json'), 'utf8'),
 ) as GentilicioDataset
 
-const item = (id: string, name = id, aliases: string[] = []): GentilicioItem => ({
+const item = (id: string, name = id, gentilicio = id): GentilicioItem => ({
   id,
   kind: 'ciudad',
   name,
-  aliases,
-  gentilicio: id,
+  aliases: [],
+  gentilicio,
 })
 
 const memoryStorage = () => {
@@ -63,12 +64,13 @@ describe('gentilicioSession', () => {
     expect(findItem('cercedilla').gentilicio).toBe('parrao')
     expect(findItem('jaen').gentilicio).toBe('jienense')
     expect(findItem('palma-de-mallorca').gentilicio).toBe('mallorquín')
+    expect(findItem('sevilla').gentilicioAliases).toEqual(['hispalense'])
     expect(dataset.items.some((entry) => entry.gentilicio === 'chicharrero')).toBe(false)
   })
 
-  it('no da por buena la respuesta de otro lugar distinto', () => {
+  it('no da por bueno el gentilicio de otro lugar distinto', () => {
     dataset.items.forEach((entry) => {
-      expect(isGentilicioAnswerCorrect(entry.name, entry)).toBe(true)
+      expect(isGentilicioAnswerCorrect(entry.gentilicio, entry)).toBe(true)
 
       dataset.items.forEach((other) => {
         if (other.id === entry.id) return
@@ -83,21 +85,24 @@ describe('gentilicioSession', () => {
     })
   })
 
-  it('acepta el nombre oficial, alias y alguna errata', () => {
-    expect(isGentilicioAnswerCorrect('Sevilla', findItem('sevilla-sevillano'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('sevila', findItem('sevilla-hispalense'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('Euskadi', findItem('pais-vasco'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('Comunidad de Madrid', findItem('madrid'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('León', findItem('leon'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('Castilla y León', findItem('leon'))).toBe(false)
-    expect(isGentilicioAnswerCorrect('Gerona', findItem('girona-gerundense'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('Villalba', findItem('collado-villalba'))).toBe(true)
-    expect(isGentilicioAnswerCorrect('', findItem('sevilla-sevillano'))).toBe(false)
+  it('acepta el gentilicio oficial, alias y alguna errata', () => {
+    expect(isGentilicioAnswerCorrect('sevillano', findItem('sevilla'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('hispalense', findItem('sevilla'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('sevillan', findItem('sevilla'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('vasco', findItem('pais-vasco'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('madrileño', findItem('madrid'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('leonés', findItem('leon'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('castellano-leonés', findItem('leon'))).toBe(false)
+    expect(isGentilicioAnswerCorrect('gironés', findItem('girona'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('villalbino', findItem('collado-villalba'))).toBe(true)
+    expect(isGentilicioAnswerCorrect('', findItem('sevilla'))).toBe(false)
   })
 
-  it('muestra las dos respuestas cuando ciudad y comunidad comparten gentilicio', () => {
-    expect(formatExpectedAnswer(findItem('madrid'))).toBe('Madrid o Comunidad de Madrid')
-    expect(formatExpectedAnswer(findItem('sevilla-sevillano'))).toBe('Sevilla')
+  it('muestra el lugar en el enunciado y el gentilicio como respuesta esperada', () => {
+    expect(promptPlaceLabel(findItem('madrid'))).toBe('Madrid / Comunidad de Madrid')
+    expect(promptPlaceLabel(findItem('sevilla'))).toBe('Sevilla')
+    expect(formatExpectedAnswer(findItem('sevilla'))).toBe('sevillano / hispalense')
+    expect(formatExpectedAnswer(findItem('cadiz'))).toBe('gaditano')
   })
 
   it('prioriza los fallos y completa el test hasta 10', () => {
@@ -129,23 +134,20 @@ describe('gentilicioSession', () => {
   })
 
   it('puntúa los aciertos sobre las 10 respuestas y guarda solo los fallos', () => {
-    const round = [findItem('sevilla-sevillano'), findItem('andalucia')]
+    const round = [findItem('sevilla'), findItem('andalucia')]
     const results = evaluateGentilicioAnswers(round, {
-      'sevilla-sevillano': 'Málaga',
-      andalucia: 'Andalucía',
+      sevilla: 'malagueño',
+      andalucia: 'andaluz',
     })
 
     expect(countGentilicioScore(results)).toBe(1)
     expect(results[0]?.isCorrect).toBe(false)
-    expect(results[0]?.expectedAnswer).toBe('Sevilla')
+    expect(results[0]?.expectedAnswer).toBe('sevillano / hispalense')
     expect(results[1]?.isCorrect).toBe(true)
 
-    const stored = applyGentilicioResults(
-      { 'sevilla-sevillano': 1, andalucia: 2 },
-      results,
-    )
+    const stored = applyGentilicioResults({ sevilla: 1, andalucia: 2 }, results)
 
-    expect(stored).toEqual({ 'sevilla-sevillano': 2 })
+    expect(stored).toEqual({ sevilla: 2 })
   })
 
   it('persiste los fallos para el siguiente test', () => {

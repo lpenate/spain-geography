@@ -59,18 +59,14 @@
       "gentilicio": "malagueño"
     },
     {
-      "id": "sevilla-sevillano",
+      "id": "sevilla",
       "kind": "provincia",
       "name": "Sevilla",
       "aliases": [],
-      "gentilicio": "sevillano"
-    },
-    {
-      "id": "sevilla-hispalense",
-      "kind": "provincia",
-      "name": "Sevilla",
-      "aliases": [],
-      "gentilicio": "hispalense"
+      "gentilicio": "sevillano",
+      "gentilicioAliases": [
+        "hispalense"
+      ]
     },
     {
       "id": "aragon",
@@ -104,7 +100,10 @@
       "id": "asturias",
       "kind": "comunidad",
       "name": "Asturias",
-      "aliases": ["Principado de Asturias", "Asturias, Principado de"],
+      "aliases": [
+        "Principado de Asturias",
+        "Asturias, Principado de"
+      ],
       "gentilicio": "asturiano"
     },
     {
@@ -132,22 +131,20 @@
       "id": "castilla-la-mancha",
       "kind": "comunidad",
       "name": "Castilla-La Mancha",
-      "aliases": ["Castilla La Mancha"],
+      "aliases": [
+        "Castilla La Mancha"
+      ],
       "gentilicio": "castellano-manchego"
     },
     {
-      "id": "albacete-albacetense",
+      "id": "albacete",
       "kind": "provincia",
       "name": "Albacete",
       "aliases": [],
-      "gentilicio": "albacetense"
-    },
-    {
-      "id": "albacete-albaceteno",
-      "kind": "provincia",
-      "name": "Albacete",
-      "aliases": [],
-      "gentilicio": "albaceteño"
+      "gentilicio": "albacetense",
+      "gentilicioAliases": [
+        "albaceteño"
+      ]
     },
     {
       "id": "ciudad-real",
@@ -164,18 +161,14 @@
       "gentilicio": "conquense"
     },
     {
-      "id": "guadalajara-guadalajareno",
+      "id": "guadalajara",
       "kind": "provincia",
       "name": "Guadalajara",
       "aliases": [],
-      "gentilicio": "guadalajareño"
-    },
-    {
-      "id": "guadalajara-arriacense",
-      "kind": "provincia",
-      "name": "Guadalajara",
-      "aliases": [],
-      "gentilicio": "arriacense"
+      "gentilicio": "guadalajareño",
+      "gentilicioAliases": [
+        "arriacense"
+      ]
     },
     {
       "id": "toledo",
@@ -258,7 +251,9 @@
       "id": "cataluna",
       "kind": "comunidad",
       "name": "Cataluña",
-      "aliases": ["Catalunya"],
+      "aliases": [
+        "Catalunya"
+      ],
       "gentilicio": "catalán"
     },
     {
@@ -269,32 +264,32 @@
       "gentilicio": "barcelonés"
     },
     {
-      "id": "girona-gerundense",
+      "id": "girona",
       "kind": "provincia",
       "name": "Girona",
-      "aliases": ["Gerona", "Gerona / Girona", "Girona / Gerona"],
-      "gentilicio": "gerundense"
+      "aliases": [
+        "Gerona",
+        "Gerona / Girona",
+        "Girona / Gerona"
+      ],
+      "gentilicio": "gerundense",
+      "gentilicioAliases": [
+        "gironés"
+      ]
     },
     {
-      "id": "girona-girones",
-      "kind": "provincia",
-      "name": "Girona",
-      "aliases": ["Gerona", "Gerona / Girona", "Girona / Gerona"],
-      "gentilicio": "gironés"
-    },
-    {
-      "id": "lleida-leridano",
-      "kind": "provincia",
-      "name": "Lleida",
-      "aliases": ["Lérida", "Lérida / Lleida", "Lleida / Lérida"],
-      "gentilicio": "leridano"
-    },
-    {
-      "id": "lleida-ilerdense",
+      "id": "lleida",
       "kind": "provincia",
       "name": "Lleida",
-      "aliases": ["Lérida", "Lérida / Lleida", "Lleida / Lérida"],
-      "gentilicio": "ilerdense"
+      "aliases": [
+        "Lérida",
+        "Lérida / Lleida",
+        "Lleida / Lérida"
+      ],
+      "gentilicio": "leridano",
+      "gentilicioAliases": [
+        "ilerdense"
+      ]
     },
     {
       "id": "tarragona",
@@ -307,28 +302,40 @@
       "id": "madrid",
       "kind": "ambos",
       "name": "Madrid",
-      "aliases": ["Comunidad de Madrid", "Madrid, Comunidad de"],
+      "aliases": [
+        "Comunidad de Madrid",
+        "Madrid, Comunidad de"
+      ],
       "gentilicio": "madrileño"
     },
     {
       "id": "alicante",
       "kind": "provincia",
       "name": "Alicante",
-      "aliases": ["Alacant"],
+      "aliases": [
+        "Alacant"
+      ],
       "gentilicio": "alicantino"
     },
     {
       "id": "castellon",
       "kind": "provincia",
       "name": "Castellón",
-      "aliases": ["Castellón de la Plana", "Castelló", "Castelló de la Plana"],
+      "aliases": [
+        "Castellón de la Plana",
+        "Castelló",
+        "Castelló de la Plana"
+      ],
       "gentilicio": "castellonense"
     },
     {
       "id": "valencia",
       "kind": "ambos",
       "name": "Valencia",
-      "aliases": ["Comunidad Valenciana", "Comunitat Valenciana"],
+      "aliases": [
+        "Comunidad Valenciana",
+        "Comunitat Valenciana"
+      ],
       "gentilicio": "valenciano"
     },
     {
@@ -363,36 +370,35 @@
       "id": "a-coruna",
       "kind": "provincia",
       "name": "A Coruña",
-      "aliases": ["La Coruña", "Coruña", "La Coruña/ A Coruña"],
+      "aliases": [
+        "La Coruña",
+        "Coruña",
+        "La Coruña/ A Coruña"
+      ],
       "gentilicio": "coruñés"
     },
     {
-      "id": "lugo-lucense",
+      "id": "lugo",
       "kind": "provincia",
       "name": "Lugo",
       "aliases": [],
-      "gentilicio": "lucense"
+      "gentilicio": "lucense",
+      "gentilicioAliases": [
+        "lugués"
+      ]
     },
     {
-      "id": "lugo-lugues",
-      "kind": "provincia",
-      "name": "Lugo",
-      "aliases": [],
-      "gentilicio": "lugués"
-    },
-    {
-      "id": "ourense-orensano",
+      "id": "ourense",
       "kind": "provincia",
       "name": "Ourense",
-      "aliases": ["Orense", "Orense/ Ourense"],
-      "gentilicio": "orensano"
-    },
-    {
-      "id": "ourense-ourensano",
-      "kind": "provincia",
-      "name": "Ourense",
-      "aliases": ["Orense", "Orense/ Ourense"],
-      "gentilicio": "ourensano"
+      "aliases": [
+        "Orense",
+        "Orense/ Ourense"
+      ],
+      "gentilicio": "orensano",
+      "gentilicioAliases": [
+        "ourensano"
+      ]
     },
     {
       "id": "pontevedra",
@@ -405,21 +411,28 @@
       "id": "islas-baleares",
       "kind": "comunidad",
       "name": "Islas Baleares",
-      "aliases": ["Baleares", "Illes Balears"],
+      "aliases": [
+        "Baleares",
+        "Illes Balears"
+      ],
       "gentilicio": "balear"
     },
     {
       "id": "palma-de-mallorca",
       "kind": "provincia",
       "name": "Palma de Mallorca",
-      "aliases": ["Palma"],
+      "aliases": [
+        "Palma"
+      ],
       "gentilicio": "mallorquín"
     },
     {
       "id": "islas-canarias",
       "kind": "comunidad",
       "name": "Islas Canarias",
-      "aliases": ["Canarias"],
+      "aliases": [
+        "Canarias"
+      ],
       "gentilicio": "canario"
     },
     {
@@ -440,7 +453,9 @@
       "id": "la-rioja",
       "kind": "comunidad",
       "name": "La Rioja",
-      "aliases": ["Rioja"],
+      "aliases": [
+        "Rioja"
+      ],
       "gentilicio": "riojano"
     },
     {
@@ -454,70 +469,87 @@
       "id": "murcia",
       "kind": "ambos",
       "name": "Murcia",
-      "aliases": ["Región de Murcia"],
+      "aliases": [
+        "Región de Murcia"
+      ],
       "gentilicio": "murciano"
     },
     {
       "id": "navarra",
       "kind": "comunidad",
       "name": "Navarra",
-      "aliases": ["Comunidad Foral de Navarra", "Navarra, Comunidad Foral", "Nafarroa"],
+      "aliases": [
+        "Comunidad Foral de Navarra",
+        "Navarra, Comunidad Foral",
+        "Nafarroa"
+      ],
       "gentilicio": "navarro"
     },
     {
-      "id": "pamplona-pamplones",
+      "id": "pamplona",
       "kind": "provincia",
       "name": "Pamplona",
-      "aliases": ["Iruña"],
-      "gentilicio": "pamplonés"
-    },
-    {
-      "id": "pamplona-pamplonica",
-      "kind": "provincia",
-      "name": "Pamplona",
-      "aliases": ["Iruña"],
-      "gentilicio": "pamplonica"
+      "aliases": [
+        "Iruña"
+      ],
+      "gentilicio": "pamplonés",
+      "gentilicioAliases": [
+        "pamplonica"
+      ]
     },
     {
       "id": "pais-vasco",
       "kind": "comunidad",
       "name": "País Vasco",
-      "aliases": ["Euskadi"],
+      "aliases": [
+        "Euskadi"
+      ],
       "gentilicio": "vasco"
     },
     {
       "id": "alava",
       "kind": "provincia",
       "name": "Álava",
-      "aliases": ["Araba"],
+      "aliases": [
+        "Araba"
+      ],
       "gentilicio": "alavés"
     },
     {
       "id": "vitoria",
       "kind": "ciudad",
       "name": "Vitoria",
-      "aliases": ["Vitoria-Gasteiz", "Gasteiz"],
+      "aliases": [
+        "Vitoria-Gasteiz",
+        "Gasteiz"
+      ],
       "gentilicio": "vitoriano"
     },
     {
       "id": "guipuzcoa",
       "kind": "provincia",
       "name": "Guipúzcoa",
-      "aliases": ["Gipuzkoa"],
+      "aliases": [
+        "Gipuzkoa"
+      ],
       "gentilicio": "guipuzcoano"
     },
     {
       "id": "san-sebastian",
       "kind": "ciudad",
       "name": "San Sebastián",
-      "aliases": ["Donostia"],
+      "aliases": [
+        "Donostia"
+      ],
       "gentilicio": "donostiarra"
     },
     {
       "id": "vizcaya",
       "kind": "provincia",
       "name": "Vizcaya",
-      "aliases": ["Bizkaia"],
+      "aliases": [
+        "Bizkaia"
+      ],
       "gentilicio": "vizcaíno"
     },
     {
@@ -573,7 +605,9 @@
       "id": "collado-villalba",
       "kind": "ciudad",
       "name": "Collado Villalba",
-      "aliases": ["Villalba"],
+      "aliases": [
+        "Villalba"
+      ],
       "gentilicio": "villalbino"
     },
     {
@@ -629,7 +663,9 @@
       "id": "buitrago",
       "kind": "ciudad",
       "name": "Buitrago",
-      "aliases": ["Buitrago del Lozoya"],
+      "aliases": [
+        "Buitrago del Lozoya"
+      ],
       "gentilicio": "butragueño"
     }
   ]

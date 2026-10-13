@@ -6,6 +6,7 @@ export interface GentilicioItem {
   name: string
   aliases: string[]
   gentilicio: string
+  gentilicioAliases?: string[]
 }
 
 export interface GentilicioDataset {

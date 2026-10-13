@@ -9,6 +9,7 @@ import {
   evaluateGentilicioAnswers,
   gentilicioKindLabel,
   pickGentilicioRound,
+  promptPlaceLabel,
   readGentilicioMistakes,
   writeGentilicioMistakes,
 } from '@/utils/gentilicioSession'
@@ -35,8 +36,6 @@ const priorityLabel = computed(() => {
 
   return `Incluye ${prioritizedCount.value} gentilicios que fallaste antes.`
 })
-
-const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1)
 
 const startRound = () => {
   const mistakes = readGentilicioMistakes()
@@ -81,8 +80,8 @@ onMounted(async () => {
 <template>
   <section class="gentilicio">
     <p class="gentilicio__lead">
-      Cada pregunta muestra un gentilicio de la ficha. Escribe la comunidad, provincia o
-      localidad correspondiente y pulsa corregir.
+      Cada test tiene {{ GENTILICIO_ROUND_SIZE }} preguntas. Se muestra una localidad, provincia o
+      comunidad y debes escribir su gentilicio.
     </p>
 
     <p v-if="loading" class="gentilicio__status">Cargando gentilicios…</p>
@@ -91,6 +90,9 @@ onMounted(async () => {
     </p>
 
     <form v-else class="gentilicio__form" @submit.prevent="correctRound">
+      <p class="gentilicio__meta" aria-live="polite">
+        {{ round.length }} / {{ GENTILICIO_ROUND_SIZE }} preguntas
+      </p>
       <p v-if="prioritizedCount > 0" class="gentilicio__priority">{{ priorityLabel }}</p>
 
       <ol class="gentilicio__list">
@@ -98,7 +100,7 @@ onMounted(async () => {
           <label class="gentilicio__label" :for="`gentilicio-${entry.id}`">
             <span class="gentilicio__index">{{ index + 1 }}</span>
             <span class="gentilicio__prompt">
-              <span class="gentilicio__name">{{ capitalize(entry.gentilicio) }}</span>
+              <span class="gentilicio__name">{{ promptPlaceLabel(entry) }}</span>
               <span class="gentilicio__kind">{{ gentilicioKindLabel(entry.kind) }}</span>
             </span>
           </label>
@@ -116,7 +118,7 @@ onMounted(async () => {
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              placeholder="Lugar correspondiente"
+              placeholder="Gentilicio"
               :readonly="corrected"
               @input="updateAnswer(entry.id, ($event.target as HTMLInputElement).value)"
             />
@@ -150,6 +152,7 @@ onMounted(async () => {
 <style scoped>
 .gentilicio {
   width: min(100%, 40rem);
+  padding-bottom: 1rem;
 }
 
 .gentilicio__lead,
@@ -161,6 +164,16 @@ onMounted(async () => {
 
 .gentilicio__status--error {
   color: var(--error);
+}
+
+.gentilicio__meta {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-strong);
 }
 
 .gentilicio__priority {
@@ -191,7 +204,7 @@ onMounted(async () => {
 
 @media (min-width: 640px) {
   .gentilicio__item {
-    grid-template-columns: minmax(11rem, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(14rem, 1.1fr) minmax(0, 1fr);
     gap: 1rem;
     align-items: start;
   }
