@@ -106,9 +106,7 @@ describe('gentilicioSession', () => {
   })
 
   it('prioriza los fallos y completa el test hasta 10', () => {
-    const items = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'].map((id) =>
-      item(id),
-    )
+    const items = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'].map((id) => item(id))
     const round = pickGentilicioRound(items, { a: 1, b: 3 }, GENTILICIO_ROUND_SIZE, () => 0)
     const ids = round.map((entry) => entry.id)
 

@@ -70,7 +70,8 @@ onMounted(async () => {
     items.value = dataset.items
     startRound()
   } catch (cause) {
-    error.value = cause instanceof Error ? cause.message : 'No se pudo cargar el test de gentilicios'
+    error.value =
+      cause instanceof Error ? cause.message : 'No se pudo cargar el test de gentilicios'
   } finally {
     loading.value = false
   }

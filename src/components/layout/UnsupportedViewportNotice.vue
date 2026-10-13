@@ -8,17 +8,17 @@ import { quizPlayRoute } from '@/utils/quizNav'
   <div class="notice" role="status" aria-live="polite">
     <div class="notice__panel">
       <span class="notice__frame" aria-hidden="true" />
-      <h1 class="notice__title">Pantalla demasiado pequeña</h1>
+      <h1 class="notice__title">Ventana demasiado estrecha</h1>
       <p class="notice__text">
-        Los ejercicios con mapa están pensados para un ordenador o una tablet con mayor resolución.
-        Amplía la ventana o gira el dispositivo para continuar.
+        Los ejercicios con mapa necesitan un poco más de ancho en la ventana del navegador (no en el
+        monitor). Amplía la ventana, gira el dispositivo a horizontal o prueba gentilicios.
       </p>
-      <p class="notice__hint">Ancho mínimo recomendado: {{ MIN_SUPPORTED_WIDTH }}&nbsp;px</p>
+      <p class="notice__hint">Ancho mínimo de ventana: {{ MIN_SUPPORTED_WIDTH }}&nbsp;px</p>
 
       <RouterLink class="button button-primary notice__action" :to="quizPlayRoute('gentilicios')">
         Practicar gentilicios
       </RouterLink>
-      <p class="notice__aside">El test de gentilicios sí se puede usar en vertical.</p>
+      <p class="notice__aside">El test de gentilicios funciona también en vertical.</p>
     </div>
   </div>
 </template>

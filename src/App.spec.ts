@@ -30,17 +30,28 @@ describe('App', () => {
     expect(wrapper.find('.app-shell').exists()).toBe(true)
   })
 
-  it('muestra aviso cuando el ancho es inferior al mínimo soportado', async () => {
+  it('permite el inicio aunque la ventana sea estrecha', async () => {
     setViewportWidth(MIN_SUPPORTED_WIDTH - 1)
     await router.push('/')
     await router.isReady()
 
     const wrapper = mountApp()
 
-    expect(wrapper.text()).toContain('Pantalla demasiado pequeña')
+    expect(wrapper.find('.app-shell').exists()).toBe(true)
+    expect(wrapper.text()).toContain('Gentilicios')
+    expect(wrapper.text()).not.toContain('Ventana demasiado estrecha')
+  })
+
+  it('bloquea solo los quizzes con mapa en ventanas estrechas', async () => {
+    setViewportWidth(MIN_SUPPORTED_WIDTH - 1)
+    await router.push('/quiz/comunidades')
+    await router.isReady()
+
+    const wrapper = mountApp()
+
+    expect(wrapper.text()).toContain('Ventana demasiado estrecha')
     expect(wrapper.text()).toContain(`${MIN_SUPPORTED_WIDTH}`)
     expect(wrapper.text()).toContain('Practicar gentilicios')
-    expect(wrapper.text()).not.toContain('Comunidades')
     expect(wrapper.find('.app-shell').exists()).toBe(false)
   })
 
@@ -53,7 +64,7 @@ describe('App', () => {
 
     expect(wrapper.find('.app-shell').exists()).toBe(true)
     expect(wrapper.text()).toContain('Gentilicios')
-    expect(wrapper.text()).not.toContain('Pantalla demasiado pequeña')
+    expect(wrapper.text()).not.toContain('Ventana demasiado estrecha')
     expect(wrapper.text()).not.toContain('Comunidades')
     expect(wrapper.text()).not.toContain('Países EU')
   })

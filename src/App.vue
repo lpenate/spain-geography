@@ -12,7 +12,12 @@ const isHomeRoute = computed(() => route.name === 'home')
 const isGentiliciosRoute = computed(
   () => route.name === 'quiz-play' && route.params.mode === 'gentilicios',
 )
-const canUseApp = computed(() => isSupportedViewport.value || isGentiliciosRoute.value)
+const isMapQuizRoute = computed(
+  () => route.name === 'quiz-play' && route.params.mode !== 'gentilicios',
+)
+
+// Solo los quizzes con mapa exigen un ancho mínimo. Inicio y gentilicios van siempre.
+const canUseApp = computed(() => !isMapQuizRoute.value || isSupportedViewport.value)
 </script>
 
 <template>

@@ -16,8 +16,9 @@ describe('UnsupportedViewportNotice', () => {
       },
     })
 
-    expect(wrapper.text()).toContain('Pantalla demasiado pequeña')
+    expect(wrapper.text()).toContain('Ventana demasiado estrecha')
     expect(wrapper.text()).toContain('mapa')
+    expect(wrapper.text()).toContain('ventana del navegador')
     expect(wrapper.text()).toContain(`${MIN_SUPPORTED_WIDTH}`)
     expect(wrapper.text()).toContain('Practicar gentilicios')
     expect(wrapper.text()).toContain('vertical')
