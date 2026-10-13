@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useQuizPlayHeader } from '@/composables/useQuizPlayHeader'
+import { useViewport } from '@/composables/useViewport'
 import {
   availableQuizCategories,
   pageHeaderContext,
@@ -11,8 +12,13 @@ import {
 
 const route = useRoute()
 const headerOverride = useQuizPlayHeader()
+const { isSupportedViewport } = useViewport()
 
-const navCategories = computed(() => availableQuizCategories())
+const navCategories = computed(() => {
+  const categories = availableQuizCategories()
+  if (isSupportedViewport.value) return categories
+  return categories.filter((category) => category.id === 'gentilicios')
+})
 
 const pageContext = computed(
   () =>

@@ -15,7 +15,10 @@ function mountApp() {
 }
 
 describe('App', () => {
-  it('renderiza la cabecera de navegación en viewports soportados', () => {
+  it('renderiza la cabecera de navegación en viewports soportados', async () => {
+    await router.push('/')
+    await router.isReady()
+
     const wrapper = mountApp()
 
     expect(wrapper.text()).toContain('Geografía Interactiva')
@@ -27,14 +30,31 @@ describe('App', () => {
     expect(wrapper.find('.app-shell').exists()).toBe(true)
   })
 
-  it('muestra aviso cuando el ancho es inferior al mínimo soportado', () => {
+  it('muestra aviso cuando el ancho es inferior al mínimo soportado', async () => {
     setViewportWidth(MIN_SUPPORTED_WIDTH - 1)
+    await router.push('/')
+    await router.isReady()
 
     const wrapper = mountApp()
 
     expect(wrapper.text()).toContain('Pantalla demasiado pequeña')
     expect(wrapper.text()).toContain(`${MIN_SUPPORTED_WIDTH}`)
+    expect(wrapper.text()).toContain('Practicar gentilicios')
     expect(wrapper.text()).not.toContain('Comunidades')
     expect(wrapper.find('.app-shell').exists()).toBe(false)
+  })
+
+  it('permite el ejercicio de gentilicios en viewport vertical estrecho', async () => {
+    setViewportWidth(390)
+    await router.push('/quiz/gentilicios')
+    await router.isReady()
+
+    const wrapper = mountApp()
+
+    expect(wrapper.find('.app-shell').exists()).toBe(true)
+    expect(wrapper.text()).toContain('Gentilicios')
+    expect(wrapper.text()).not.toContain('Pantalla demasiado pequeña')
+    expect(wrapper.text()).not.toContain('Comunidades')
+    expect(wrapper.text()).not.toContain('Países EU')
   })
 })

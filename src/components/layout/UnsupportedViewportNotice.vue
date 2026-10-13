@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import { MIN_SUPPORTED_WIDTH } from '@/composables/useViewport'
+import { quizPlayRoute } from '@/utils/quizNav'
 </script>
 
 <template>
@@ -8,10 +10,15 @@ import { MIN_SUPPORTED_WIDTH } from '@/composables/useViewport'
       <span class="notice__frame" aria-hidden="true" />
       <h1 class="notice__title">Pantalla demasiado pequeña</h1>
       <p class="notice__text">
-        Esta aplicación está pensada para usarse en un ordenador o en una tablet con mayor
-        resolución. Amplía la ventana o cambia de dispositivo para continuar.
+        Los ejercicios con mapa están pensados para un ordenador o una tablet con mayor resolución.
+        Amplía la ventana o gira el dispositivo para continuar.
       </p>
       <p class="notice__hint">Ancho mínimo recomendado: {{ MIN_SUPPORTED_WIDTH }}&nbsp;px</p>
+
+      <RouterLink class="button button-primary notice__action" :to="quizPlayRoute('gentilicios')">
+        Practicar gentilicios
+      </RouterLink>
+      <p class="notice__aside">El test de gentilicios sí se puede usar en vertical.</p>
     </div>
   </div>
 </template>
@@ -63,5 +70,17 @@ import { MIN_SUPPORTED_WIDTH } from '@/composables/useViewport'
   margin: 1.25rem 0 0;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.notice__action {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.notice__aside {
+  margin: 0.85rem 0 0;
+  color: var(--header-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 </style>

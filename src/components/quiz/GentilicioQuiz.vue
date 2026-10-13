@@ -152,7 +152,8 @@ onMounted(async () => {
 <style scoped>
 .gentilicio {
   width: min(100%, 40rem);
-  padding-bottom: 1rem;
+  max-width: 100%;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
 .gentilicio__lead,

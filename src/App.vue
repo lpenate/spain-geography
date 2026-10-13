@@ -7,14 +7,29 @@ import { useViewport } from '@/composables/useViewport'
 
 const { isSupportedViewport } = useViewport()
 const route = useRoute()
+
 const isHomeRoute = computed(() => route.name === 'home')
+const isGentiliciosRoute = computed(
+  () => route.name === 'quiz-play' && route.params.mode === 'gentilicios',
+)
+const canUseApp = computed(() => isSupportedViewport.value || isGentiliciosRoute.value)
 </script>
 
 <template>
-  <UnsupportedViewportNotice v-if="!isSupportedViewport" />
-  <div v-else class="app-shell">
+  <UnsupportedViewportNotice v-if="!canUseApp" />
+  <div
+    v-else
+    class="app-shell"
+    :class="{ 'app-shell--gentilicios-mobile': !isSupportedViewport && isGentiliciosRoute }"
+  >
     <AppHeader />
-    <main class="app-main" :class="{ 'app-main--home': isHomeRoute }">
+    <main
+      class="app-main"
+      :class="{
+        'app-main--home': isHomeRoute,
+        'app-main--gentilicios': isGentiliciosRoute,
+      }"
+    >
       <RouterView />
     </main>
   </div>
@@ -49,6 +64,15 @@ const isHomeRoute = computed(() => route.name === 'home')
 .app-main--home {
   padding: 0.75rem var(--space-page-x);
   overflow: hidden;
+}
+
+.app-main--gentilicios {
+  padding-top: 1rem;
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+.app-shell--gentilicios-mobile .app-main--gentilicios {
+  padding-top: 0.85rem;
 }
 
 @media (min-width: 1024px) {
