@@ -3,7 +3,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import SvgQuizMap from '@/components/maps/SvgQuizMap.vue'
 import { useClickQuiz } from '@/composables/useClickQuiz'
 import { setQuizPlayHeader } from '@/composables/useQuizPlayHeader'
-import type { QuizMode, QuizSessionItem } from '@/types/quiz'
+import type { MapQuizMode, QuizSessionItem } from '@/types/quiz'
 import { isMicrostateSvgPathId } from '@/utils/clickQuizMatch'
 import { assetUrl } from '@/utils/assetUrl'
 import {
@@ -14,7 +14,7 @@ import {
 } from '@/utils/mapZoom'
 
 const props = defineProps<{
-  mode: QuizMode
+  mode: MapQuizMode
 }>()
 
 const {

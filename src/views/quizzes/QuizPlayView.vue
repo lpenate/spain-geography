@@ -17,7 +17,7 @@ const isValidMode = computed(() => validModes.includes(mode.value))
 const isGentilicioQuiz = computed(() => isValidMode.value && mode.value === 'gentilicios')
 const isClickTimed = computed(() => category.value?.interaction === 'click-timed')
 const mapMode = computed((): MapQuizMode | null => {
-  if (!isValidMode.value || mode.value === 'gentilicios' || isClickTimed.value) return null
+  if (!isValidMode.value || mode.value === 'gentilicios') return null
   return mode.value
 })
 </script>
@@ -25,10 +25,10 @@ const mapMode = computed((): MapQuizMode | null => {
 <template>
   <GentilicioQuiz v-if="isGentilicioQuiz" />
   <ClickQuizExercise
-    v-else-if="isValidMode && isClickTimed"
-    :key="mode"
+    v-else-if="mapMode && isClickTimed"
+    :key="mapMode"
     class="quiz-play"
-    :mode="mode"
+    :mode="mapMode"
   />
   <MapQuizExercise v-else-if="mapMode" :key="mapMode" class="quiz-play" :mode="mapMode" />
   <section v-else>

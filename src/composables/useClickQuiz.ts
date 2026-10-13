@@ -1,6 +1,6 @@
 import { type MaybeRefOrGetter, computed, onUnmounted, ref, toValue, watch } from 'vue'
 import { fetchQuizDataset } from '@/services/quizData'
-import type { QuizClickResult, QuizDataset, QuizItem, QuizMode } from '@/types/quiz'
+import type { MapQuizMode, QuizClickResult, QuizDataset, QuizItem } from '@/types/quiz'
 import { pickQuestionItems } from '@/utils/quizSession'
 import { isClickQuizAnswerCorrect } from '@/utils/clickQuizMatch'
 import { quizCategoryByMode } from '@/utils/quizNav'
@@ -9,7 +9,7 @@ const FEEDBACK_DELAY_MS = 1400
 
 export type ClickQuizPhase = 'playing' | 'feedback' | 'finished'
 
-export const useClickQuiz = (mode: MaybeRefOrGetter<QuizMode>) => {
+export const useClickQuiz = (mode: MaybeRefOrGetter<MapQuizMode>) => {
   const dataset = ref<QuizDataset | null>(null)
   const questions = ref<QuizItem[]>([])
   const currentIndex = ref(0)
