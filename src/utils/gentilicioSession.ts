@@ -152,3 +152,36 @@ export const promptPlaceLabel = (item: GentilicioItem): string => {
   if (!alternate) return item.name
   return `${item.name} / ${alternate}`
 }
+
+export type GentilicioViewMode = 'test' | 'repaso'
+
+const KIND_ORDER: GentilicioKind[] = ['comunidad', 'provincia', 'ambos', 'ciudad']
+
+export const sortGentiliciosForReview = (items: GentilicioItem[]): GentilicioItem[] =>
+  [...items].sort((left, right) => {
+    const kindDelta = KIND_ORDER.indexOf(left.kind) - KIND_ORDER.indexOf(right.kind)
+    if (kindDelta !== 0) return kindDelta
+    return left.name.localeCompare(right.name, 'es')
+  })
+
+export const filterGentiliciosForReview = (
+  items: GentilicioItem[],
+  query: string,
+): GentilicioItem[] => {
+  const normalizedQuery = normalizeAnswer(query)
+  if (!normalizedQuery) return sortGentiliciosForReview(items)
+
+  return sortGentiliciosForReview(items).filter((item) => {
+    const haystack = [
+      item.name,
+      ...item.aliases,
+      item.gentilicio,
+      ...(item.gentilicioAliases ?? []),
+      gentilicioKindLabel(item.kind),
+    ]
+      .map((value) => normalizeAnswer(value))
+      .join(' ')
+
+    return haystack.includes(normalizedQuery)
+  })
+}

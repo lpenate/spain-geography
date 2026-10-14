@@ -24,14 +24,19 @@ const pageContext = computed(
   () =>
     headerOverride.value ?? pageHeaderContext(route.name, route.params.mode as string | undefined),
 )
+
+const isCompactHeader = computed(() => !isSupportedViewport.value)
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header--compact': isCompactHeader }">
     <div class="header__main">
       <RouterLink :to="{ name: 'home' }" class="brand">
         <span class="brand__frame" aria-hidden="true" />
-        <span class="brand__text">Geografía Interactiva</span>
+        <span class="brand__text">
+          <span class="brand__text-full">Geografía Interactiva</span>
+          <span class="brand__text-short">Geografía</span>
+        </span>
       </RouterLink>
 
       <div v-if="pageContext" class="header__context">
@@ -73,12 +78,22 @@ const pageContext = computed(
   flex-shrink: 0;
 }
 
+.header--compact {
+  gap: 0.55rem;
+  padding-bottom: 0.7rem;
+}
+
 .header__main {
   display: flex;
   align-items: center;
   gap: 0.85rem;
   min-width: 0;
   flex: 1 1 12rem;
+}
+
+.header--compact .header__main {
+  flex: 1 1 100%;
+  gap: 0.65rem;
 }
 
 .brand {
@@ -107,6 +122,18 @@ const pageContext = computed(
   transition: color 0.2s ease;
 }
 
+.brand__text-short {
+  display: none;
+}
+
+.header--compact .brand__text-full {
+  display: none;
+}
+
+.header--compact .brand__text-short {
+  display: inline;
+}
+
 .brand:hover .brand__text {
   color: var(--accent);
 }
@@ -118,6 +145,16 @@ const pageContext = computed(
   min-width: 0;
   padding-left: 0.85rem;
   border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.header--compact .header__context {
+  flex: 1;
+  min-width: 0;
+  padding-left: 0.65rem;
+}
+
+.header--compact .header__eyebrow {
+  display: none;
 }
 
 .header__eyebrow {
@@ -153,6 +190,11 @@ const pageContext = computed(
   flex: 0 0 auto;
 }
 
+.header--compact .nav {
+  width: 100%;
+  justify-content: stretch;
+}
+
 .nav-link {
   flex: 0 0 auto;
   display: inline-flex;
@@ -172,6 +214,11 @@ const pageContext = computed(
     color 0.2s ease,
     background-color 0.2s ease;
   white-space: nowrap;
+}
+
+.header--compact .nav-link {
+  flex: 1 1 auto;
+  padding: 0.55rem 0.75rem;
 }
 
 .nav-link:hover {

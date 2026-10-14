@@ -39,7 +39,9 @@ describe('App', () => {
 
     expect(wrapper.find('.app-shell').exists()).toBe(true)
     expect(wrapper.text()).toContain('Gentilicios')
+    expect(wrapper.text()).toContain('Practica gentilicios')
     expect(wrapper.text()).not.toContain('Ventana demasiado estrecha')
+    expect(wrapper.text()).not.toContain('Países EU')
   })
 
   it('bloquea solo los quizzes con mapa en ventanas estrechas', async () => {

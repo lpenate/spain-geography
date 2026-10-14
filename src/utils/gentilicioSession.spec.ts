@@ -9,12 +9,14 @@ import {
   applyGentilicioResults,
   countGentilicioScore,
   evaluateGentilicioAnswers,
+  filterGentiliciosForReview,
   formatExpectedAnswer,
   gentilicioAnswerCandidates,
   isGentilicioAnswerCorrect,
   pickGentilicioRound,
   promptPlaceLabel,
   readGentilicioMistakes,
+  sortGentiliciosForReview,
   writeGentilicioMistakes,
 } from '@/utils/gentilicioSession'
 
@@ -157,5 +159,20 @@ describe('gentilicioSession', () => {
     expect(storage.getItem(GENTILICIO_MISTAKES_KEY)).toContain('sevilla')
     expect(readGentilicioMistakes(storage)).toEqual(mistakes)
     expect(readGentilicioMistakes({ getItem: () => '{mal' })).toEqual({})
+  })
+
+  it('ordena el repaso por tipo y nombre y filtra por lugar o gentilicio', () => {
+    const sorted = sortGentiliciosForReview(dataset.items)
+
+    expect(sorted.length).toBe(dataset.items.length)
+    expect(sorted[0]?.kind).toBe('comunidad')
+
+    const byPlace = filterGentiliciosForReview(dataset.items, 'Sevilla')
+    expect(byPlace.map((entry) => entry.id)).toEqual(['sevilla'])
+
+    const byGentilicio = filterGentiliciosForReview(dataset.items, 'gaditano')
+    expect(byGentilicio.map((entry) => entry.id)).toEqual(['cadiz'])
+
+    expect(filterGentiliciosForReview(dataset.items, 'zzzz-no-existe')).toEqual([])
   })
 })

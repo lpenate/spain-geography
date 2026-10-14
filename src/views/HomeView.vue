@@ -1,31 +1,51 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import QuizCategoryCard from '@/components/quiz/QuizCategoryCard.vue'
+import { useViewport } from '@/composables/useViewport'
 import { quizCategoriesByRegion } from '@/utils/quizNav'
 
+const { isSupportedViewport } = useViewport()
 const categoriesByRegion = computed(() => quizCategoriesByRegion())
 
-const sections = computed(() =>
-  [
+const sections = computed(() => {
+  const grouped = categoriesByRegion.value
+
+  if (!isSupportedViewport.value) {
+    return [
+      {
+        id: 'phone',
+        title: 'Disponible en este dispositivo',
+        categories: grouped.spain.filter((category) => category.id === 'gentilicios'),
+      },
+    ].filter((section) => section.categories.length > 0)
+  }
+
+  return [
     {
       id: 'spain',
       title: 'España',
-      categories: categoriesByRegion.value.spain,
+      categories: grouped.spain,
     },
     {
       id: 'europe',
       title: 'Europa',
-      categories: categoriesByRegion.value.europe,
+      categories: grouped.europe,
     },
-  ].filter((section) => section.categories.length > 0),
-)
+  ].filter((section) => section.categories.length > 0)
+})
 </script>
 
 <template>
-  <div class="home-page">
+  <div class="home-page" :class="{ 'home-page--compact': !isSupportedViewport }">
     <header class="home-intro">
       <p class="eyebrow">Índice de ejercicios</p>
-      <h1 class="home-intro__title">Elige un mapa para practicar</h1>
+      <h1 class="home-intro__title">
+        {{ isSupportedViewport ? 'Elige un mapa para practicar' : 'Practica gentilicios' }}
+      </h1>
+      <p v-if="!isSupportedViewport" class="home-intro__note">
+        En pantallas estrechas puedes estudiar y hacer el test de gentilicios. Los mapas requieren
+        más ancho.
+      </p>
     </header>
 
     <div class="home-board">
@@ -53,6 +73,11 @@ const sections = computed(() =>
   gap: 1rem;
 }
 
+.home-page--compact {
+  grid-template-rows: auto auto;
+  gap: 1.1rem;
+}
+
 .home-intro {
   padding-bottom: 0.75rem;
   border-bottom: 3px solid var(--accent);
@@ -64,8 +89,16 @@ const sections = computed(() =>
 
 .home-intro__title {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: clamp(1.45rem, 7vw, 1.75rem);
   line-height: 1.05;
+}
+
+.home-intro__note {
+  margin: 0.65rem 0 0;
+  max-width: 28rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 .home-board {
@@ -75,11 +108,19 @@ const sections = computed(() =>
   min-height: 0;
 }
 
+.home-page--compact .home-board {
+  grid-template-rows: auto;
+}
+
 .home-band {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   gap: 0.45rem;
   min-height: 0;
+}
+
+.home-page--compact .home-band {
+  grid-template-rows: auto auto;
 }
 
 .home-band__title {
@@ -96,5 +137,9 @@ const sections = computed(() =>
   grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   gap: 0.85rem;
   min-height: 0;
+}
+
+.home-page--compact .home-band__cards {
+  grid-template-columns: 1fr;
 }
 </style>

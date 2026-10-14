@@ -18,15 +18,12 @@ const isMapQuizRoute = computed(
 
 // Solo los quizzes con mapa exigen un ancho mínimo. Inicio y gentilicios van siempre.
 const canUseApp = computed(() => !isMapQuizRoute.value || isSupportedViewport.value)
+const isPhoneShell = computed(() => !isSupportedViewport.value)
 </script>
 
 <template>
   <UnsupportedViewportNotice v-if="!canUseApp" />
-  <div
-    v-else
-    class="app-shell"
-    :class="{ 'app-shell--gentilicios-mobile': !isSupportedViewport && isGentiliciosRoute }"
-  >
+  <div v-else class="app-shell" :class="{ 'app-shell--phone': isPhoneShell }">
     <AppHeader />
     <main
       class="app-main"
@@ -72,16 +69,20 @@ const canUseApp = computed(() => !isMapQuizRoute.value || isSupportedViewport.va
 }
 
 .app-main--gentilicios {
-  padding-top: 1rem;
-  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  width: min(40rem, 100%);
+  padding: 0.85rem var(--space-page-x) max(1.25rem, env(safe-area-inset-bottom));
 }
 
-.app-shell--gentilicios-mobile .app-main--gentilicios {
-  padding-top: 0.85rem;
+.app-shell--phone .app-main--home {
+  overflow-y: auto;
+}
+
+.app-shell--phone .app-main--gentilicios {
+  padding-top: 0.65rem;
 }
 
 @media (min-width: 1024px) {
-  .app-main:not(.app-main--home) {
+  .app-main:not(.app-main--home):not(.app-main--gentilicios) {
     padding-top: 2rem;
     padding-bottom: 3rem;
   }
