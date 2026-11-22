@@ -23,3 +23,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Secretos y configuración local (proyecto público: nunca subirlos)
+.env
+.env.*
+!.env.example
+.claude/
