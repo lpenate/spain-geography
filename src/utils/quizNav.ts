@@ -35,6 +35,10 @@ export const pageHeaderContext = (
     }
   }
 
+  if (routeName === 'feedback') {
+    return { eyebrow: 'Tu opinión', title: 'Comentarios' }
+  }
+
   if (routeName === 'quiz-play' && mode) {
     const category = quizCategoryByMode(mode as QuizMode)
     if (!category) return null

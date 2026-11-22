@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import QuizCategoryCard from '@/components/quiz/QuizCategoryCard.vue'
 import { useViewport } from '@/composables/useViewport'
 import { quizCategoriesByRegion } from '@/utils/quizNav'
@@ -38,10 +39,17 @@ const sections = computed(() => {
 <template>
   <div class="home-page" :class="{ 'home-page--compact': !isSupportedViewport }">
     <header class="home-intro">
-      <p class="eyebrow">Índice de ejercicios</p>
-      <h1 class="home-intro__title">
-        {{ isSupportedViewport ? 'Elige un mapa para practicar' : 'Practica gentilicios' }}
-      </h1>
+      <div class="home-intro__row">
+        <div>
+          <p class="eyebrow">Índice de ejercicios</p>
+          <h1 class="home-intro__title">
+            {{ isSupportedViewport ? 'Elige un mapa para practicar' : 'Practica gentilicios' }}
+          </h1>
+        </div>
+        <RouterLink class="button button-secondary home-intro__feedback" :to="{ name: 'feedback' }">
+          Enviar comentarios
+        </RouterLink>
+      </div>
       <p v-if="!isSupportedViewport" class="home-intro__note">
         En pantallas estrechas puedes estudiar y hacer el test de gentilicios. Los mapas requieren
         más ancho.
@@ -81,6 +89,18 @@ const sections = computed(() => {
 .home-intro {
   padding-bottom: 0.75rem;
   border-bottom: 3px solid var(--accent);
+}
+
+.home-intro__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-intro__feedback {
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .home-intro .eyebrow {

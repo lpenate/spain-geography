@@ -25,6 +25,11 @@ const router = createRouter({
       redirect: '/quiz/provincias',
     },
     {
+      path: '/comentarios',
+      name: 'feedback',
+      component: () => import('@/views/FeedbackView.vue'),
+    },
+    {
       path: '/quiz/:mode',
       name: 'quiz-play',
       component: () => import('@/views/quizzes/QuizPlayView.vue'),
