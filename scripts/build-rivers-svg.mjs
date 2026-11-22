@@ -397,6 +397,12 @@ const hydrography = [
   ...svgElements.filter((el) => el.type === 'lago').map((el) => el.markup),
 ].join('\n')
 
+const DEFAULT_HYDRO_STYLE = `<style>
+.hydro--rio, .hydro--context { fill: none; stroke: #0978ab; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.hydro--context { opacity: 0.35; }
+.hydro--lago { fill: #6fc3ec; stroke: #0978ab; stroke-width: 1.5; }
+</style>`
+
 const outputSvg = sourceSvg
   .replace(/<\?xml[^>]*>\s*/, '')
   .replace(/<!--[\s\S]*?-->\s*/g, '')
@@ -404,6 +410,9 @@ const outputSvg = sourceSvg
   .replace(/<metadata[\s\S]*?<\/metadata>/, '')
   .replace(/ xmlns:c2pa="[^"]*"/, '')
   .replace(hydroMatch[0], `<g id="hydrography">\n${hydrography}\n</g>`)
+  // Estilo por defecto de los trazados: sin él, un <img> (miniatura del índice) pinta los ríos
+  // como polígonos negros rellenos. El quiz lo sobrescribe con reglas más específicas.
+  .replace(/(<svg\b[^>]*>)/, `$1\n${DEFAULT_HYDRO_STYLE}`)
   // Fuera los límites de comunidades autónomas (gris fino); se mantienen las fronteras de país (gris grueso)
   .replace(
     /<(polyline|polygon|path)\b[^>]*stroke="#646464"[^>]*stroke-width="1\.4173"[^>]*\/?>(\s*<\/\1>)?/g,

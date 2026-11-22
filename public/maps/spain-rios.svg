@@ -1,6 +1,11 @@
 <svg version="1.1" id="Spain_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1183.412px" height="1015.165px" viewBox="0 0 1183.412 1015.165" enable-background="new 0 0 1183.412 1015.165"
 	 xml:space="preserve">
+<style>
+.hydro--rio, .hydro--context { fill: none; stroke: #0978ab; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.hydro--context { opacity: 0.35; }
+.hydro--lago { fill: #6fc3ec; stroke: #0978ab; stroke-width: 1.5; }
+</style>
 <image overflow="visible" width="1197" height="1029" xlink:href="data:image/jpeg;base64,/9j/4QGeRXhpZgAATU0AKgAAAAgADgEAAAMAAAABDNEAAAEBAAMAAAABCgEAAAECAAMAAAADAAAA
 tgEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAESAAMAAAABAAEAAAEVAAMAAAABAAMAAAEaAAUAAAAB
 AAAAvAEbAAUAAAABAAAAxAEcAAMAAAABAAEAAAEoAAMAAAABAAIAAAExAAIAAAAgAAAAzAEyAAIA

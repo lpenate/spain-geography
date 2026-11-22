@@ -117,9 +117,9 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
   },
   {
     id: 'rios',
-    title: 'Ríos y Lagos',
+    title: 'Ríos',
     description:
-      'Identifica el río o lago señalado sobre el mapa físico y marca a qué vertiente pertenece.',
+      'Identifica el río señalado sobre el mapa físico y marca a qué vertiente pertenece.',
     region: 'spain',
     mapUrl: '/maps/spain-rios.svg',
     dataUrl: '/data/spain-rios.json',
