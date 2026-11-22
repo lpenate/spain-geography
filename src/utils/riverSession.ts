@@ -81,6 +81,10 @@ export const pickRiverRound = (
   return shuffleArray([...selectedLakes, ...selectedRivers], random)
 }
 
+/** Solo los ríos se preguntan con vertiente; los lagos y los mares, solo por el nombre. */
+export const asksVertiente = (item: RiverItem): boolean =>
+  item.type === 'rio' && item.vertiente !== undefined
+
 export const isRiverAnswerCorrect = (
   item: RiverItem,
   nameAnswer: string,
@@ -88,8 +92,8 @@ export const isRiverAnswerCorrect = (
 ): RiverAnswerResult => {
   const nameCorrect = isApproximateMatch(nameAnswer, [item.name, ...item.aliases])
 
-  // Sin vertiente (mapa de Europa): solo cuenta el nombre
-  if (!item.vertiente) {
+  // Sin vertiente (lagos, y todo el mapa de Europa): solo cuenta el nombre
+  if (!asksVertiente(item) || !item.vertiente) {
     return {
       nameCorrect,
       vertienteCorrect: true,
@@ -119,8 +123,6 @@ export interface RiverQuizConfig {
   mode: RiverQuizMode
   dataUrl: string
   mapUrl: string
-  /** Pregunta además la vertiente (cantábrica, atlántica o mediterránea). */
-  askVertiente: boolean
   /** Texto corto del encabezado durante el test. */
   eyebrow: string
   /** Elementos del mapa que entran en las preguntas. */
@@ -132,7 +134,6 @@ export const RIVER_QUIZ_CONFIGS: Record<RiverQuizMode, RiverQuizConfig> = {
     mode: 'rios',
     dataUrl: '/data/spain-rios.json',
     mapUrl: '/maps/spain-rios.svg',
-    askVertiente: true,
     eyebrow: 'Ríos y lagos',
     selectItems: filterExamRivers,
   },
@@ -140,7 +141,6 @@ export const RIVER_QUIZ_CONFIGS: Record<RiverQuizMode, RiverQuizConfig> = {
     mode: 'rios-europa',
     dataUrl: '/data/europe-rios.json',
     mapUrl: '/maps/europe-rios.svg',
-    askVertiente: false,
     eyebrow: 'Europa',
     selectItems: (items) => items,
   },

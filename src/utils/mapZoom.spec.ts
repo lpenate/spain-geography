@@ -10,6 +10,7 @@ import {
   mapZoomedTextTransform,
   mapZoomCenteredOn,
   mapZoomForBox,
+  panMapZoom,
   type MapBox,
 } from '@/utils/mapZoom'
 
@@ -127,5 +128,26 @@ describe('mapZoomCenteredOn', () => {
 
   it('never returns a zoom of 1, where centring is impossible', () => {
     expect(mapZoomCenteredOn({ x: 30, y: 30 }, 1).scale).toBeGreaterThan(1)
+  })
+
+  describe('panMapZoom', () => {
+    it('mueve el dibujo en el mismo sentido que el arrastre', () => {
+      const state = { scale: 3, origin: { x: 50, y: 50 } }
+      const moved = panMapZoom(state, { x: 10, y: -4 })
+      const drawn = (origin: number, p: number) => origin * (1 - state.scale) + p * state.scale
+
+      expect(moved.scale).toBe(3)
+      expect(drawn(moved.origin.x, 40) - drawn(50, 40)).toBeCloseTo(10)
+      expect(drawn(moved.origin.y, 40) - drawn(50, 40)).toBeCloseTo(-4)
+    })
+
+    it('no deja salir del mapa ni hace nada sin zoom', () => {
+      expect(panMapZoom({ scale: 2, origin: { x: 90, y: 5 } }, { x: -50, y: 50 }).origin).toEqual({
+        x: 100,
+        y: 0,
+      })
+      const flat = { scale: 1, origin: { x: 50, y: 50 } }
+      expect(panMapZoom(flat, { x: 20, y: 20 })).toBe(flat)
+    })
   })
 })

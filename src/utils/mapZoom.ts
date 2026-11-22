@@ -76,6 +76,26 @@ export const mapZoomCenteredOn = (point: MapLabel, scale: number): MapZoomState 
   return { scale: s, origin: { x: center(point.x), y: center(point.y) } }
 }
 
+/**
+ * Desplaza el mapa ampliado (la «manita»): `delta` es lo que se ha arrastrado, en % del lienzo.
+ * Un punto se dibuja en `o * (1 - s) + p * s`, así que mover el dibujo `d` exige cambiar el
+ * origen en `-d / (s - 1)`. El origen se limita a 0-100 para no dejar ver fuera del mapa
+ * (salvo que ya estuviera fuera, como tras `mapZoomCenteredOn`, para no dar un salto).
+ */
+export const panMapZoom = (state: MapZoomState, delta: MapLabel): MapZoomState => {
+  if (state.scale <= MAP_MIN_ZOOM) return state
+
+  const move = (origin: number, drag: number) => {
+    const next = origin - drag / (state.scale - 1)
+    return Number(Math.min(Math.max(100, origin), Math.max(Math.min(0, origin), next)).toFixed(3))
+  }
+
+  return {
+    scale: state.scale,
+    origin: { x: move(state.origin.x, delta.x), y: move(state.origin.y, delta.y) },
+  }
+}
+
 export const mapMarkerTransform = (scale: number): string =>
   `translate(-50%, -50%) scale(${1 / scale})`
 

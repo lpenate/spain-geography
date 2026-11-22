@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import type { RiverDataset, RiverItem } from '@/types/river'
-import { RIVER_QUIZ_CONFIGS, isRiverAnswerCorrect } from '@/utils/riverSession'
+import { asksVertiente, isRiverAnswerCorrect } from '@/utils/riverSession'
 
 const read = (file: string) => readFileSync(path.resolve(process.cwd(), file), 'utf8')
 const dataset = JSON.parse(read('public/data/europe-rios.json')) as RiverDataset
@@ -55,7 +55,7 @@ describe('mapa de ríos, lagos y mares de Europa', () => {
   })
 
   it('no pregunta la vertiente: solo cuenta el nombre', () => {
-    expect(RIVER_QUIZ_CONFIGS['rios-europa'].askVertiente).toBe(false)
+    expect(dataset.items.some(asksVertiente)).toBe(false)
     expect(isRiverAnswerCorrect(byName('Rin'), 'Rhin', null).score).toBe(1)
     expect(isRiverAnswerCorrect(byName('Mar Negro'), 'negro', null).score).toBe(1)
     expect(isRiverAnswerCorrect(byName('Mar Báltico'), 'mar baltico', null).score).toBe(1)

@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import type { RiverDataset, RiverItem } from '@/types/river'
 import {
   EXAM_RIVER_IDS,
+  asksVertiente,
   filterExamRivers,
   isRiverAnswerCorrect,
   pickRiverRound,
@@ -159,6 +160,16 @@ describe('riverSession', () => {
     expect(result.nameCorrect).toBe(false)
     expect(result.vertienteCorrect).toBe(true)
     expect(result.score).toBe(0)
+  })
+
+  it('a los lagos solo les pregunta el nombre, sin vertiente', () => {
+    const lake = sample('Lago de Sanabria')
+
+    expect(asksVertiente(lake)).toBe(false)
+    expect(asksVertiente(sample('Duero'))).toBe(true)
+    expect(isRiverAnswerCorrect(lake, 'Sanabria', null).score).toBe(1)
+    expect(isRiverAnswerCorrect(lake, 'Sanabria', 'mediterranea').score).toBe(1)
+    expect(isRiverAnswerCorrect(lake, 'Ruidera', null).score).toBe(0)
   })
 
   it('acepta alias y variantes de ríos y lagos', () => {

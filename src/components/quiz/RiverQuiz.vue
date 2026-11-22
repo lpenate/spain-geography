@@ -17,11 +17,13 @@ import {
   mapZoomForBox,
   mapZoomLabelPosition,
   mapZoomTransform,
+  panMapZoom,
   type MapZoomState,
 } from '@/utils/mapZoom'
 import {
   RIVER_QUIZ_CONFIGS,
   RIVER_TYPE_TEXT,
+  asksVertiente,
   isRiverAnswerCorrect,
   pickRiverRound,
 } from '@/utils/riverSession'
@@ -69,6 +71,7 @@ const connectorArrow = ref<ArrowLine | null>(null)
 const current = computed(() => round.value[index.value] ?? null)
 const isRiver = computed(() => current.value?.type === 'rio')
 const typeText = computed(() => RIVER_TYPE_TEXT[current.value?.type ?? 'rio'])
+const needsVertiente = computed(() => !!current.value && asksVertiente(current.value))
 // Unidades del viewBox que ocupa 1 px de pantalla sin zoom (se recalcula al redimensionar)
 const unitsPerPixel = ref(1)
 const measureCanvas = () => {
@@ -160,7 +163,7 @@ const feedbackText = computed(() => {
 
   const prefix = typeText.value.article
 
-  if (!current.value.vertiente) {
+  if (!needsVertiente.value || !current.value.vertiente) {
     return lastResult.value.score === 1
       ? `+1 pto: ¡Correcto! Es ${prefix}${current.value.name}.`
       : `0 ptos: Era ${prefix}${current.value.name}.`
@@ -310,7 +313,7 @@ const submitAnswer = () => {
     phase.value !== 'playing' ||
     !current.value ||
     !answer.value.trim() ||
-    (config.value.askVertiente && !selectedVertiente.value)
+    (needsVertiente.value && !selectedVertiente.value)
   )
     return
 
@@ -364,6 +367,41 @@ const zoomOut = () => {
 
 const zoomFitAll = () => {
   mapZoom.value = { ...DEFAULT_MAP_ZOOM_STATE }
+}
+
+// Manita: con ella activa, arrastrar el mapa ampliado lo desplaza (ratón o dedo)
+const panMode = ref(false)
+const canPan = computed(() => panMode.value && mapZoom.value.scale > MAP_MIN_ZOOM)
+let panStart: { x: number; y: number; state: MapZoomState } | null = null
+const panning = ref(false)
+
+const togglePanMode = () => {
+  panMode.value = !panMode.value
+}
+
+const onPanStart = (event: PointerEvent) => {
+  if (!canPan.value) return
+  // Los controles que flotan sobre el mapa (zoom, slider) siguen funcionando con normalidad
+  if ((event.target as Element).closest('button, input, label')) return
+  ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
+  panStart = { x: event.clientX, y: event.clientY, state: mapZoom.value }
+  panning.value = true
+  event.preventDefault()
+}
+
+const onPanMove = (event: PointerEvent) => {
+  const rect = mapRoot.value?.getBoundingClientRect()
+  if (!panStart || !rect?.width || !rect.height) return
+
+  mapZoom.value = panMapZoom(panStart.state, {
+    x: ((event.clientX - panStart.x) / rect.width) * 100,
+    y: ((event.clientY - panStart.y) / rect.height) * 100,
+  })
+}
+
+const onPanEnd = () => {
+  panStart = null
+  panning.value = false
 }
 
 let resizeObserver: ResizeObserver | null = null
@@ -467,7 +505,16 @@ onUnmounted(() => {
       </svg>
 
       <div class="river-quiz__map">
-        <div ref="mapRoot" class="river-quiz__canvas" :style="canvasStyle">
+        <div
+          ref="mapRoot"
+          class="river-quiz__canvas"
+          :class="{ 'is-pan-active': canPan, 'is-panning': panning }"
+          :style="canvasStyle"
+          @pointerdown="onPanStart"
+          @pointermove="onPanMove"
+          @pointerup="onPanEnd"
+          @pointercancel="onPanEnd"
+        >
           <div class="river-quiz__zoom" :style="zoomStyle">
             <!-- eslint-disable vue/no-v-html, vue/html-self-closing -- SVG del mapa generado en el build -->
             <div class="river-quiz__svg" v-html="svgMarkup" />
@@ -528,6 +575,35 @@ onUnmounted(() => {
             >
               Todo
             </button>
+            <button
+              class="river-quiz__control river-quiz__control--icon"
+              :class="{ 'river-quiz__control--active': panMode }"
+              type="button"
+              :aria-pressed="panMode"
+              aria-label="Mover el mapa con la mano"
+              title="Mover el mapa: actívala y arrastra el mapa ampliado"
+              :disabled="mapZoom.scale <= MAP_MIN_ZOOM"
+              @click="togglePanMode"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 11V6a2 2 0 0 0-4 0" />
+                <path d="M14 10V4a2 2 0 0 0-4 0v2" />
+                <path d="M10 10.5V6a2 2 0 0 0-4 0v8" />
+                <path
+                  d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"
+                />
+              </svg>
+            </button>
           </div>
 
           <label v-if="current && isRiver && phase !== 'finished'" class="river-quiz__course">
@@ -585,7 +661,7 @@ onUnmounted(() => {
             />
           </div>
 
-          <div v-if="config.askVertiente" class="river-quiz__field">
+          <div v-if="needsVertiente" class="river-quiz__field">
             <fieldset class="river-quiz__fieldset">
               <legend class="river-quiz__label">Vertiente (obligatorio)</legend>
               <div class="river-quiz__radios" role="radiogroup">
@@ -615,7 +691,7 @@ onUnmounted(() => {
           <button
             class="button button-primary river-quiz__button"
             type="submit"
-            :disabled="!answer.trim() || (config.askVertiente && !selectedVertiente)"
+            :disabled="!answer.trim() || (needsVertiente && !selectedVertiente)"
           >
             Comprobar
           </button>
@@ -698,7 +774,9 @@ onUnmounted(() => {
   position: relative;
   width: min(100cqw, calc(100cqh * var(--map-w) / var(--map-h)));
   height: min(100cqh, calc(100cqw * var(--map-h) / var(--map-w)));
+  /* clip y no hidden: el contenido ampliado no debe poder desplazarse con el foco o scrollIntoView */
   overflow: hidden;
+  overflow: clip;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: #c6ecff;
@@ -985,6 +1063,33 @@ onUnmounted(() => {
 .river-quiz__control:disabled {
   opacity: 0.45;
   cursor: default;
+}
+
+.river-quiz__control--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.river-quiz__control--active:not(:disabled) {
+  background: var(--text, #111);
+  border-color: var(--text, #111);
+  color: #fff;
+}
+
+.river-quiz__canvas.is-pan-active {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.river-quiz__canvas.is-panning {
+  cursor: grabbing;
+}
+
+/* Mientras se arrastra, el mapa sigue al dedo sin la animación del zoom */
+.river-quiz__canvas.is-panning .river-quiz__zoom {
+  transition: none;
 }
 
 .river-quiz__sidebar {
