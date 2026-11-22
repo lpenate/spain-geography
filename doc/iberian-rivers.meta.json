@@ -1,0 +1,383 @@
+{
+  "schema": "rios-meta-v1",
+  "note": "Parcial: ríos con geometría ya existente en spain-physical.svg. Faltan por trazar los de \"pendientes\".",
+  "elementos": [
+    {
+      "id": "rio-mino",
+      "name": "Miño",
+      "aliases": ["Minho", "Río Miño"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.8,
+      "anchorPoint": {
+        "x": 182.48,
+        "y": 138.23
+      },
+      "bbox": {
+        "x0": 88.62,
+        "y0": 117.93,
+        "x1": 212.53,
+        "y1": 260.64
+      },
+      "svgElements": ["rio-mino"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-sil",
+      "name": "Sil",
+      "aliases": ["Río Sil"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 248.21,
+        "y": 202.02
+      },
+      "bbox": {
+        "x0": 175.08,
+        "y0": 145.85,
+        "x1": 300.05,
+        "y1": 209.77
+      },
+      "svgElements": ["rio-sil"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-duero",
+      "name": "Duero",
+      "aliases": ["Douro", "Río Duero"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.8,
+      "anchorPoint": {
+        "x": 551.55,
+        "y": 300.51
+      },
+      "bbox": {
+        "x0": 101.13,
+        "y0": 259.68,
+        "x1": 607.58,
+        "y1": 352.59
+      },
+      "svgElements": ["rio-duero"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-esla",
+      "name": "Esla",
+      "aliases": ["Río Esla"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 350.16,
+        "y": 215.09
+      },
+      "bbox": {
+        "x0": 310.44,
+        "y0": 139.35,
+        "x1": 394.77,
+        "y1": 304.93
+      },
+      "svgElements": ["rio-esla"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-pisuerga",
+      "name": "Pisuerga",
+      "aliases": ["Río Pisuerga"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 456.89,
+        "y": 220.95
+      },
+      "bbox": {
+        "x0": 406.83,
+        "y0": 142.8,
+        "x1": 457.9,
+        "y1": 296.6
+      },
+      "svgElements": ["rio-pisuerga"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-tormes",
+      "name": "Tormes",
+      "aliases": ["Río Tormes"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 355.47,
+        "y": 367.49
+      },
+      "bbox": {
+        "x0": 275.9,
+        "y0": 325.2,
+        "x1": 385.08,
+        "y1": 426.99
+      },
+      "svgElements": ["rio-tormes"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-tajo",
+      "name": "Tajo",
+      "aliases": ["Tejo", "Río Tajo"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 415.47,
+        "y": 462.3
+      },
+      "bbox": {
+        "x0": 73.06,
+        "y0": 376.04,
+        "x1": 658.32,
+        "y1": 572.12
+      },
+      "svgElements": ["rio-tajo-1", "rio-tajo-2", "rio-tajo-3"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-guadiana",
+      "name": "Guadiana",
+      "aliases": ["Río Guadiana"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 366.87,
+        "y": 556.28
+      },
+      "bbox": {
+        "x0": 178.39,
+        "y0": 460.13,
+        "x1": 609.82,
+        "y1": 755.69
+      },
+      "svgElements": ["rio-guadiana"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-guadalquivir",
+      "name": "Guadalquivir",
+      "aliases": ["Río Guadalquivir"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 430.53,
+        "y": 673.33
+      },
+      "bbox": {
+        "x0": 297.76,
+        "y0": 648.57,
+        "x1": 573.29,
+        "y1": 781.35
+      },
+      "svgElements": ["rio-guadalquivir"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-genil",
+      "name": "Genil",
+      "aliases": ["Río Genil"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 441.94,
+        "y": 744.47
+      },
+      "bbox": {
+        "x0": 369.04,
+        "y0": 699.57,
+        "x1": 532.84,
+        "y1": 760.39
+      },
+      "svgElements": ["rio-genil"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-segura",
+      "name": "Segura",
+      "aliases": ["Río Segura"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 658.05,
+        "y": 641.98
+      },
+      "bbox": {
+        "x0": 579.59,
+        "y0": 626.06,
+        "x1": 745.4,
+        "y1": 670.51
+      },
+      "svgElements": ["rio-segura"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-jucar",
+      "name": "Júcar",
+      "aliases": ["Xúquer", "Xuquer", "Río Júcar"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 633.81,
+        "y": 542.21
+      },
+      "bbox": {
+        "x0": 612.35,
+        "y0": 419.81,
+        "x1": 776.04,
+        "y1": 556.73
+      },
+      "svgElements": ["rio-jucar"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-turia",
+      "name": "Turia",
+      "aliases": ["Guadalaviar", "Río Turia"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 696.46,
+        "y": 465.32
+      },
+      "bbox": {
+        "x0": 661.18,
+        "y0": 413.89,
+        "x1": 770.84,
+        "y1": 518.2
+      },
+      "svgElements": ["rio-turia"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-ebro",
+      "name": "Ebro",
+      "aliases": ["Río Ebro"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.75,
+      "anchorPoint": {
+        "x": 580.16,
+        "y": 195.25
+      },
+      "bbox": {
+        "x0": 444.58,
+        "y0": 140.85,
+        "x1": 868.56,
+        "y1": 386.68
+      },
+      "svgElements": ["rio-ebro-1", "rio-ebro-2"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-jalon",
+      "name": "Jalón",
+      "aliases": ["Río Jalón"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 662.42,
+        "y": 319.51
+      },
+      "bbox": {
+        "x0": 602.09,
+        "y0": 273.97,
+        "x1": 712.12,
+        "y1": 345.19
+      },
+      "svgElements": ["rio-jalon"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-aragon",
+      "name": "Aragón",
+      "aliases": ["Río Aragón"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 701.47,
+        "y": 186.32
+      },
+      "bbox": {
+        "x0": 653.8,
+        "y0": 167.04,
+        "x1": 759.74,
+        "y1": 227.09
+      },
+      "svgElements": ["rio-aragon"],
+      "geometry": "existing"
+    },
+    {
+      "id": "rio-segre",
+      "name": "Segre",
+      "aliases": ["Río Segre"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "anchorPoint": {
+        "x": 892.06,
+        "y": 256.37
+      },
+      "bbox": {
+        "x0": 822.41,
+        "y0": 203.12,
+        "x1": 957.97,
+        "y1": 317.63
+      },
+      "svgElements": ["rio-segre"],
+      "geometry": "existing"
+    }
+  ],
+  "pendientes": {
+    "cantabrica": {
+      "rios": ["Eo", "Navia", "Narcea", "Nalón", "Saja", "Nervión", "Bidasoa"],
+      "lagos": ["Lagos de Covadonga"]
+    },
+    "atlantica": {
+      "rios": [
+        "Tambre",
+        "Adaja",
+        "Alagón",
+        "Tiétar",
+        "Alberche",
+        "Jarama",
+        "Henares",
+        "Zújar",
+        "Jabalón",
+        "Cigüela",
+        "Záncara",
+        "Odiel",
+        "Tinto"
+      ],
+      "lagos": ["Lago de Sanabria", "Laguna Negra", "Lagunas de Ruidera"]
+    },
+    "mediterranea": {
+      "rios": [
+        "Cabriel",
+        "Almanzora",
+        "Guadalhorce",
+        "Guadalfeo",
+        "Gállego",
+        "Cinca",
+        "Llobregat",
+        "Ter"
+      ],
+      "lagos": ["Laguna de Gallocanta"]
+    }
+  }
+}

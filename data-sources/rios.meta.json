@@ -1,0 +1,576 @@
+{
+  "schema": "rios-meta-v2",
+  "note": "Inventario del mapa del libro (U2): 45 ríos + 5 lagos. Geometría: OSM (ODbL) proyectada con data-sources/osm/calibracion-proyeccion.json, o un trazado del SVG fuente. «reverse»: el trazado de origen va de desembocadura a nacimiento y se invierte para que el slider recorra el río aguas abajo.",
+  "elementos": [
+    {
+      "id": "rio-eo",
+      "name": "Eo",
+      "aliases": ["Ría del Eo", "Ría de Eo"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/9532088"]
+      }
+    },
+    {
+      "id": "rio-navia",
+      "name": "Navia",
+      "aliases": ["Ría de Navia"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2827450"]
+      }
+    },
+    {
+      "id": "rio-narcea",
+      "name": "Narcea",
+      "aliases": [],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2592144"]
+      }
+    },
+    {
+      "id": "rio-nalon",
+      "name": "Nalón",
+      "aliases": ["Nalon"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2631375"]
+      }
+    },
+    {
+      "id": "rio-saja",
+      "name": "Saja",
+      "aliases": [],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/12765796"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-nervion",
+      "name": "Nervión",
+      "aliases": ["Nerbioi", "Ría de Bilbao", "Ría del Nervión"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/19248654"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-bidasoa",
+      "name": "Bidasoa",
+      "aliases": ["Bidasoa ibaia", "Bidassoa"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/17020687"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-tambre",
+      "name": "Tambre",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/8039971"]
+      }
+    },
+    {
+      "id": "rio-mino",
+      "name": "Miño",
+      "aliases": ["Minho"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1226237"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-sil",
+      "name": "Sil",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1240442"]
+      }
+    },
+    {
+      "id": "rio-duero",
+      "name": "Duero",
+      "aliases": ["Douro"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2566210"]
+      }
+    },
+    {
+      "id": "rio-esla",
+      "name": "Esla",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1226495"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-pisuerga",
+      "name": "Pisuerga",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2856617"]
+      }
+    },
+    {
+      "id": "rio-adaja",
+      "name": "Adaja",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1437510"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-tormes",
+      "name": "Tormes",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1614094"]
+      }
+    },
+    {
+      "id": "rio-tajo",
+      "name": "Tajo",
+      "aliases": ["Tejo"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2127463"]
+      }
+    },
+    {
+      "id": "rio-alagon",
+      "name": "Alagón",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2918666"]
+      }
+    },
+    {
+      "id": "rio-tietar",
+      "name": "Tiétar",
+      "aliases": ["Tietar"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/225700"]
+      }
+    },
+    {
+      "id": "rio-alberche",
+      "name": "Alberche",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1618483"]
+      }
+    },
+    {
+      "id": "rio-jarama",
+      "name": "Jarama",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2197979"]
+      }
+    },
+    {
+      "id": "rio-henares",
+      "name": "Henares",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/12528595"]
+      }
+    },
+    {
+      "id": "rio-guadiana",
+      "name": "Guadiana",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/289968"]
+      }
+    },
+    {
+      "id": "rio-zujar",
+      "name": "Zújar",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/13982977"]
+      }
+    },
+    {
+      "id": "rio-jabalon",
+      "name": "Jabalón",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2203335"]
+      }
+    },
+    {
+      "id": "rio-ciguela",
+      "name": "Cigüela",
+      "aliases": ["Gigüela", "Ciguela", "Giguela"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2203328"]
+      }
+    },
+    {
+      "id": "rio-zancara",
+      "name": "Záncara",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2196025"]
+      }
+    },
+    {
+      "id": "rio-guadalquivir",
+      "name": "Guadalquivir",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/290000"]
+      }
+    },
+    {
+      "id": "rio-genil",
+      "name": "Genil",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/8461892"]
+      }
+    },
+    {
+      "id": "rio-odiel",
+      "name": "Odiel",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/13257569"]
+      }
+    },
+    {
+      "id": "rio-tinto",
+      "name": "Tinto",
+      "aliases": ["Río Tinto"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2118665"]
+      }
+    },
+    {
+      "id": "rio-guadalhorce",
+      "name": "Guadalhorce",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/14978971"]
+      }
+    },
+    {
+      "id": "rio-guadalfeo",
+      "name": "Guadalfeo",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/8464364"]
+      }
+    },
+    {
+      "id": "rio-almanzora",
+      "name": "Almanzora",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/8466045"]
+      }
+    },
+    {
+      "id": "rio-segura",
+      "name": "Segura",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2939479"]
+      }
+    },
+    {
+      "id": "rio-jucar",
+      "name": "Júcar",
+      "aliases": ["Xúquer", "Xuquer"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/331718"]
+      }
+    },
+    {
+      "id": "rio-cabriel",
+      "name": "Cabriel",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2197019"]
+      }
+    },
+    {
+      "id": "rio-turia",
+      "name": "Turia",
+      "aliases": ["Guadalaviar", "Túria"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/14419963"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-ebro",
+      "name": "Ebro",
+      "aliases": ["Ebre"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/331157"]
+      }
+    },
+    {
+      "id": "rio-jalon",
+      "name": "Jalón",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2827522"]
+      }
+    },
+    {
+      "id": "rio-aragon",
+      "name": "Aragón",
+      "aliases": ["Aragoi"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "svg": ["rio-aragon"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "rio-gallego",
+      "name": "Gállego",
+      "aliases": ["Gallego"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/1819354"]
+      }
+    },
+    {
+      "id": "rio-cinca",
+      "name": "Cinca",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2127488"]
+      }
+    },
+    {
+      "id": "rio-segre",
+      "name": "Segre",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2127489"]
+      }
+    },
+    {
+      "id": "rio-llobregat",
+      "name": "Llobregat",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/3771631"]
+      }
+    },
+    {
+      "id": "rio-ter",
+      "name": "Ter",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "anchor": 0.5,
+      "source": {
+        "osm": ["relation/2813653"]
+      },
+      "reverse": true
+    },
+    {
+      "id": "lago-covadonga",
+      "name": "Lagos de Covadonga",
+      "aliases": [
+        "Covadonga",
+        "Lagos Covadonga",
+        "Enol",
+        "Ercina",
+        "Lago Enol",
+        "Lago Ercina",
+        "Lago de la Ercina"
+      ],
+      "vertiente": "cantabrica",
+      "type": "lago",
+      "source": {
+        "osm": ["way/325753188", "way/325753189"]
+      }
+    },
+    {
+      "id": "lago-sanabria",
+      "name": "Lago de Sanabria",
+      "aliases": ["Sanabria", "Lago Sanabria"],
+      "vertiente": "atlantica",
+      "type": "lago",
+      "source": {
+        "osm": ["relation/17716871"]
+      }
+    },
+    {
+      "id": "lago-laguna-negra",
+      "name": "Laguna Negra",
+      "aliases": ["Laguna Negra de Urbión", "Laguna Negra de Soria"],
+      "vertiente": "atlantica",
+      "type": "lago",
+      "source": {
+        "osm": ["way/40498729"]
+      }
+    },
+    {
+      "id": "lago-ruidera",
+      "name": "Lagunas de Ruidera",
+      "aliases": ["Ruidera", "Lagunas Ruidera"],
+      "vertiente": "atlantica",
+      "type": "lago",
+      "source": {
+        "osm": [
+          "way/42299549",
+          "way/42299545",
+          "way/42299856",
+          "way/42299849",
+          "way/212425154",
+          "way/42299838",
+          "way/42299553"
+        ]
+      }
+    },
+    {
+      "id": "lago-gallocanta",
+      "name": "Laguna de Gallocanta",
+      "aliases": ["Gallocanta", "Laguna Gallocanta"],
+      "vertiente": "mediterranea",
+      "type": "lago",
+      "source": {
+        "osm": ["relation/11671892"]
+      }
+    }
+  ]
+}

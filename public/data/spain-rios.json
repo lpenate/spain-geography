@@ -1,0 +1,1068 @@
+{
+  "id": "rios",
+  "region": "spain",
+  "title": "Ríos y lagos de España",
+  "map": "/maps/spain-rios.svg",
+  "viewBox": "0 0 1183.412 1015.165",
+  "attribution": "Hidrografía: © colaboradores de OpenStreetMap (ODbL). Relieve: NordNordWest.",
+  "items": [
+    {
+      "id": "rio-eo",
+      "name": "Eo",
+      "aliases": ["Ría del Eo", "Ría de Eo"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 18.51,
+        "y": 11.04
+      },
+      "anchor": {
+        "x": 219.03,
+        "y": 112.08
+      },
+      "bbox": {
+        "x0": 212.84,
+        "y0": 87.94,
+        "x1": 231.99,
+        "y1": 138.74
+      }
+    },
+    {
+      "id": "rio-navia",
+      "name": "Navia",
+      "aliases": ["Ría de Navia"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 20.5,
+        "y": 13.02
+      },
+      "anchor": {
+        "x": 242.56,
+        "y": 132.21
+      },
+      "bbox": {
+        "x0": 224.15,
+        "y0": 86.59,
+        "x1": 257.51,
+        "y1": 175.25
+      }
+    },
+    {
+      "id": "rio-narcea",
+      "name": "Narcea",
+      "aliases": [],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 23.54,
+        "y": 11.48
+      },
+      "anchor": {
+        "x": 278.56,
+        "y": 116.53
+      },
+      "bbox": {
+        "x0": 264.45,
+        "y0": 95.09,
+        "x1": 306.61,
+        "y1": 147.78
+      }
+    },
+    {
+      "id": "rio-nalon",
+      "name": "Nalón",
+      "aliases": ["Nalon"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 27.94,
+        "y": 10.98
+      },
+      "anchor": {
+        "x": 330.59,
+        "y": 111.44
+      },
+      "bbox": {
+        "x0": 306.25,
+        "y0": 85.53,
+        "x1": 378.07,
+        "y1": 135.86
+      }
+    },
+    {
+      "id": "rio-saja",
+      "name": "Saja",
+      "aliases": [],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 39.05,
+        "y": 10.86
+      },
+      "anchor": {
+        "x": 462.16,
+        "y": 110.25
+      },
+      "bbox": {
+        "x0": 451.73,
+        "y0": 98.71,
+        "x1": 475.3,
+        "y1": 134.24
+      }
+    },
+    {
+      "id": "rio-nervion",
+      "name": "Nervión",
+      "aliases": ["Nerbioi", "Ría de Bilbao", "Ría del Nervión"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 47.13,
+        "y": 13.07
+      },
+      "anchor": {
+        "x": 557.74,
+        "y": 132.68
+      },
+      "bbox": {
+        "x0": 555.77,
+        "y0": 119.25,
+        "x1": 567.21,
+        "y1": 153.94
+      }
+    },
+    {
+      "id": "rio-bidasoa",
+      "name": "Bidasoa",
+      "aliases": ["Bidasoa ibaia", "Bidassoa"],
+      "vertiente": "cantabrica",
+      "type": "rio",
+      "label": {
+        "x": 56.03,
+        "y": 11.35
+      },
+      "anchor": {
+        "x": 663.08,
+        "y": 115.24
+      },
+      "bbox": {
+        "x0": 654.97,
+        "y0": 104.44,
+        "x1": 665.14,
+        "y1": 130.24
+      }
+    },
+    {
+      "id": "rio-tambre",
+      "name": "Tambre",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 9.71,
+        "y": 14.6
+      },
+      "anchor": {
+        "x": 114.96,
+        "y": 148.23
+      },
+      "bbox": {
+        "x0": 81.65,
+        "y0": 139.78,
+        "x1": 156.53,
+        "y1": 165.4
+      }
+    },
+    {
+      "id": "rio-mino",
+      "name": "Miño",
+      "aliases": ["Minho"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 15.09,
+        "y": 18.88
+      },
+      "anchor": {
+        "x": 178.56,
+        "y": 191.71
+      },
+      "bbox": {
+        "x0": 82.79,
+        "y0": 117.65,
+        "x1": 213.07,
+        "y1": 265.16
+      }
+    },
+    {
+      "id": "rio-sil",
+      "name": "Sil",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 20.96,
+        "y": 20.05
+      },
+      "anchor": {
+        "x": 248.09,
+        "y": 203.52
+      },
+      "bbox": {
+        "x0": 174.83,
+        "y0": 143.75,
+        "x1": 299.92,
+        "y1": 210.39
+      }
+    },
+    {
+      "id": "rio-duero",
+      "name": "Duero",
+      "aliases": ["Douro"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 31.66,
+        "y": 30.78
+      },
+      "anchor": {
+        "x": 374.65,
+        "y": 312.44
+      },
+      "bbox": {
+        "x0": 98.64,
+        "y0": 249.33,
+        "x1": 607.52,
+        "y1": 352.59
+      }
+    },
+    {
+      "id": "rio-esla",
+      "name": "Esla",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 29.74,
+        "y": 22.03
+      },
+      "anchor": {
+        "x": 351.95,
+        "y": 223.64
+      },
+      "bbox": {
+        "x0": 309.5,
+        "y0": 135.62,
+        "x1": 395.13,
+        "y1": 305.4
+      }
+    },
+    {
+      "id": "rio-pisuerga",
+      "name": "Pisuerga",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 38.61,
+        "y": 22.23
+      },
+      "anchor": {
+        "x": 456.87,
+        "y": 225.64
+      },
+      "bbox": {
+        "x0": 405.58,
+        "y0": 145.55,
+        "x1": 457.39,
+        "y1": 297.37
+      }
+    },
+    {
+      "id": "rio-adaja",
+      "name": "Adaja",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 35.62,
+        "y": 35.9
+      },
+      "anchor": {
+        "x": 421.59,
+        "y": 364.42
+      },
+      "bbox": {
+        "x0": 381.5,
+        "y0": 299.17,
+        "x1": 421.64,
+        "y1": 405.03
+      }
+    },
+    {
+      "id": "rio-tormes",
+      "name": "Tormes",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 30.05,
+        "y": 35.78
+      },
+      "anchor": {
+        "x": 355.63,
+        "y": 363.22
+      },
+      "bbox": {
+        "x0": 275.48,
+        "y0": 324.35,
+        "x1": 385.5,
+        "y1": 426.24
+      }
+    },
+    {
+      "id": "rio-tajo",
+      "name": "Tajo",
+      "aliases": ["Tejo"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 34.5,
+        "y": 45.73
+      },
+      "anchor": {
+        "x": 408.31,
+        "y": 464.23
+      },
+      "bbox": {
+        "x0": 50.22,
+        "y0": 375.65,
+        "x1": 660.4,
+        "y1": 597.32
+      }
+    },
+    {
+      "id": "rio-alagon",
+      "name": "Alagón",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 24.94,
+        "y": 44.11
+      },
+      "anchor": {
+        "x": 295.09,
+        "y": 447.8
+      },
+      "bbox": {
+        "x0": 244.22,
+        "y0": 388.07,
+        "x1": 332.06,
+        "y1": 486.76
+      }
+    },
+    {
+      "id": "rio-tietar",
+      "name": "Tiétar",
+      "aliases": ["Tietar"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 31.34,
+        "y": 44.15
+      },
+      "anchor": {
+        "x": 370.93,
+        "y": 448.22
+      },
+      "bbox": {
+        "x0": 312.85,
+        "y0": 427.27,
+        "x1": 433.04,
+        "y1": 476.42
+      }
+    },
+    {
+      "id": "rio-alberche",
+      "name": "Alberche",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 37.58,
+        "y": 41.18
+      },
+      "anchor": {
+        "x": 444.76,
+        "y": 418.04
+      },
+      "bbox": {
+        "x0": 376.75,
+        "y0": 413.31,
+        "x1": 458.48,
+        "y1": 463.3
+      }
+    },
+    {
+      "id": "rio-jarama",
+      "name": "Jarama",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 43.18,
+        "y": 38.69
+      },
+      "anchor": {
+        "x": 511.01,
+        "y": 392.75
+      },
+      "bbox": {
+        "x0": 503.48,
+        "y0": 339.4,
+        "x1": 532.07,
+        "y1": 456.38
+      }
+    },
+    {
+      "id": "rio-henares",
+      "name": "Henares",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 46.1,
+        "y": 36.55
+      },
+      "anchor": {
+        "x": 545.61,
+        "y": 371.01
+      },
+      "bbox": {
+        "x0": 515.38,
+        "y0": 340.76,
+        "x1": 592.67,
+        "y1": 417.34
+      }
+    },
+    {
+      "id": "rio-guadiana",
+      "name": "Guadiana",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 25.37,
+        "y": 56.64
+      },
+      "anchor": {
+        "x": 300.26,
+        "y": 575.02
+      },
+      "bbox": {
+        "x0": 181.97,
+        "y0": 524.21,
+        "x1": 514.46,
+        "y1": 752.5
+      }
+    },
+    {
+      "id": "rio-zujar",
+      "name": "Zújar",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 32.79,
+        "y": 58.62
+      },
+      "anchor": {
+        "x": 388.05,
+        "y": 595.04
+      },
+      "bbox": {
+        "x0": 333.07,
+        "y0": 562.22,
+        "x1": 392.03,
+        "y1": 641.83
+      }
+    },
+    {
+      "id": "rio-jabalon",
+      "name": "Jabalón",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 44.21,
+        "y": 58.12
+      },
+      "anchor": {
+        "x": 523.16,
+        "y": 589.97
+      },
+      "bbox": {
+        "x0": 468.87,
+        "y0": 573.8,
+        "x1": 573.58,
+        "y1": 600.43
+      }
+    },
+    {
+      "id": "rio-ciguela",
+      "name": "Cigüela",
+      "aliases": ["Gigüela", "Ciguela", "Giguela"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 46.12,
+        "y": 49.25
+      },
+      "anchor": {
+        "x": 545.78,
+        "y": 500
+      },
+      "bbox": {
+        "x0": 497.1,
+        "y0": 453.26,
+        "x1": 606.78,
+        "y1": 550.42
+      }
+    },
+    {
+      "id": "rio-zancara",
+      "name": "Záncara",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 49.89,
+        "y": 50.84
+      },
+      "anchor": {
+        "x": 590.38,
+        "y": 516.11
+      },
+      "bbox": {
+        "x0": 531.21,
+        "y0": 456.4,
+        "x1": 607.54,
+        "y1": 532.48
+      }
+    },
+    {
+      "id": "rio-guadalquivir",
+      "name": "Guadalquivir",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 33.79,
+        "y": 67.67
+      },
+      "anchor": {
+        "x": 399.93,
+        "y": 686.97
+      },
+      "bbox": {
+        "x0": 290.5,
+        "y0": 647.82,
+        "x1": 576.43,
+        "y1": 790.73
+      }
+    },
+    {
+      "id": "rio-genil",
+      "name": "Genil",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 36.32,
+        "y": 73.16
+      },
+      "anchor": {
+        "x": 429.84,
+        "y": 742.73
+      },
+      "bbox": {
+        "x0": 371.92,
+        "y0": 697.89,
+        "x1": 531.52,
+        "y1": 759.57
+      }
+    },
+    {
+      "id": "rio-odiel",
+      "name": "Odiel",
+      "aliases": [],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 20.49,
+        "y": 70.88
+      },
+      "anchor": {
+        "x": 242.44,
+        "y": 719.51
+      },
+      "bbox": {
+        "x0": 238.85,
+        "y0": 686.98,
+        "x1": 273.83,
+        "y1": 748.36
+      }
+    },
+    {
+      "id": "rio-tinto",
+      "name": "Tinto",
+      "aliases": ["Río Tinto"],
+      "vertiente": "atlantica",
+      "type": "rio",
+      "label": {
+        "x": 22.93,
+        "y": 71.28
+      },
+      "anchor": {
+        "x": 271.32,
+        "y": 723.65
+      },
+      "bbox": {
+        "x0": 242.89,
+        "y0": 695.18,
+        "x1": 274.99,
+        "y1": 748.36
+      }
+    },
+    {
+      "id": "rio-guadalhorce",
+      "name": "Guadalhorce",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 35.26,
+        "y": 76.2
+      },
+      "anchor": {
+        "x": 417.32,
+        "y": 773.54
+      },
+      "bbox": {
+        "x0": 414.92,
+        "y0": 761.88,
+        "x1": 460.77,
+        "y1": 804.93
+      }
+    },
+    {
+      "id": "rio-guadalfeo",
+      "name": "Guadalfeo",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 44.65,
+        "y": 77.05
+      },
+      "anchor": {
+        "x": 528.33,
+        "y": 782.21
+      },
+      "bbox": {
+        "x0": 513.16,
+        "y0": 766.17,
+        "x1": 544.68,
+        "y1": 799.22
+      }
+    },
+    {
+      "id": "rio-almanzora",
+      "name": "Almanzora",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 52.48,
+        "y": 72.37
+      },
+      "anchor": {
+        "x": 621.03,
+        "y": 734.63
+      },
+      "bbox": {
+        "x0": 586.93,
+        "y0": 734,
+        "x1": 656.52,
+        "y1": 746.93
+      }
+    },
+    {
+      "id": "rio-segura",
+      "name": "Segura",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 55.69,
+        "y": 62.96
+      },
+      "anchor": {
+        "x": 659.04,
+        "y": 639.17
+      },
+      "bbox": {
+        "x0": 581.45,
+        "y0": 625.05,
+        "x1": 746.73,
+        "y1": 670.9
+      }
+    },
+    {
+      "id": "rio-jucar",
+      "name": "Júcar",
+      "aliases": ["Xúquer", "Xuquer"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 54.29,
+        "y": 53.83
+      },
+      "anchor": {
+        "x": 642.46,
+        "y": 546.42
+      },
+      "bbox": {
+        "x0": 612.28,
+        "y0": 419.17,
+        "x1": 778.22,
+        "y1": 557.93
+      }
+    },
+    {
+      "id": "rio-cabriel",
+      "name": "Cabriel",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 56.55,
+        "y": 48.62
+      },
+      "anchor": {
+        "x": 669.22,
+        "y": 493.59
+      },
+      "bbox": {
+        "x0": 657.6,
+        "y0": 427.66,
+        "x1": 712.14,
+        "y1": 540.44
+      }
+    },
+    {
+      "id": "rio-turia",
+      "name": "Turia",
+      "aliases": ["Guadalaviar", "Túria"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 60.02,
+        "y": 48.25
+      },
+      "anchor": {
+        "x": 710.32,
+        "y": 489.84
+      },
+      "bbox": {
+        "x0": 693.66,
+        "y0": 424.02,
+        "x1": 770.21,
+        "y1": 520.46
+      }
+    },
+    {
+      "id": "rio-ebro",
+      "name": "Ebro",
+      "aliases": ["Ebre"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 57.1,
+        "y": 24.5
+      },
+      "anchor": {
+        "x": 675.67,
+        "y": 248.67
+      },
+      "bbox": {
+        "x0": 460.95,
+        "y0": 142.95,
+        "x1": 866.47,
+        "y1": 387.96
+      }
+    },
+    {
+      "id": "rio-jalon",
+      "name": "Jalón",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 56.41,
+        "y": 31.14
+      },
+      "anchor": {
+        "x": 667.52,
+        "y": 316.1
+      },
+      "bbox": {
+        "x0": 600.14,
+        "y0": 273.59,
+        "x1": 712.12,
+        "y1": 348.25
+      }
+    },
+    {
+      "id": "rio-aragon",
+      "name": "Aragón",
+      "aliases": ["Aragoi"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 59.35,
+        "y": 18.32
+      },
+      "anchor": {
+        "x": 702.38,
+        "y": 185.94
+      },
+      "bbox": {
+        "x0": 653.8,
+        "y0": 167.04,
+        "x1": 759.74,
+        "y1": 227.09
+      }
+    },
+    {
+      "id": "rio-gallego",
+      "name": "Gállego",
+      "aliases": ["Gallego"],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 62.38,
+        "y": 21.1
+      },
+      "anchor": {
+        "x": 738.19,
+        "y": 214.21
+      },
+      "bbox": {
+        "x0": 729.24,
+        "y0": 165.68,
+        "x1": 774.02,
+        "y1": 287.15
+      }
+    },
+    {
+      "id": "rio-cinca",
+      "name": "Cinca",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 68.98,
+        "y": 23.81
+      },
+      "anchor": {
+        "x": 816.32,
+        "y": 241.71
+      },
+      "bbox": {
+        "x0": 803,
+        "y0": 178.11,
+        "x1": 826.08,
+        "y1": 310.66
+      }
+    },
+    {
+      "id": "rio-segre",
+      "name": "Segre",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 75.56,
+        "y": 25.44
+      },
+      "anchor": {
+        "x": 894.18,
+        "y": 258.3
+      },
+      "bbox": {
+        "x0": 821.73,
+        "y0": 201.62,
+        "x1": 968.17,
+        "y1": 317.85
+      }
+    },
+    {
+      "id": "rio-llobregat",
+      "name": "Llobregat",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 80.31,
+        "y": 27.28
+      },
+      "anchor": {
+        "x": 950.35,
+        "y": 276.97
+      },
+      "bbox": {
+        "x0": 946.02,
+        "y0": 220.78,
+        "x1": 969.29,
+        "y1": 324.78
+      }
+    },
+    {
+      "id": "rio-ter",
+      "name": "Ter",
+      "aliases": [],
+      "vertiente": "mediterranea",
+      "type": "rio",
+      "label": {
+        "x": 83.35,
+        "y": 24.67
+      },
+      "anchor": {
+        "x": 986.36,
+        "y": 250.42
+      },
+      "bbox": {
+        "x0": 974.64,
+        "y0": 206.04,
+        "x1": 1055.15,
+        "y1": 255.46
+      }
+    },
+    {
+      "id": "lago-covadonga",
+      "name": "Lagos de Covadonga",
+      "aliases": [
+        "Covadonga",
+        "Lagos Covadonga",
+        "Enol",
+        "Ercina",
+        "Lago Enol",
+        "Lago Ercina",
+        "Lago de la Ercina"
+      ],
+      "vertiente": "cantabrica",
+      "type": "lago",
+      "label": {
+        "x": 33.53,
+        "y": 11.47
+      },
+      "anchor": {
+        "x": 396.82,
+        "y": 116.49
+      },
+      "bbox": {
+        "x0": 393.32,
+        "y0": 113.73,
+        "x1": 400.32,
+        "y1": 119.25
+      }
+    },
+    {
+      "id": "lago-sanabria",
+      "name": "Lago de Sanabria",
+      "aliases": ["Sanabria", "Lago Sanabria"],
+      "vertiente": "atlantica",
+      "type": "lago",
+      "label": {
+        "x": 21.67,
+        "y": 23.41
+      },
+      "anchor": {
+        "x": 256.43,
+        "y": 237.63
+      },
+      "bbox": {
+        "x0": 252.93,
+        "y0": 235.63,
+        "x1": 259.93,
+        "y1": 239.63
+      }
+    },
+    {
+      "id": "lago-laguna-negra",
+      "name": "Laguna Negra",
+      "aliases": ["Laguna Negra de Urbión", "Laguna Negra de Soria"],
+      "vertiente": "atlantica",
+      "type": "lago",
+      "label": {
+        "x": 48.03,
+        "y": 24.65
+      },
+      "anchor": {
+        "x": 568.39,
+        "y": 250.19
+      },
+      "bbox": {
+        "x0": 567.22,
+        "y0": 246.69,
+        "x1": 569.56,
+        "y1": 253.69
+      }
+    },
+    {
+      "id": "lago-ruidera",
+      "name": "Lagunas de Ruidera",
+      "aliases": ["Ruidera", "Lagunas Ruidera"],
+      "vertiente": "atlantica",
+      "type": "lago",
+      "label": {
+        "x": 48.05,
+        "y": 56.14
+      },
+      "anchor": {
+        "x": 568.69,
+        "y": 569.87
+      },
+      "bbox": {
+        "x0": 565.19,
+        "y0": 566.62,
+        "x1": 572.19,
+        "y1": 573.13
+      }
+    },
+    {
+      "id": "lago-gallocanta",
+      "name": "Laguna de Gallocanta",
+      "aliases": ["Gallocanta", "Laguna Gallocanta"],
+      "vertiente": "mediterranea",
+      "type": "lago",
+      "label": {
+        "x": 57.15,
+        "y": 35.34
+      },
+      "anchor": {
+        "x": 676.3,
+        "y": 358.78
+      },
+      "bbox": {
+        "x0": 673.43,
+        "y0": 355.28,
+        "x1": 679.16,
+        "y1": 362.28
+      }
+    }
+  ]
+}

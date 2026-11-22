@@ -8,6 +8,9 @@ import {
   mapZoomLabelPosition,
   mapZoomTransform,
   mapZoomedTextTransform,
+  mapZoomCenteredOn,
+  mapZoomForBox,
+  type MapBox,
 } from '@/utils/mapZoom'
 
 describe('mapZoomTransform', () => {
@@ -77,5 +80,52 @@ describe('map zoom helpers', () => {
       scale: 1,
       origin: { x: 50, y: 50 },
     })
+  })
+})
+
+describe('mapZoomForBox', () => {
+  const corners = (state: ReturnType<typeof mapZoomForBox>, box: MapBox) =>
+    [
+      { x: box.x0, y: box.y0 },
+      { x: box.x1, y: box.y1 },
+    ].map((point) => mapZoomLabelPosition(state.scale, state.origin, point))
+
+  it('keeps the whole box inside the map after zooming', () => {
+    const box = { x0: 60, y0: 40, x1: 70, y1: 55 }
+    const state = mapZoomForBox(box)
+
+    expect(state.scale).toBeGreaterThan(1)
+    for (const point of corners(state, box)) {
+      expect(point.x).toBeGreaterThanOrEqual(0)
+      expect(point.x).toBeLessThanOrEqual(100)
+      expect(point.y).toBeGreaterThanOrEqual(0)
+      expect(point.y).toBeLessThanOrEqual(100)
+    }
+  })
+
+  it('does not zoom on boxes that span most of the map', () => {
+    expect(mapZoomForBox({ x0: 5, y0: 35, x1: 56, y1: 60 })).toEqual(DEFAULT_MAP_ZOOM_STATE)
+  })
+
+  it('caps the zoom for tiny boxes such as lakes', () => {
+    expect(mapZoomForBox({ x0: 33, y0: 11, x1: 34, y1: 12 }, 3).scale).toBe(3)
+  })
+})
+
+describe('mapZoomCenteredOn', () => {
+  it('places the point in the centre of the visible map', () => {
+    for (const point of [
+      { x: 20, y: 80 },
+      { x: 75.5, y: 12.3 },
+    ]) {
+      const state = mapZoomCenteredOn(point, 3)
+      const shown = mapZoomLabelPosition(state.scale, state.origin, point)
+      expect(shown.x).toBeCloseTo(50, 2)
+      expect(shown.y).toBeCloseTo(50, 2)
+    }
+  })
+
+  it('never returns a zoom of 1, where centring is impossible', () => {
+    expect(mapZoomCenteredOn({ x: 30, y: 30 }, 1).scale).toBeGreaterThan(1)
   })
 })

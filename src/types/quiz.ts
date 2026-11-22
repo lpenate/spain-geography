@@ -43,7 +43,7 @@ export type EuropeQuizMode = 'paises' | 'paises-ubicacion'
 
 export type MapQuizMode = SpainMapQuizMode | EuropeQuizMode
 
-export type QuizMode = MapQuizMode | 'gentilicios'
+export type QuizMode = MapQuizMode | 'gentilicios' | 'rios'
 
 export interface QuizCategory {
   id: QuizMode
@@ -112,6 +112,17 @@ export const SPAIN_QUIZ_CATEGORIES: QuizCategory[] = [
     region: 'spain',
     mapUrl: QUIZ_MAP_URLS.spain,
     dataUrl: QUIZ_DATA_URLS.provincias,
+    interaction: 'text-batch',
+    available: true,
+  },
+  {
+    id: 'rios',
+    title: 'Ríos y Lagos',
+    description:
+      'Identifica el río o lago señalado sobre el mapa físico y marca a qué vertiente pertenece.',
+    region: 'spain',
+    mapUrl: '/maps/spain-rios.svg',
+    dataUrl: '/data/spain-rios.json',
     interaction: 'text-batch',
     available: true,
   },

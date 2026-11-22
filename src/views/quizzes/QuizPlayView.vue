@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import ClickQuizExercise from '@/components/quiz/ClickQuizExercise.vue'
 import GentilicioQuiz from '@/components/quiz/GentilicioQuiz.vue'
 import MapQuizExercise from '@/components/quiz/MapQuizExercise.vue'
+import RiverQuiz from '@/components/quiz/RiverQuiz.vue'
 import type { MapQuizMode, QuizMode } from '@/types/quiz'
 import { availableQuizCategories, quizCategoryByMode } from '@/utils/quizNav'
 
@@ -15,15 +16,17 @@ const mode = computed(() => route.params.mode as QuizMode)
 const category = computed(() => quizCategoryByMode(mode.value))
 const isValidMode = computed(() => validModes.includes(mode.value))
 const isGentilicioQuiz = computed(() => isValidMode.value && mode.value === 'gentilicios')
+const isRiverQuiz = computed(() => isValidMode.value && mode.value === 'rios')
 const isClickTimed = computed(() => category.value?.interaction === 'click-timed')
 const mapMode = computed((): MapQuizMode | null => {
-  if (!isValidMode.value || mode.value === 'gentilicios') return null
+  if (!isValidMode.value || mode.value === 'gentilicios' || mode.value === 'rios') return null
   return mode.value
 })
 </script>
 
 <template>
   <GentilicioQuiz v-if="isGentilicioQuiz" />
+  <RiverQuiz v-else-if="isRiverQuiz" />
   <ClickQuizExercise
     v-else-if="mapMode && isClickTimed"
     :key="mapMode"
