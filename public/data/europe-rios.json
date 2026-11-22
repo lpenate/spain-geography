@@ -1,0 +1,670 @@
+{
+  "id": "rios-europa",
+  "region": "europe",
+  "title": "Ríos, lagos y mares de Europa",
+  "map": "/maps/europe-rios.svg",
+  "viewBox": "0 0 1000 860",
+  "attribution": "Cartografía: Natural Earth (dominio público).",
+  "items": [
+    {
+      "id": "rio-pechora",
+      "name": "Pechora",
+      "aliases": ["Pechora", "Pechorá", "Péchora"],
+      "type": "rio",
+      "label": {
+        "x": 69.67,
+        "y": 13.92
+      },
+      "anchor": {
+        "x": 696.69,
+        "y": 119.71
+      },
+      "bbox": {
+        "x0": 654.41,
+        "y0": 96.07,
+        "x1": 756.31,
+        "y1": 184.79
+      }
+    },
+    {
+      "id": "rio-dvina-septentrional",
+      "name": "Dvina Septentrional",
+      "aliases": ["Dvina", "Dvina del Norte", "Divina Septentrional", "Severnaya Dvina"],
+      "type": "rio",
+      "label": {
+        "x": 63.39,
+        "y": 25.69
+      },
+      "anchor": {
+        "x": 633.93,
+        "y": 220.94
+      },
+      "bbox": {
+        "x0": 600.83,
+        "y0": 197.02,
+        "x1": 671.99,
+        "y1": 243.89
+      }
+    },
+    {
+      "id": "rio-volga",
+      "name": "Volga",
+      "aliases": [],
+      "type": "rio",
+      "label": {
+        "x": 74.07,
+        "y": 37.83
+      },
+      "anchor": {
+        "x": 740.68,
+        "y": 325.34
+      },
+      "bbox": {
+        "x0": 570.2,
+        "y0": 310.78,
+        "x1": 801.18,
+        "y1": 490.94
+      }
+    },
+    {
+      "id": "rio-ural",
+      "name": "Ural",
+      "aliases": [],
+      "type": "rio",
+      "label": {
+        "x": 81.43,
+        "y": 41.86
+      },
+      "anchor": {
+        "x": 814.26,
+        "y": 360
+      },
+      "bbox": {
+        "x0": 791.99,
+        "y0": 280.31,
+        "x1": 861.71,
+        "y1": 449.13
+      }
+    },
+    {
+      "id": "rio-don",
+      "name": "Don",
+      "aliases": [],
+      "type": "rio",
+      "label": {
+        "x": 69.53,
+        "y": 52.39
+      },
+      "anchor": {
+        "x": 695.34,
+        "y": 450.59
+      },
+      "bbox": {
+        "x0": 640.81,
+        "y0": 384.78,
+        "x1": 729.02,
+        "y1": 502.85
+      }
+    },
+    {
+      "id": "rio-dnieper",
+      "name": "Dniéper",
+      "aliases": ["Dnieper", "Dniepr", "Dnipro", "Dnepr"],
+      "type": "rio",
+      "label": {
+        "x": 56.99,
+        "y": 53.23
+      },
+      "anchor": {
+        "x": 569.9,
+        "y": 457.78
+      },
+      "bbox": {
+        "x0": 557.27,
+        "y0": 364.84,
+        "x1": 635.95,
+        "y1": 531.39
+      }
+    },
+    {
+      "id": "rio-dniester",
+      "name": "Dniéster",
+      "aliases": ["Dniester", "Dniestr", "Dnister", "Dnestr"],
+      "type": "rio",
+      "label": {
+        "x": 54.04,
+        "y": 58.91
+      },
+      "anchor": {
+        "x": 540.41,
+        "y": 506.66
+      },
+      "bbox": {
+        "x0": 485.5,
+        "y0": 494.08,
+        "x1": 584.68,
+        "y1": 546.45
+      }
+    },
+    {
+      "id": "rio-vistula",
+      "name": "Vístula",
+      "aliases": ["Vistula", "Wisla", "Wisła"],
+      "type": "rio",
+      "label": {
+        "x": 46.55,
+        "y": 52.87
+      },
+      "anchor": {
+        "x": 465.47,
+        "y": 454.67
+      },
+      "bbox": {
+        "x0": 429.71,
+        "y0": 409.88,
+        "x1": 473.15,
+        "y1": 495.32
+      }
+    },
+    {
+      "id": "rio-oder",
+      "name": "Óder",
+      "aliases": ["Oder", "Odra"],
+      "type": "rio",
+      "label": {
+        "x": 40.95,
+        "y": 53.39
+      },
+      "anchor": {
+        "x": 409.49,
+        "y": 459.12
+      },
+      "bbox": {
+        "x0": 385.77,
+        "y0": 422.87,
+        "x1": 432.26,
+        "y1": 495.69
+      }
+    },
+    {
+      "id": "rio-elba",
+      "name": "Elba",
+      "aliases": ["Elbe"],
+      "type": "rio",
+      "label": {
+        "x": 37.03,
+        "y": 53.09
+      },
+      "anchor": {
+        "x": 370.33,
+        "y": 456.55
+      },
+      "bbox": {
+        "x0": 340.28,
+        "y0": 419.59,
+        "x1": 411.37,
+        "y1": 487.91
+      }
+    },
+    {
+      "id": "rio-rin",
+      "name": "Rin",
+      "aliases": ["Rhin", "Rhein", "Rhine"],
+      "type": "rio",
+      "label": {
+        "x": 30.43,
+        "y": 54.28
+      },
+      "anchor": {
+        "x": 304.32,
+        "y": 466.82
+      },
+      "bbox": {
+        "x0": 283.29,
+        "y0": 442.46,
+        "x1": 325.98,
+        "y1": 542.74
+      }
+    },
+    {
+      "id": "rio-sena",
+      "name": "Sena",
+      "aliases": ["Seine"],
+      "type": "rio",
+      "label": {
+        "x": 24.29,
+        "y": 56.91
+      },
+      "anchor": {
+        "x": 242.9,
+        "y": 489.46
+      },
+      "bbox": {
+        "x0": 224.27,
+        "y0": 473.32,
+        "x1": 266.42,
+        "y1": 519.19
+      }
+    },
+    {
+      "id": "rio-loira",
+      "name": "Loira",
+      "aliases": ["Loire"],
+      "type": "rio",
+      "label": {
+        "x": 24.37,
+        "y": 59.71
+      },
+      "anchor": {
+        "x": 243.72,
+        "y": 513.47
+      },
+      "bbox": {
+        "x0": 188.25,
+        "y0": 505.27,
+        "x1": 254.68,
+        "y1": 566.62
+      }
+    },
+    {
+      "id": "rio-rodano",
+      "name": "Ródano",
+      "aliases": ["Rodano", "Rhône", "Rhone"],
+      "type": "rio",
+      "label": {
+        "x": 26.03,
+        "y": 65.46
+      },
+      "anchor": {
+        "x": 260.34,
+        "y": 562.96
+      },
+      "bbox": {
+        "x0": 249.42,
+        "y0": 543,
+        "x1": 308.53,
+        "y1": 590.93
+      }
+    },
+    {
+      "id": "rio-danubio",
+      "name": "Danubio",
+      "aliases": ["Danube", "Donau"],
+      "type": "rio",
+      "label": {
+        "x": 44.03,
+        "y": 65.92
+      },
+      "anchor": {
+        "x": 440.29,
+        "y": 566.88
+      },
+      "bbox": {
+        "x0": 309.6,
+        "y0": 503.63,
+        "x1": 565.08,
+        "y1": 598.94
+      }
+    },
+    {
+      "id": "rio-po",
+      "name": "Po",
+      "aliases": [],
+      "type": "rio",
+      "label": {
+        "x": 32.26,
+        "y": 66.48
+      },
+      "anchor": {
+        "x": 322.61,
+        "y": 571.72
+      },
+      "bbox": {
+        "x0": 288.03,
+        "y0": 566.55,
+        "x1": 357.99,
+        "y1": 577.78
+      }
+    },
+    {
+      "id": "rio-tiber",
+      "name": "Tíber",
+      "aliases": ["Tiber", "Tevere"],
+      "type": "rio",
+      "label": {
+        "x": 35.07,
+        "y": 71.87
+      },
+      "anchor": {
+        "x": 350.68,
+        "y": 618.04
+      },
+      "bbox": {
+        "x0": 349.86,
+        "y0": 598.61,
+        "x1": 355.88,
+        "y1": 635.22
+      }
+    },
+    {
+      "id": "rio-duero",
+      "name": "Duero",
+      "aliases": ["Douro"],
+      "type": "rio",
+      "label": {
+        "x": 11.57,
+        "y": 69.01
+      },
+      "anchor": {
+        "x": 115.68,
+        "y": 593.5
+      },
+      "bbox": {
+        "x0": 71.26,
+        "y0": 584.1,
+        "x1": 155.11,
+        "y1": 604.28
+      }
+    },
+    {
+      "id": "rio-tajo",
+      "name": "Tajo",
+      "aliases": ["Tejo"],
+      "type": "rio",
+      "label": {
+        "x": 11.24,
+        "y": 72.44
+      },
+      "anchor": {
+        "x": 112.42,
+        "y": 622.97
+      },
+      "bbox": {
+        "x0": 57.88,
+        "y0": 614.13,
+        "x1": 160.24,
+        "y1": 626.91
+      }
+    },
+    {
+      "id": "rio-guadalquivir",
+      "name": "Guadalquivir",
+      "aliases": [],
+      "type": "rio",
+      "label": {
+        "x": 10.74,
+        "y": 76.49
+      },
+      "anchor": {
+        "x": 107.44,
+        "y": 657.82
+      },
+      "bbox": {
+        "x0": 80.89,
+        "y0": 657.27,
+        "x1": 133.83,
+        "y1": 668.53
+      }
+    },
+    {
+      "id": "rio-ebro",
+      "name": "Ebro",
+      "aliases": [],
+      "type": "rio",
+      "label": {
+        "x": 16.88,
+        "y": 69.71
+      },
+      "anchor": {
+        "x": 168.82,
+        "y": 599.49
+      },
+      "bbox": {
+        "x0": 136.47,
+        "y0": 570.83,
+        "x1": 193.93,
+        "y1": 629.71
+      }
+    },
+    {
+      "id": "lago-ladoga",
+      "name": "Lago Ladoga",
+      "aliases": ["Ladoga"],
+      "type": "lago",
+      "label": {
+        "x": 54.55,
+        "y": 32.77
+      },
+      "anchor": {
+        "x": 545.46,
+        "y": 281.8
+      },
+      "bbox": {
+        "x0": 530.78,
+        "y0": 265.51,
+        "x1": 560.09,
+        "y1": 298.07
+      }
+    },
+    {
+      "id": "lago-onega",
+      "name": "Lago Onega",
+      "aliases": ["Onega"],
+      "type": "lago",
+      "label": {
+        "x": 57.4,
+        "y": 29.71
+      },
+      "anchor": {
+        "x": 574.05,
+        "y": 255.54
+      },
+      "bbox": {
+        "x0": 560.49,
+        "y0": 238.82,
+        "x1": 587.61,
+        "y1": 272.26
+      }
+    },
+    {
+      "id": "lago-leman",
+      "name": "Lago Lemán",
+      "aliases": ["Lemán", "Leman", "Lago de Ginebra", "Ginebra", "Lago Leman"],
+      "type": "lago",
+      "label": {
+        "x": 28.51,
+        "y": 63.16
+      },
+      "anchor": {
+        "x": 285.06,
+        "y": 543.17
+      },
+      "bbox": {
+        "x0": 279.81,
+        "y0": 540.75,
+        "x1": 290.31,
+        "y1": 545.6
+      }
+    },
+    {
+      "id": "mar-noruega",
+      "name": "Mar de Noruega",
+      "aliases": ["Noruega", "Mar Noruego"],
+      "type": "mar",
+      "label": {
+        "x": 31.79,
+        "y": 21.79
+      },
+      "anchor": {
+        "x": 317.93,
+        "y": 187.42
+      },
+      "bbox": {
+        "x0": 191.84,
+        "y0": 9.09,
+        "x1": 485.51,
+        "y1": 286.71
+      }
+    },
+    {
+      "id": "mar-baltico",
+      "name": "Mar Báltico",
+      "aliases": ["Báltico", "Baltico"],
+      "type": "mar",
+      "label": {
+        "x": 44.09,
+        "y": 41.67
+      },
+      "anchor": {
+        "x": 440.93,
+        "y": 358.37
+      },
+      "bbox": {
+        "x0": 366.22,
+        "y0": 199.66,
+        "x1": 538.19,
+        "y1": 416.84
+      }
+    },
+    {
+      "id": "mar-cantabrico",
+      "name": "Mar Cantábrico",
+      "aliases": ["Cantábrico", "Cantabrico", "Golfo de Vizcaya"],
+      "type": "mar",
+      "label": {
+        "x": 14.21,
+        "y": 63.08
+      },
+      "anchor": {
+        "x": 142.14,
+        "y": 542.48
+      },
+      "bbox": {
+        "x0": 94.3,
+        "y0": 469.8,
+        "x1": 192.73,
+        "y1": 573.79
+      }
+    },
+    {
+      "id": "mar-adriatico",
+      "name": "Mar Adriático",
+      "aliases": ["Adriático", "Adriatico"],
+      "type": "mar",
+      "label": {
+        "x": 39.62,
+        "y": 71.52
+      },
+      "anchor": {
+        "x": 396.24,
+        "y": 615.04
+      },
+      "bbox": {
+        "x0": 354,
+        "y0": 563.51,
+        "x1": 456.18,
+        "y1": 674.03
+      }
+    },
+    {
+      "id": "mar-tirreno",
+      "name": "Mar Tirreno",
+      "aliases": ["Tirreno"],
+      "type": "mar",
+      "label": {
+        "x": 34.44,
+        "y": 77.48
+      },
+      "anchor": {
+        "x": 344.44,
+        "y": 666.29
+      },
+      "bbox": {
+        "x0": 299.28,
+        "y0": 589.83,
+        "x1": 402.75,
+        "y1": 707.53
+      }
+    },
+    {
+      "id": "mar-egeo",
+      "name": "Mar Egeo",
+      "aliases": ["Egeo"],
+      "type": "mar",
+      "label": {
+        "x": 52.76,
+        "y": 79.84
+      },
+      "anchor": {
+        "x": 527.63,
+        "y": 686.61
+      },
+      "bbox": {
+        "x0": 491.84,
+        "y0": 647.08,
+        "x1": 577.28,
+        "y1": 751.25
+      }
+    },
+    {
+      "id": "mar-negro",
+      "name": "Mar Negro",
+      "aliases": ["Negro"],
+      "type": "mar",
+      "label": {
+        "x": 63.81,
+        "y": 68.29
+      },
+      "anchor": {
+        "x": 638.09,
+        "y": 587.34
+      },
+      "bbox": {
+        "x0": 555.1,
+        "y0": 523.48,
+        "x1": 744.46,
+        "y1": 636.55
+      }
+    },
+    {
+      "id": "mar-caspio",
+      "name": "Mar Caspio",
+      "aliases": ["Caspio"],
+      "type": "mar",
+      "label": {
+        "x": 85.22,
+        "y": 62.62
+      },
+      "anchor": {
+        "x": 852.22,
+        "y": 538.51
+      },
+      "bbox": {
+        "x0": 789.23,
+        "y0": 442.19,
+        "x1": 933.61,
+        "y1": 623.02
+      }
+    },
+    {
+      "id": "mar-mediterraneo",
+      "name": "Mar Mediterráneo",
+      "aliases": ["Mediterráneo", "Mediterraneo", "Mar Mediterraneo"],
+      "type": "mar",
+      "label": {
+        "x": 42.82,
+        "y": 89.34
+      },
+      "anchor": {
+        "x": 428.17,
+        "y": 768.36
+      },
+      "bbox": {
+        "x0": 84,
+        "y0": 582.37,
+        "x1": 697.26,
+        "y1": 843.72
+      }
+    }
+  ]
+}

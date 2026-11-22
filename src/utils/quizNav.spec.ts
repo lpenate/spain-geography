@@ -15,6 +15,7 @@ describe('quizNav', () => {
       'gentilicios',
       'paises',
       'paises-ubicacion',
+      'rios-europa',
     ])
   })
 
@@ -27,6 +28,7 @@ describe('quizNav', () => {
     expect(quizNavLabel(categories[3])).toBe('Gentilicios')
     expect(quizNavLabel(categories[4])).toBe('Países EU')
     expect(quizNavLabel(categories[5])).toBe('Ubicación EU')
+    expect(quizNavLabel(categories[6])).toBe('Ríos EU')
   })
 
   it('builds named quiz routes for navigation', () => {

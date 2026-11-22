@@ -55,6 +55,7 @@ export const quizNavLabel = (category: QuizCategory): string => {
   if (category.id === 'gentilicios') return 'Gentilicios'
   if (category.id === 'paises') return 'Países EU'
   if (category.id === 'paises-ubicacion') return 'Ubicación EU'
+  if (category.id === 'rios-europa') return 'Ríos EU'
 
   return category.title
 }

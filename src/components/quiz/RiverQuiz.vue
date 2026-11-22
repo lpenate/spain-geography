@@ -2,7 +2,7 @@
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { setQuizPlayHeader } from '@/composables/useQuizPlayHeader'
 import { fetchRiverDataset } from '@/services/riverData'
-import type { RiverAnswerResult, RiverItem, RiverVertiente } from '@/types/river'
+import type { RiverAnswerResult, RiverItem, RiverQuizMode, RiverVertiente } from '@/types/river'
 import { VERTIENTE_LABEL, VERTIENTE_OPTIONS } from '@/types/river'
 import { assetUrl } from '@/utils/assetUrl'
 import { shortenLineFromEnd } from '@/utils/connectorLines'
@@ -19,16 +19,27 @@ import {
   mapZoomTransform,
   type MapZoomState,
 } from '@/utils/mapZoom'
-import { filterExamRivers, isRiverAnswerCorrect, pickRiverRound } from '@/utils/riverSession'
+import {
+  RIVER_QUIZ_CONFIGS,
+  RIVER_TYPE_TEXT,
+  isRiverAnswerCorrect,
+  pickRiverRound,
+} from '@/utils/riverSession'
 import type { MapLabel } from '@/types/quiz'
 
-const VIEWBOX_WIDTH = 1183.412
-const VIEWBOX_HEIGHT = 1015.165
+const props = withDefaults(defineProps<{ mode?: RiverQuizMode }>(), { mode: 'rios' })
+const config = computed(() => RIVER_QUIZ_CONFIGS[props.mode])
+
 const STATE_CLASSES = ['is-target', 'is-correct', 'is-partial', 'is-wrong']
 const COURSE_STEPS = 1000
 const COURSE_MIN_ZOOM = 2.5
 
 const dataset = ref<Awaited<ReturnType<typeof fetchRiverDataset>> | null>(null)
+// Tamaño del viewBox del SVG (cada mapa tiene el suyo)
+const viewBoxSize = computed(() => {
+  const [, , width, height] = (dataset.value?.viewBox ?? '0 0 1000 1000').split(/\s+/).map(Number)
+  return { width, height }
+})
 const round = ref<RiverItem[]>([])
 const index = ref(0)
 const answer = ref('')
@@ -56,12 +67,13 @@ interface ArrowLine {
 const connectorArrow = ref<ArrowLine | null>(null)
 
 const current = computed(() => round.value[index.value] ?? null)
-const isLake = computed(() => current.value?.type === 'lago')
+const isRiver = computed(() => current.value?.type === 'rio')
+const typeText = computed(() => RIVER_TYPE_TEXT[current.value?.type ?? 'rio'])
 // Unidades del viewBox que ocupa 1 px de pantalla sin zoom (se recalcula al redimensionar)
 const unitsPerPixel = ref(1)
 const measureCanvas = () => {
   const width = mapRoot.value?.getBoundingClientRect().width
-  if (width) unitsPerPixel.value = VIEWBOX_WIDTH / width
+  if (width) unitsPerPixel.value = viewBoxSize.value.width / width
 }
 
 // --hydro-px: 1 px de pantalla en unidades del SVG, ya compensado el zoom. Así el grosor
@@ -69,6 +81,11 @@ const measureCanvas = () => {
 const zoomStyle = computed(() => ({
   ...mapZoomTransform(mapZoom.value.scale, mapZoom.value.origin),
   '--hydro-px': String(unitsPerPixel.value / mapZoom.value.scale),
+}))
+
+const canvasStyle = computed(() => ({
+  '--map-w': String(viewBoxSize.value.width),
+  '--map-h': String(viewBoxSize.value.height),
 }))
 
 // Posición del slider a lo largo del cauce y punto que recorre el río (null = ancla del build)
@@ -98,7 +115,8 @@ const coursePath = (): SVGPathElement | null => {
 
 const pointOnCourse = (path: SVGPathElement, fraction: number): MapLabel => {
   const point = path.getPointAtLength(path.getTotalLength() * fraction)
-  return { x: (point.x / VIEWBOX_WIDTH) * 100, y: (point.y / VIEWBOX_HEIGHT) * 100 }
+  const { width, height } = viewBoxSize.value
+  return { x: (point.x / width) * 100, y: (point.y / height) * 100 }
 }
 
 // Coloca el slider en la posición del cauce más cercana al ancla del elemento
@@ -140,8 +158,15 @@ const feedbackColorClass = computed(() => {
 const feedbackText = computed(() => {
   if (!current.value || !lastResult.value || phase.value !== 'feedback') return ''
 
+  const prefix = typeText.value.article
+
+  if (!current.value.vertiente) {
+    return lastResult.value.score === 1
+      ? `+1 pto: ¡Correcto! Es ${prefix}${current.value.name}.`
+      : `0 ptos: Era ${prefix}${current.value.name}.`
+  }
+
   const vLabel = VERTIENTE_LABEL[current.value.vertiente]
-  const prefix = isLake.value ? '' : 'el río '
 
   if (lastResult.value.score === 1) {
     return `+1 pto (100%): ¡Acierto completo! Es ${prefix}${current.value.name}, vertiente ${vLabel}.`
@@ -234,19 +259,20 @@ const focusQuestion = (item: RiverItem | null) => {
     return
   }
 
+  const { width, height } = viewBoxSize.value
   const box = {
-    x0: (item.bbox.x0 / VIEWBOX_WIDTH) * 100,
-    y0: (item.bbox.y0 / VIEWBOX_HEIGHT) * 100,
-    x1: (item.bbox.x1 / VIEWBOX_WIDTH) * 100,
-    y1: (item.bbox.y1 / VIEWBOX_HEIGHT) * 100,
+    x0: (item.bbox.x0 / width) * 100,
+    y0: (item.bbox.y0 / height) * 100,
+    x1: (item.bbox.x1 / width) * 100,
+    y1: (item.bbox.y1 / height) * 100,
   }
-  mapZoom.value = mapZoomForBox(box, item.type === 'lago' ? 3 : 4)
+  mapZoom.value = mapZoomForBox(box, item.type === 'rio' ? 4 : 3)
 }
 
 const startRound = () => {
   if (!dataset.value) return
 
-  round.value = pickRiverRound(filterExamRivers(dataset.value.items))
+  round.value = pickRiverRound(config.value.selectItems(dataset.value.items))
   index.value = 0
   answer.value = ''
   selectedVertiente.value = null
@@ -274,13 +300,8 @@ const updateHeader = () => {
   if (!current.value) return
 
   setQuizPlayHeader({
-    eyebrow: `Ríos y lagos · ${index.value + 1} de ${round.value.length}`,
-    title:
-      phase.value === 'feedback'
-        ? current.value.name
-        : isLake.value
-          ? '¿Cómo se llama este lago o laguna?'
-          : '¿Cómo se llama este río?',
+    eyebrow: `${config.value.eyebrow} · ${index.value + 1} de ${round.value.length}`,
+    title: phase.value === 'feedback' ? current.value.name : typeText.value.question,
   })
 }
 
@@ -289,7 +310,7 @@ const submitAnswer = () => {
     phase.value !== 'playing' ||
     !current.value ||
     !answer.value.trim() ||
-    !selectedVertiente.value
+    (config.value.askVertiente && !selectedVertiente.value)
   )
     return
 
@@ -370,8 +391,8 @@ watch([current, phase], async () => {
 onMounted(async () => {
   try {
     const [nextDataset, mapResponse] = await Promise.all([
-      fetchRiverDataset(),
-      fetch(assetUrl('/maps/spain-rios.svg')),
+      fetchRiverDataset(config.value.dataUrl),
+      fetch(assetUrl(config.value.mapUrl)),
     ])
 
     if (!mapResponse.ok) throw new Error('No se pudo cargar el mapa de ríos')
@@ -446,9 +467,9 @@ onUnmounted(() => {
       </svg>
 
       <div class="river-quiz__map">
-        <div ref="mapRoot" class="river-quiz__canvas">
+        <div ref="mapRoot" class="river-quiz__canvas" :style="canvasStyle">
           <div class="river-quiz__zoom" :style="zoomStyle">
-            <!-- eslint-disable vue/no-v-html, vue/html-self-closing -- SVG del mapa físico de España -->
+            <!-- eslint-disable vue/no-v-html, vue/html-self-closing -- SVG del mapa generado en el build -->
             <div class="river-quiz__svg" v-html="svgMarkup" />
             <!-- eslint-enable vue/no-v-html, vue/html-self-closing -->
 
@@ -509,7 +530,7 @@ onUnmounted(() => {
             </button>
           </div>
 
-          <label v-if="current && !isLake && phase !== 'finished'" class="river-quiz__course">
+          <label v-if="current && isRiver && phase !== 'finished'" class="river-quiz__course">
             <span class="river-quiz__course-text">Recorre el cauce</span>
             <input
               :value="courseValue"
@@ -549,7 +570,7 @@ onUnmounted(() => {
         >
           <div class="river-quiz__field">
             <label class="river-quiz__label" for="river-answer">
-              {{ isLake ? 'Nombre del lago o laguna' : 'Nombre del río' }}
+              {{ typeText.label }}
             </label>
             <input
               id="river-answer"
@@ -560,13 +581,11 @@ onUnmounted(() => {
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              :placeholder="
-                isLake ? 'Escribe el nombre del lago...' : 'Escribe el nombre del río...'
-              "
+              :placeholder="typeText.placeholder"
             />
           </div>
 
-          <div class="river-quiz__field">
+          <div v-if="config.askVertiente" class="river-quiz__field">
             <fieldset class="river-quiz__fieldset">
               <legend class="river-quiz__label">Vertiente (obligatorio)</legend>
               <div class="river-quiz__radios" role="radiogroup">
@@ -596,7 +615,7 @@ onUnmounted(() => {
           <button
             class="button button-primary river-quiz__button"
             type="submit"
-            :disabled="!answer.trim() || !selectedVertiente"
+            :disabled="!answer.trim() || (config.askVertiente && !selectedVertiente)"
           >
             Comprobar
           </button>
@@ -677,8 +696,8 @@ onUnmounted(() => {
 
 .river-quiz__canvas {
   position: relative;
-  width: min(100cqw, calc(100cqh * 1183.412 / 1015.165));
-  height: min(100cqh, calc(100cqw * 1015.165 / 1183.412));
+  width: min(100cqw, calc(100cqh * var(--map-w) / var(--map-h)));
+  height: min(100cqh, calc(100cqw * var(--map-h) / var(--map-w)));
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -755,6 +774,34 @@ onUnmounted(() => {
   fill: #dc2626;
 }
 
+/* Mares: el polígono queda bajo la tierra; al resaltarlo solo se colorea el agua */
+.river-quiz__svg :deep(.hydro--mar) {
+  fill: transparent;
+  stroke: none;
+}
+
+.river-quiz__svg :deep(.hydro--mar.is-target) {
+  fill: rgba(37, 99, 235, 0.4);
+  stroke: none;
+  animation: sea-pulse 1.6s ease-in-out infinite;
+}
+
+.river-quiz__svg :deep(.hydro--mar.is-correct) {
+  fill: rgba(22, 163, 74, 0.45);
+  stroke: none;
+}
+
+.river-quiz__svg :deep(.hydro--mar.is-wrong) {
+  fill: rgba(220, 38, 38, 0.4);
+  stroke: none;
+}
+
+@keyframes sea-pulse {
+  50% {
+    fill-opacity: 0.5;
+  }
+}
+
 @keyframes hydro-pulse {
   50% {
     stroke-opacity: 0.55;
@@ -762,7 +809,8 @@ onUnmounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .river-quiz__svg :deep(.hydro.is-target) {
+  .river-quiz__svg :deep(.hydro.is-target),
+  .river-quiz__svg :deep(.hydro--mar.is-target) {
     animation: none;
   }
 }

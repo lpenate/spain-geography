@@ -194,11 +194,10 @@ describe('riverSession', () => {
     const exam = filterExamRivers(dataset.items)
 
     expect(exam).toHaveLength(EXAM_RIVER_IDS.size)
-    const rivers = exam.filter((item: { type: string }) => item.type === 'rio')
+    const rivers = exam.filter((item) => item.type === 'rio')
     expect(rivers).toHaveLength(22)
-    expect(exam.filter((item: { type: string }) => item.type === 'lago')).toHaveLength(5)
-    const byVertiente = (v: string) =>
-      rivers.filter((item: { vertiente: string }) => item.vertiente === v).length
+    expect(exam.filter((item) => item.type === 'lago')).toHaveLength(5)
+    const byVertiente = (v: string) => rivers.filter((item) => item.vertiente === v).length
     expect(byVertiente('cantabrica')).toBe(7)
     expect(byVertiente('atlantica')).toBe(7)
     expect(byVertiente('mediterranea')).toBe(8)

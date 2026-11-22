@@ -43,7 +43,7 @@ export type EuropeQuizMode = 'paises' | 'paises-ubicacion'
 
 export type MapQuizMode = SpainMapQuizMode | EuropeQuizMode
 
-export type QuizMode = MapQuizMode | 'gentilicios' | 'rios'
+export type QuizMode = MapQuizMode | 'gentilicios' | 'rios' | 'rios-europa'
 
 export interface QuizCategory {
   id: QuizMode
@@ -159,6 +159,16 @@ export const EUROPE_QUIZ_CATEGORIES: QuizCategory[] = [
     dataUrl: QUIZ_DATA_URLS['paises-ubicacion'],
     interaction: 'click-timed',
     timerSeconds: 20,
+    available: EUROPE_QUIZ_ENABLED,
+  },
+  {
+    id: 'rios-europa',
+    title: 'Ríos, lagos y mares',
+    description: 'Identifica el río, lago o mar señalado en el mapa de Europa.',
+    region: 'europe',
+    mapUrl: '/maps/europe-rios.svg',
+    dataUrl: '/data/europe-rios.json',
+    interaction: 'text-batch',
     available: EUROPE_QUIZ_ENABLED,
   },
 ]

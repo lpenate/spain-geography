@@ -1,4 +1,10 @@
-import type { RiverAnswerResult, RiverItem, RiverVertiente } from '@/types/river'
+import type {
+  RiverAnswerResult,
+  RiverItem,
+  RiverItemType,
+  RiverQuizMode,
+  RiverVertiente,
+} from '@/types/river'
 import { RIVER_ROUND_SIZE } from '@/types/river'
 import { isApproximateMatch } from '@/utils/textMatch'
 
@@ -81,6 +87,16 @@ export const isRiverAnswerCorrect = (
   selectedVertiente: RiverVertiente | null,
 ): RiverAnswerResult => {
   const nameCorrect = isApproximateMatch(nameAnswer, [item.name, ...item.aliases])
+
+  // Sin vertiente (mapa de Europa): solo cuenta el nombre
+  if (!item.vertiente) {
+    return {
+      nameCorrect,
+      vertienteCorrect: true,
+      isCorrect: nameCorrect,
+      score: nameCorrect ? 1 : 0,
+    }
+  }
   const vertienteCorrect = selectedVertiente === item.vertiente
 
   // 100% de puntos (1.0) si acierta río + vertiente; 50% de puntos (0.5) si acierta solo el río; 0% si falla el río
@@ -97,4 +113,64 @@ export const isRiverAnswerCorrect = (
     isCorrect: nameCorrect && vertienteCorrect,
     score,
   }
+}
+
+export interface RiverQuizConfig {
+  mode: RiverQuizMode
+  dataUrl: string
+  mapUrl: string
+  /** Pregunta además la vertiente (cantábrica, atlántica o mediterránea). */
+  askVertiente: boolean
+  /** Texto corto del encabezado durante el test. */
+  eyebrow: string
+  /** Elementos del mapa que entran en las preguntas. */
+  selectItems: (items: RiverItem[]) => RiverItem[]
+}
+
+export const RIVER_QUIZ_CONFIGS: Record<RiverQuizMode, RiverQuizConfig> = {
+  rios: {
+    mode: 'rios',
+    dataUrl: '/data/spain-rios.json',
+    mapUrl: '/maps/spain-rios.svg',
+    askVertiente: true,
+    eyebrow: 'Ríos y lagos',
+    selectItems: filterExamRivers,
+  },
+  'rios-europa': {
+    mode: 'rios-europa',
+    dataUrl: '/data/europe-rios.json',
+    mapUrl: '/maps/europe-rios.svg',
+    askVertiente: false,
+    eyebrow: 'Europa',
+    selectItems: (items) => items,
+  },
+}
+
+export interface RiverTypeText {
+  question: string
+  label: string
+  placeholder: string
+  /** Delante del nombre en la corrección: «Era el río Duero». */
+  article: string
+}
+
+export const RIVER_TYPE_TEXT: Record<RiverItemType, RiverTypeText> = {
+  rio: {
+    question: '¿Cómo se llama este río?',
+    label: 'Nombre del río',
+    placeholder: 'Escribe el nombre del río...',
+    article: 'el río ',
+  },
+  lago: {
+    question: '¿Cómo se llama este lago o laguna?',
+    label: 'Nombre del lago o laguna',
+    placeholder: 'Escribe el nombre del lago...',
+    article: '',
+  },
+  mar: {
+    question: '¿Cómo se llama este mar?',
+    label: 'Nombre del mar',
+    placeholder: 'Escribe el nombre del mar...',
+    article: 'el ',
+  },
 }

@@ -10,13 +10,16 @@ export interface RiverBBox {
   y1: number
 }
 
+export type RiverItemType = 'rio' | 'lago' | 'mar'
+
 export interface RiverItem {
   /** Coincide con el atributo `data-river` del trazado en el SVG. */
   id: string
   name: string
   aliases: string[]
-  vertiente: RiverVertiente
-  type: 'rio' | 'lago'
+  /** Solo en el mapa de España: el de Europa no pregunta la vertiente. */
+  vertiente?: RiverVertiente
+  type: RiverItemType
   /** Punto ancla (sobre el trazado) en % del mapa, para el marcador y la flecha. */
   label: MapLabel
   /** Punto ancla en coordenadas del viewBox. */
@@ -25,8 +28,8 @@ export interface RiverItem {
 }
 
 export interface RiverDataset {
-  id: 'rios'
-  region: 'spain'
+  id: RiverQuizMode
+  region: 'spain' | 'europe'
   title: string
   map: string
   viewBox: string
@@ -40,6 +43,8 @@ export interface RiverAnswerResult {
   isCorrect: boolean
   score: number
 }
+
+export type RiverQuizMode = 'rios' | 'rios-europa'
 
 export const RIVER_ROUND_SIZE = 8
 

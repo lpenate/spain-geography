@@ -1,0 +1,278 @@
+{
+  "schema": "europa-hidro-meta-v1",
+  "note": "Inventario del mapa de clase «Ríos, lagos y mares de Europa»: 21 ríos, 3 lagos y 9 mares. Geometría: Natural Earth 1:10m (dominio público), extraída a data-sources/natural-earth/europa.json. «ne»: nombres de los elementos de Natural Earth que forman cada uno. «mouth» (ríos): [lon, lat] de la desembocadura, para orientar el cauce aguas abajo. «anchor» (mares): [lon, lat] del punto donde se señala.",
+  "elementos": [
+    {
+      "id": "rio-pechora",
+      "name": "Pechora",
+      "aliases": ["Pechora", "Pechorá", "Péchora"],
+      "type": "rio",
+      "ne": ["Pechora"],
+      "mouth": [53.5, 68.2]
+    },
+    {
+      "id": "rio-dvina-septentrional",
+      "name": "Dvina Septentrional",
+      "aliases": ["Dvina", "Dvina del Norte", "Divina Septentrional", "Severnaya Dvina"],
+      "type": "rio",
+      "ne": ["Severnaya Dvina"],
+      "mouth": [40.5, 64.6]
+    },
+    {
+      "id": "rio-volga",
+      "name": "Volga",
+      "aliases": [],
+      "type": "rio",
+      "ne": ["Volga"],
+      "mouth": [47.9, 46.0]
+    },
+    {
+      "id": "rio-ural",
+      "name": "Ural",
+      "aliases": [],
+      "type": "rio",
+      "ne": ["Ural"],
+      "mouth": [51.9, 47.0]
+    },
+    {
+      "id": "rio-don",
+      "name": "Don",
+      "aliases": [],
+      "type": "rio",
+      "ne": ["Don"],
+      "mouth": [39.3, 47.1]
+    },
+    {
+      "id": "rio-dnieper",
+      "name": "Dniéper",
+      "aliases": ["Dnieper", "Dniepr", "Dnipro", "Dnepr"],
+      "type": "rio",
+      "ne": ["Dnipro", "Dnepre", "Dnepr"],
+      "mouth": [31.9, 46.5]
+    },
+    {
+      "id": "rio-dniester",
+      "name": "Dniéster",
+      "aliases": ["Dniester", "Dniestr", "Dnister", "Dnestr"],
+      "type": "rio",
+      "ne": ["Dniester"],
+      "mouth": [30.3, 46.2]
+    },
+    {
+      "id": "rio-vistula",
+      "name": "Vístula",
+      "aliases": ["Vistula", "Wisla", "Wisła"],
+      "type": "rio",
+      "ne": ["Vistula"],
+      "mouth": [18.9, 54.4]
+    },
+    {
+      "id": "rio-oder",
+      "name": "Óder",
+      "aliases": ["Oder", "Odra"],
+      "type": "rio",
+      "ne": ["Oder"],
+      "mouth": [14.5, 53.6]
+    },
+    {
+      "id": "rio-elba",
+      "name": "Elba",
+      "aliases": ["Elbe"],
+      "type": "rio",
+      "ne": ["Elbe"],
+      "mouth": [8.8, 53.9]
+    },
+    {
+      "id": "rio-rin",
+      "name": "Rin",
+      "aliases": ["Rhin", "Rhein", "Rhine"],
+      "type": "rio",
+      "ne": ["Rhein", "Rhine"],
+      "mouth": [4.1, 51.98]
+    },
+    {
+      "id": "rio-sena",
+      "name": "Sena",
+      "aliases": ["Seine"],
+      "type": "rio",
+      "ne": ["Seine"],
+      "mouth": [0.2, 49.45]
+    },
+    {
+      "id": "rio-loira",
+      "name": "Loira",
+      "aliases": ["Loire"],
+      "type": "rio",
+      "ne": ["Loire"],
+      "mouth": [-2.2, 47.28]
+    },
+    {
+      "id": "rio-rodano",
+      "name": "Ródano",
+      "aliases": ["Rodano", "Rhône", "Rhone"],
+      "type": "rio",
+      "ne": ["Rhône"],
+      "mouth": [4.8, 43.35]
+    },
+    {
+      "id": "rio-danubio",
+      "name": "Danubio",
+      "aliases": ["Danube", "Donau"],
+      "type": "rio",
+      "ne": ["Danube", "Donau"],
+      "mouth": [29.7, 45.2]
+    },
+    {
+      "id": "rio-po",
+      "name": "Po",
+      "aliases": [],
+      "type": "rio",
+      "ne": ["Po"],
+      "mouth": [12.5, 44.95]
+    },
+    {
+      "id": "rio-tiber",
+      "name": "Tíber",
+      "aliases": ["Tiber", "Tevere"],
+      "type": "rio",
+      "ne": ["Tevere"],
+      "mouth": [12.25, 41.74]
+    },
+    {
+      "id": "rio-duero",
+      "name": "Duero",
+      "aliases": ["Douro"],
+      "type": "rio",
+      "ne": ["Duero"],
+      "mouth": [-8.67, 41.14]
+    },
+    {
+      "id": "rio-tajo",
+      "name": "Tajo",
+      "aliases": ["Tejo"],
+      "type": "rio",
+      "ne": ["Tajo", "Tejo"],
+      "mouth": [-9.3, 38.69]
+    },
+    {
+      "id": "rio-guadalquivir",
+      "name": "Guadalquivir",
+      "aliases": [],
+      "type": "rio",
+      "ne": ["Guadalquivir"],
+      "mouth": [-6.36, 36.79]
+    },
+    {
+      "id": "rio-ebro",
+      "name": "Ebro",
+      "aliases": [],
+      "type": "rio",
+      "ne": ["Ebro"],
+      "mouth": [0.87, 40.72]
+    },
+
+    {
+      "id": "lago-ladoga",
+      "name": "Lago Ladoga",
+      "aliases": ["Ladoga"],
+      "type": "lago",
+      "ne": ["Lake Ladoga"]
+    },
+    {
+      "id": "lago-onega",
+      "name": "Lago Onega",
+      "aliases": ["Onega"],
+      "type": "lago",
+      "ne": ["Lake Onega"]
+    },
+    {
+      "id": "lago-leman",
+      "name": "Lago Lemán",
+      "aliases": ["Lemán", "Leman", "Lago de Ginebra", "Ginebra", "Lago Leman"],
+      "type": "lago",
+      "ne": ["Lake Geneva"]
+    },
+
+    {
+      "id": "mar-noruega",
+      "name": "Mar de Noruega",
+      "aliases": ["Noruega", "Mar Noruego"],
+      "type": "mar",
+      "ne": ["Norwegian Sea"],
+      "anchor": [3, 66]
+    },
+    {
+      "id": "mar-baltico",
+      "name": "Mar Báltico",
+      "aliases": ["Báltico", "Baltico"],
+      "type": "mar",
+      "ne": ["Baltic Sea", "Gulf of Bothnia", "Gulf of Finland", "Gulf of Riga"],
+      "anchor": [19.3, 57.2]
+    },
+    {
+      "id": "mar-cantabrico",
+      "name": "Mar Cantábrico",
+      "aliases": ["Cantábrico", "Cantabrico", "Golfo de Vizcaya"],
+      "type": "mar",
+      "ne": ["Bay of Biscay"],
+      "anchor": [-4.5, 44.6]
+    },
+    {
+      "id": "mar-adriatico",
+      "name": "Mar Adriático",
+      "aliases": ["Adriático", "Adriatico"],
+      "type": "mar",
+      "ne": ["Adriatic Sea"],
+      "anchor": [15.6, 43]
+    },
+    {
+      "id": "mar-tirreno",
+      "name": "Mar Tirreno",
+      "aliases": ["Tirreno"],
+      "type": "mar",
+      "ne": ["Tyrrhenian Sea"],
+      "anchor": [12, 40]
+    },
+    {
+      "id": "mar-egeo",
+      "name": "Mar Egeo",
+      "aliases": ["Egeo"],
+      "type": "mar",
+      "ne": ["Aegean Sea", "Sea of Crete"],
+      "anchor": [25, 38.8]
+    },
+    {
+      "id": "mar-negro",
+      "name": "Mar Negro",
+      "aliases": ["Negro"],
+      "type": "mar",
+      "ne": ["Black Sea"],
+      "anchor": [34, 43.3]
+    },
+    {
+      "id": "mar-caspio",
+      "name": "Mar Caspio",
+      "aliases": ["Caspio"],
+      "type": "mar",
+      "ne": ["Caspian Sea"],
+      "anchor": [50.5, 42]
+    },
+    {
+      "id": "mar-mediterraneo",
+      "name": "Mar Mediterráneo",
+      "aliases": ["Mediterráneo", "Mediterraneo", "Mar Mediterraneo"],
+      "type": "mar",
+      "ne": [
+        "Mediterranean Sea",
+        "Balearic Sea",
+        "Ligurian Sea",
+        "Ionian Sea",
+        "Alboran Sea",
+        "Golfe du Lion",
+        "Gulf of Sidra",
+        "Gulf of Gabès"
+      ],
+      "anchor": [18, 34.5]
+    }
+  ]
+}
