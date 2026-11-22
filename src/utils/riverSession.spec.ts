@@ -190,14 +190,15 @@ describe('riverSession', () => {
     expect(round.some((item) => item.type === 'lago')).toBe(true)
   })
 
-  it('filtra el examen a los 22 ríos de los apuntes, sin lagos', () => {
+  it('filtra el examen a los 22 ríos de los apuntes y los 5 lagos', () => {
     const exam = filterExamRivers(dataset.items)
 
     expect(exam).toHaveLength(EXAM_RIVER_IDS.size)
-    expect(exam).toHaveLength(22)
-    expect(exam.every((item: { type: string }) => item.type === 'rio')).toBe(true)
+    const rivers = exam.filter((item: { type: string }) => item.type === 'rio')
+    expect(rivers).toHaveLength(22)
+    expect(exam.filter((item: { type: string }) => item.type === 'lago')).toHaveLength(5)
     const byVertiente = (v: string) =>
-      exam.filter((item: { vertiente: string }) => item.vertiente === v).length
+      rivers.filter((item: { vertiente: string }) => item.vertiente === v).length
     expect(byVertiente('cantabrica')).toBe(7)
     expect(byVertiente('atlantica')).toBe(7)
     expect(byVertiente('mediterranea')).toBe(8)

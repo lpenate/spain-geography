@@ -274,7 +274,7 @@ const updateHeader = () => {
   if (!current.value) return
 
   setQuizPlayHeader({
-    eyebrow: `Ríos · ${index.value + 1} de ${round.value.length}`,
+    eyebrow: `Ríos y lagos · ${index.value + 1} de ${round.value.length}`,
     title:
       phase.value === 'feedback'
         ? current.value.name

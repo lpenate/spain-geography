@@ -13,7 +13,7 @@ const shuffleArray = <T>(array: T[], random: () => number): T[] => {
   return copy
 }
 
-/** Ríos que entran en el examen (apuntes «Los ríos de España»), por vertiente. */
+/** Ríos y lagos que entran en el examen (apuntes «Los ríos de España»), por vertiente. */
 export const EXAM_RIVER_IDS: ReadonlySet<string> = new Set([
   // Cantábrica
   'rio-bidasoa',
@@ -40,6 +40,12 @@ export const EXAM_RIVER_IDS: ReadonlySet<string> = new Set([
   'rio-ebro',
   'rio-llobregat',
   'rio-segura',
+  // Lagos y lagunas
+  'lago-covadonga',
+  'lago-sanabria',
+  'lago-laguna-negra',
+  'lago-ruidera',
+  'lago-gallocanta',
 ])
 
 /** Solo los elementos del mapa que se preguntan en el examen. */
