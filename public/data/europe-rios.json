@@ -4,7 +4,7 @@
   "title": "Ríos, lagos y mares de Europa",
   "map": "/maps/europe-rios.svg",
   "viewBox": "0 0 1000 860",
-  "attribution": "Cartografía: Natural Earth (dominio público).",
+  "attribution": "Cartografía y relieve: Natural Earth (dominio público).",
   "items": [
     {
       "id": "rio-pechora",

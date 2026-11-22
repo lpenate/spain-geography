@@ -3,6 +3,8 @@
 // Entradas (data-sources/):
 //   - europa-rios.meta.json: los 33 elementos del mapa de clase (nombre, alias, tipo, fuente)
 //   - natural-earth/europa.json: geometrías extraídas con scripts/tools/extract-natural-earth-europe.mjs
+//   - europe-relief.jpg: relieve sombreado de Natural Earth (sin textos) ya reproyectado con
+//     scripts/tools/europe-relief-grid.mjs + europe-relief.py; se incrusta en el SVG
 //
 // Salidas:
 //   - public/maps/europe-rios.svg: SVG con un <path data-river="id"> por elemento (sin nombres)
@@ -13,7 +15,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { geoAzimuthalEqualArea, geoPath } from 'd3-geo'
+import { geoPath } from 'd3-geo'
+import { EUROPE_RIVERS_VIEWBOX, europeRiversProjection } from './lib/europe-projection.mjs'
 import {
   bboxOf,
   fmt,
@@ -28,7 +31,7 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const src = (...parts) => path.join(rootDir, 'data-sources', ...parts)
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'))
 
-const VIEWBOX = { width: 1000, height: 860 }
+const VIEWBOX = EUROPE_RIVERS_VIEWBOX
 const EXPECTED = { total: 33, rio: 21, lago: 3, mar: 9 }
 const RIVER_TOLERANCE = 0.3 // simplificación Douglas-Peucker en unidades del viewBox
 const MERGE_GAP = 6 // huecos entre tramos (embalses) que se cosen, en unidades del viewBox
@@ -40,30 +43,7 @@ const fail = (message) => errors.push(message)
 
 // ---------------------------------------------------------------- proyección
 
-// Acimutal equivalente centrada en Europa (como la ETRS89-LAEA), ajustada para que entren
-// Islandia, la Península Ibérica, los Urales y el Caspio.
-const FRAME_POINTS = [
-  [-24.5, 64.5],
-  [-10.5, 35.2],
-  [-6, 33.5],
-  [36, 33],
-  [59.5, 38.5],
-  [61, 66],
-  [27, 71.5],
-]
-const projection = geoAzimuthalEqualArea()
-  .rotate([-18, -53])
-  .fitExtent(
-    [
-      [12, 12],
-      [VIEWBOX.width - 12, VIEWBOX.height - 12],
-    ],
-    { type: 'MultiPoint', coordinates: FRAME_POINTS },
-  )
-  .clipExtent([
-    [0, 0],
-    [VIEWBOX.width, VIEWBOX.height],
-  ])
+const projection = europeRiversProjection()
 const project = (point) => projection(point)
 const pathOf = geoPath(projection).digits(LAND_DIGITS)
 
@@ -252,11 +232,14 @@ const land = ne.countries
   .map((d) => `<path d="${d}"/>`)
   .join('\n')
 
+// Incrustado en base64: el SVG se usa inline en el quiz y como <img> en el índice, y en ningún
+// caso se resolvería bien una ruta relativa a la imagen
+const relief = fs.readFileSync(src('europe-relief.jpg')).toString('base64')
+
 // Estilo por defecto (también para la miniatura del índice, que carga el SVG como <img>).
 // El quiz lo sobrescribe con reglas más específicas.
 const style = `<style>
-.sea { fill: #c6ecff; }
-.land path { fill: #f4f1e4; stroke: #b9b2a0; stroke-width: 0.6; stroke-linejoin: round; }
+.borders { fill: none; stroke: #6b6250; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linejoin: round; }
 .hydro--mar { fill: transparent; stroke: none; }
 .hydro--rio { fill: none; stroke: #0978ab; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .hydro--lago { fill: #6fc3ec; stroke: #0978ab; stroke-width: 1; }
@@ -264,13 +247,21 @@ const style = `<style>
 
 const outputSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${VIEWBOX.width} ${VIEWBOX.height}" width="${VIEWBOX.width}" height="${VIEWBOX.height}">
 ${style}
-<rect class="sea" width="${VIEWBOX.width}" height="${VIEWBOX.height}"/>
-<g id="seas">
-${markup.mar.join('\n')}
-</g>
-<g class="land">
+<defs>
+<g id="europe-land">
 ${land}
 </g>
+<!-- Los polígonos de los mares son toscos y se meten en tierra: solo se pintan sobre el agua -->
+<mask id="europe-sea-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="${VIEWBOX.width}" height="${VIEWBOX.height}">
+<rect width="${VIEWBOX.width}" height="${VIEWBOX.height}" fill="#fff"/>
+<use href="#europe-land" fill="#000"/>
+</mask>
+</defs>
+<image href="data:image/jpeg;base64,${relief}" width="${VIEWBOX.width}" height="${VIEWBOX.height}" preserveAspectRatio="none"/>
+<g id="seas" mask="url(#europe-sea-mask)">
+${markup.mar.join('\n')}
+</g>
+<use class="borders" href="#europe-land"/>
 <g id="hydrography">
 ${[...markup.rio, ...markup.lago].join('\n')}
 </g>
@@ -283,7 +274,7 @@ const dataset = {
   title: 'Ríos, lagos y mares de Europa',
   map: '/maps/europe-rios.svg',
   viewBox: `0 0 ${VIEWBOX.width} ${VIEWBOX.height}`,
-  attribution: 'Cartografía: Natural Earth (dominio público).',
+  attribution: 'Cartografía y relieve: Natural Earth (dominio público).',
   items,
 }
 
